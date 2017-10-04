@@ -1,0 +1,127 @@
+<!-- 
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script> -->
+        <!-- Top content -->
+<div class="row">
+              	
+</div>
+<div class="top-content">        	
+    <div class="inner-bg">
+        <div class="container">
+ 
+         
+                    	
+
+		           <div class="row" id="menu_div">
+		           <!--   < %= render partial: "customer_menu_list"%> -->
+		             
+		             <%= render "menu_list"%>
+		             
+				   </div>  
+
+        </div>
+    </div>          
+</div>
+<style type="text/css">
+	.form-top {
+	  background: rgb(52, 68, 72);
+	}
+
+	.form-bottom {
+	  background: rgba(204,204,204,0.41);
+	}
+	.remBorder {
+	  
+	  border: 0px
+	}
+	.table {
+		table-layout: fixed;
+	}
+	.colour {
+		color: whitesmoke
+	}
+
+			/* Custom indentations are needed because the length of custom labels differs from
+   the length of the standard labels */
+.custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
+    text-indent: -4em;
+}
+.custom-size-flipswitch.ui-flipswitch .ui-flipswitch-off {
+    text-indent: 2em;
+}
+/* Custom widths are needed because the length of custom labels differs from
+   the length of the standard labels */
+.custom-size-flipswitch.ui-flipswitch {
+    width: 8.875em;
+}
+.custom-size-flipswitch.ui-flipswitch.ui-flipswitch-active {
+    padding-left: 7em;
+    width: 1.875em;
+}
+		</style>
+        <!-- Javascript -->
+           <script src="/assets/bootstrap-toggle.min.js"></script>
+ <script src="/assets/scripts.js"></script>
+         
+ <script type="text/javascript">
+    var ratingValue = {}
+      $(document).ready(function(){
+      	$('.abc').change(function(){
+		   var id = $(this).attr('id');
+		   var value = $(this).val();
+
+		   ratingValue[id] = value
+		   $('#rating_value').val(JSON.stringify(ratingValue))
+		});  
+        $('#feedback_div').hide();
+              
+			      $(".abc").barrating({
+			        theme: '<%= @rating_type%>',
+			        showValues: false,
+			        wrapperClass: 'br-wrapper'
+			      });
+
+
+			   var mySlider;
+				
+				    mySlider= $('.bxslider').bxSlider({
+				      auto: true,
+				      autoControls: true,
+				      responsive: true,
+				      randomStart: true
+				});
+               
+              $(document).on ("click",".show_all_preview",function(){
+			     var itemId = $(this).attr('id');
+			        $.ajax({
+			          async : true,
+			          type : 'GET',
+			          url : "/menus/show_images",
+			          data : {'id' : itemId},    
+			          success : function(data) {
+			            $('#modal-show-image').html(data);
+			            $('#modal-show-image').modal('show');
+			          },
+			          error : function(data) {
+			            alert("Error occured. Please try again!");
+			          }
+			        });
+			   });
+ 
+	           $('#myonoffswitch1').on ("change",function(){ 
+	           	
+	           	
+	              if($(this).attr("checked") != "checked"){
+	              	$('#feedback_div').slideDown('slow');
+    	              $('#menu_div').slideUp('slow');
+	              }else{
+	                  
+    	              $('#feedback_div').slideUp('slow'); 
+                    $('#menu_div').slideDown('slow');                      
+                    mySlider.reloadShow();
+		            }	                                            
+	           });
+         });  
+
+        
+        </script>

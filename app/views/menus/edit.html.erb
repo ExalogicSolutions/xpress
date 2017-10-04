@@ -1,0 +1,127 @@
+ <div class="modal fade" id="modal-edit-image" aria-hidden="true"></div>
+
+<div class="row">
+  <div class="col-lg-12 portlets">
+    <div class="panel">
+      <div class="panel-header panel-controls">
+        <h3><strong>Create Menu Category</strong></h3>
+      </div>
+      <div class="panel-body">
+        <%= form_for @menu do |m| %>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="field-1" class="control-label">Industry</label>
+                  <%= select_tag "industry_id", options_for_select(@industries,@industry_id),prompt: "Select an Industry", class: "form-control",required: true,onchange: "industry_change(this)",:disabled => current_user.user_type != ADMIN %> 
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="field-2" class="control-label">Branch</label>
+                  <div id="branch_drop_down">
+                    <%= select_tag "branch_id", options_for_select(@branches,@branch_id),prompt: "Select a Branch", class: "form-control",required: true, :disabled =>  [BRANCH_HEAD,DEPARTMENT_HEAD].include?(current_user.user_type) %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="field-1" class="control-label">Department</label>
+                  <div id="department_drop_down">
+                    <%= select_tag "department_id", options_for_select(@departments,@department_id),prompt: "Select a Department", class: "form-control",required: true,:disabled =>  [DEPARTMENT_HEAD,SUB_DEPARTMENT_HEAD].include?(current_user.user_type)%>
+                  </div>
+                </div>
+              </div>              
+            </div>
+            <div class="form-group">
+              <%= m.fields_for :categories do |builder| %>
+                <%= render 'category_fields', m: builder%> 
+              <%end%>
+            </div>
+            <div class="col-md-12 pull-right add_button" id= "add_category">
+              <%= link_to_add_fields "Add Category", m, :categories, "btn btn-primary", "Add a new Category" %>
+            </div>    
+            <div class="form-group">
+              <div class="col-lg-3 col-lg-offset-8">                      
+                <a href="javascript:history.back()" class="btn btn-default btn-embossed pull-right" role="button">Back</a> 
+              </div>
+              <div class="col-lg-1 pull-right">
+                <%= m.submit "Update", class: "btn btn-primary pull-right", id: 'submit'%>
+              </div>
+            </div>                      
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+     $(document).on ("change","#industry_id",function(){
+        var industryValue = $("#industry_id").val()
+        if(industryValue == ""){   
+           $("#branch_id").get(0).selectedIndex = 0;
+           $("#department_id").get(0).selectedIndex = 0;
+          $("#branch_id,#department_id").attr('disabled',true)
+          $('#add_category').hide();
+          $('#submit').attr('disabled',true) 
+        }
+     });
+
+$(document).on ("change","#branch_id",function(){
+  var branchValue = $("#branch_id").val()
+   if(branchValue == ""){
+      $("#department_id").get(0).selectedIndex = 0;
+      $("#department_id").attr('disabled',true)
+      $('#add_category').hide();     
+       $('#submit').attr('disabled',true) 
+    }
+    $.ajax({
+      async : true,
+      type : 'GET',
+      url : "/feedback_questions/filter_department", 
+      data: {'id': branchValue},   
+      success : function(data) {
+        $('#department_drop_down').html(data);       
+      },
+      error : function(data) {
+        alert("Error occured. Please try again!");
+      }
+    });
+});
+
+   $(document).on ("click",".click_link",function(){
+     var itemId = $(this).attr('id');
+        $.ajax({
+          async : true,
+          type : 'GET',
+          url : "/menus/show_images",
+          data : {'id' : itemId},    
+          success : function(data) {
+            $('#modal-edit-image').html(data);
+            $('#modal-edit-image').modal('show');
+          },
+          error : function(data) {
+            alert("Error occured. Please try again!");
+          }
+        });
+   });
+  $(document).on("change","#department_id",function(){    
+       if($('#department_id').val() == ""){
+             $('#submit').attr('disabled',true) 
+             $('#add_category').hide();    
+       }else{
+          if($('.input_category').length == 0){
+            $('#submit').attr('disabled',true) 
+        }else{
+            $('#submit').attr('disabled',false)
+        }
+        $('#add_category').show();    
+       } 
+      
+  });
+
+  $(document).on("click","#add_category",function(){
+       $('#submit').attr('disabled',false)
+  });
+});
+  
+</script>

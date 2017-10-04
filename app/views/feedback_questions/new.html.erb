@@ -1,0 +1,10 @@
+<%if @question_for == 'branch'%>
+    <%=render partial: 'branch_questions'%>
+<%elsif @question_for == 'department'%>
+  	<%=render partial: 'department_questions'%>
+<%elsif @question_for == 'sub_department'%>
+    <%=render partial: 'sub_department_questions'%>
+<%else%>
+    <%=render partial: 'item_list_feedback'%>    
+<%end%>
+  

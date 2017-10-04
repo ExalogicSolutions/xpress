@@ -1,0 +1,37 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title">Create <strong>Industry</strong></h4>
+    </div>
+    <%= form_for @industry do |i|%>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">Name</label>
+            <%= i.text_field :name,  class: "form-control", placeholder: "Name" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">Type</label>
+            <%= i.select :industry_type, options_for_select(INDUSTRY_TYPES), {prompt: "Select a Type"},class: "form-control", required: true%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="field-1" class="control-label">Name</label>
+            <%= i.collection_select(:rating_type_id,  @rating_types,  :id, :name,{prompt: 'Select a Rating Type'}, class: "form-control", required: true) %>
+          </div>
+        </div>
+      </div>      
+    </div>
+    <div class="modal-footer text-center">
+      <%= i.submit 'Create', class: "btn btn-primary btn-embossed bnt-square"%>
+      </div>
+    <%end%>
+  </div>
+</div>

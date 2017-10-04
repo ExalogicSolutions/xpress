@@ -1,0 +1,43 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title">
+        <strong><%= @department.personal_detail.name%></strong>
+         Feedback Questions</h4>
+    </div>
+    <div class="modal-body">
+      <div class="panel-content">
+        <%@department.sub_departments.each do |sub|%>
+          <div class="filter-left">
+            <table class="table table-dynamic table-tools">
+              <thead>
+                <tr>
+                  <th><i><%=sub.personal_detail.name%></i> Feedback Questions</th>
+                </tr>
+                <tr>
+                  <th>Question</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Manage</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% sub.feedback_questions.each do |fbq| %>
+                  <tr>
+                    <td><%= fbq.question %></td>
+                    <td><%= fbq.priority %></td>
+                    <td><%= fbq.status ? "<i class='fa fa-check'></i>".html_safe : fbq.status.nil? ? "Pending" : "Rejected"%></td>
+                    <td>
+                      <%= link_to "Edit", "#", "data-toggle" => 'modal', id: fbq.id, onclick: "edit_sub_department_feedback_question(this)"%> | <%= link_to "Delete", "#", "data-toggle" => 'modal', id: fbq.id, onclick: "delete_sub_department_feedback_question(this)"%>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title">
+        <strong><%= @branch.personal_detail.name%></strong>
+         Feedback Questions</h4>
+    </div>
+    <div class="modal-body">
+      <div class="panel-content">
+         <%= link_to "Approve Question", "#", "data-toggle" => 'modal', class: "btn btn-embossed btn-primary m-r-20", :id => "status_admin", :disabled => true%>
+        <%@branch.departments.each do |dept|%>
+          <%dept.sub_departments.each do |sub|%>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                 <label>Industry Name: <%=dept.branch.industry.name%></label>
+               </div>
+              </div>  
+              <div class="col-md-3">
+                <div class="form-group">
+                 <label>Branch Name: <%=dept.branch.personal_detail.name%></label>
+               </div>
+              </div>  
+              <div class="col-md-3">
+                <div class="form-group">
+                 <label>Department Name: <%=dept.personal_detail.name%></label>
+               </div>
+              </div>  
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label>Branch Name: <%=sub.personal_detail.name%></label>
+                </div>
+              </div>  
+            </div>
+            <div class="filter-left">
+              <table class="table table-dynamic table-tools">
+                <thead>
+                  <tr>
+                    <th><%= check_box_tag "check_all", "check_all", false, :id => "all_check" %><label for="all_check"></label></th>
+                    <th>Question</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                    <th>Manage</th>
+                  </tr>
+                </thead>
+                <tbody>
+    
+                  <% sub.feedback_questions.each do |fbq| %>
+                    <tr id="<%= fbq['id']%>">
+                      <td><%= check_box_tag "fbq[]", fbq['id'], false, :id => fbq['id'].to_s,class: "input_checkbox" %></td>
+                      <td><%= fbq.question %></td>
+                      <td><%= fbq.priority %></td>
+                      <td><%= fbq.status ? "<i class='fa fa-check'></i>".html_safe : fbq.status.nil? ? "Pending" : "Rejected"%></td>
+                      <td>
+                        <%= link_to "Edit", "#", "data-toggle" => 'modal', id: fbq.id, onclick: "edit_sub_department_feedback_question(this)"%> | <%= link_to "Delete", "#", "data-toggle" => 'modal', id: fbq.id, onclick: "delete_sub_department_feedback_question(this)"%>
+                        <div id='sub_dep_customer_list_<%= fbq['id']%>'>
+                            <%= render partial: "feedback_questions/sub_department_customer_feedback_question", :locals => {:fbq => fbq}%>
+                      </div>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          <%end%>
+        <%end%>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+// $(document).on('click','.edit_department_feedback_question',function(){alert(9)})
+var checkedIds = []
+  
+      $(document).on("click", ".input_checkbox", function(){
+        if($(this).attr('checked') =='checked'){
+            checkedIds.push($(this).attr('id'));
+          $('#status_admin').attr('disabled',false)
+        }
+        else {
+          var tmp = checkedIds.indexOf($(this).attr('id'));
+          if(tmp != -1){
+            checkedIds.splice(tmp,1);
+          }
+          if (checkedIds.length == 0){
+            $('#status_admin').attr('disabled',true)
+          }
+        }
+});
+
+  $('#all_check').click(function(e) {
+        e.stopPropagation();
+        if (this.checked) {
+          $("input[name='fbq[]']").each(function() {
+            this.checked = true;
+              });
+          checkedIds=[]
+          $("input[name='fbq[]']:checked").map(function() {
+            checkedIds.push(this.id);
+            $('#status_admin').attr('disabled',false)
+          });
+        } else {
+          checkedIds = [];
+          $(':checkbox').each(function() {
+             this.checked = false;
+            });
+      }
+       if (checkedIds.length == 0){
+            $('#status_admin').attr('disabled',true)
+          }
+    });
+
+  $('#status_admin').click(function(){
+     $.ajax({
+      async : true,
+      type : 'GET',
+      url : "/feedback_questions/get_status_approved",
+      data: {"id": checkedIds},
+
+    success : function(data) {
+      $('#modal-responsive_approve').html(data);
+      $('#modal-responsive_approve').modal('show');
+    },
+    error : function(data) {
+      alert("Error occured. Please try again!");
+    }
+  });
+  });
+ </script>

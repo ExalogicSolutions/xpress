@@ -1,0 +1,150 @@
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+  <div class="panel panel-default">
+    <div class="panel-header bg-dark">
+      <h2 class="panel-title"><strong><%= t(".edit")%></strong></h2>
+    </div>
+    <div class="panel-content bg-dark">
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <%= form_tag user_update_personal_detail_path(@user), :method => :patch, :enctype =>"multipart/form-data" do %> 
+            <div class="form-group">
+              <label class="col-sm-3 control-label"> <%= User.human_attribute_name(:first_name)%></label>
+                <div class="col-sm-9 prepend-icon">
+                  <%= text_field_tag :first_name, @user.first_name , class: "form-control", placeholder: User.human_attribute_name(:first_name), required: true %>
+                    <label class="col-sm-3 control-label"></label>
+                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label"> <%= User.human_attribute_name(:last_name)%></label>
+              <div class="col-sm-9 prepend-icon">
+              <%= text_field_tag :last_name, @user.last_name , class: "form-control", placeholder: User.human_attribute_name(:last_name), required: true %>
+              <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label"> Upload</label>
+              <div class="col-sm-9 prepend-icon">
+              <%= file_field_tag :avatar, :id=> "imgInp" %>
+               <%if @user.avatar.present?%>
+                <img id="blah" src="<%= @user.avatar.thumb.url%>" alt="your image" width="100px" height="100px"/>  
+               <%else%>
+                 <img id="blah" src="" alt="No Preview" />  
+              <%end%>
+               <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label"> <%= PersonalDetail.human_attribute_name(:gender)%></label>
+              <div class="col-sm-9 prepend-icon">
+              <div class="input-group">
+                <div class="icheck-inline">
+                  <%= radio_button_tag 'gender', "male", @user.personal_detail.gender.eql?('male'),"data-radio" => "iradio_square-blue" %>
+                  <label><%= "Male"%></label>
+                  <%= radio_button_tag 'gender', 'female', @user.personal_detail.gender.eql?('female'),"data-radio" => "iradio_square-blue" %>
+                  <label><%= 'Female'%></label>
+                  <%= radio_button_tag 'gender','other', @user.personal_detail.gender.eql?('other'),"data-radio" => "iradio_square-blue" %>
+                  <label><%= 'Other'%></label>
+                 
+                </div>
+              </div>
+               <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label"><%= PersonalDetail.human_attribute_name(:address_line1)%></label>
+              <div class="col-sm-9 prepend-icon">
+
+            <%= text_field_tag :address_line1, @user.personal_detail.address_line1 , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:address_line1), required: true %>
+             <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label"><%= PersonalDetail.human_attribute_name(:address_line1)%></label>
+              <div class="col-sm-9 prepend-icon">
+                <%= text_field_tag :address_line1, @user.personal_detail.address_line1 , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:address_line1), required: true %>
+                <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">  <%= PersonalDetail.human_attribute_name(:address_line2)%></label>
+              <div class="col-sm-9 prepend-icon">
+               <%= text_field_tag :address_line2, @user.personal_detail.address_line2 , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:address_line2)%>
+                <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label"> <%= PersonalDetail.human_attribute_name(:landmark)%></label>
+              <div class="col-sm-9 prepend-icon">
+               <%= text_field_tag :landmark, @user.personal_detail.landmark , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:landmark)%>
+                <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label"> <%= PersonalDetail.human_attribute_name(:city)%></label>
+              <div class="col-sm-9 prepend-icon">
+               <%= text_field_tag :city, @user.personal_detail.city , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:city), required: true %>
+                <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label"><%= PersonalDetail.human_attribute_name(:pincode)%></label>
+              <div class="col-sm-9 prepend-icon">
+              <%= text_field_tag :pincode, @user.personal_detail.pincode , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:pincode), required: true %>
+               <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label"><%= PersonalDetail.human_attribute_name(:state)%></label>
+              <div class="col-sm-9 prepend-icon">
+               <%= text_field_tag :state, @user.personal_detail.state , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:state), required: true %>
+                <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label"><%= PersonalDetail.human_attribute_name(:country)%></label>
+              <div class="col-sm-9 prepend-icon">
+              <%= text_field_tag :country, @user.personal_detail.country , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:country), required: true %>
+               <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+              <div class="form-group">
+              <label class="col-sm-3 control-label"><%= PersonalDetail.human_attribute_name(:contact_number)%></label>
+              <div class="col-sm-9 prepend-icon">
+               <%= text_field_tag :contact_number, @user.personal_detail.contact_number , class: "form-control", placeholder: "0000000000", required: true %>
+                <label class="col-sm-3 control-label"></label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-9 col-sm-offset-3">
+                <div class="pull-right">
+                  <%= link_to t('.cancel'), :back, class: "cancel btn btn-embossed btn-default m-b-10 m-r-0" %>
+                  <%= submit_tag "Update", class: "btn btn-embossed btn-primary m-r-20" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script type="text/javascript">
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+   $('#blah').attr('width','100px');
+   $('#blah').attr('height','100px');
+    readURL(this);
+});
+</script>

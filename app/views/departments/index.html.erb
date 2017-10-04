@@ -1,0 +1,236 @@
+ <div class="modal fade" id="modal-edit-image" aria-hidden="true"></div>
+<div class="modal fade" id="modal-edit-show1" aria-hidden="true"></div>
+<div class="modal fade" id="modal-edit-show" aria-hidden="true"></div>
+<%= case current_user.user_type 
+   when ADMIN , BRANCH_HEAD then render partial: "admin_branch" 
+   when DEPARTMENT_HEAD then  render partial: "department_index" 
+  end %>
+  
+<script type="text/javascript">
+$(document).on ("click",".click_link",function(){
+     var itemId = $(this).attr('id');
+        $.ajax({
+          async : true,
+          type : 'GET',
+          url : "/departments/show_images",
+          data : {'id' : itemId},    
+          success : function(data) {
+            $('#modal-edit-image').html(data);
+            $('#modal-edit-image').modal('show');
+          },
+          error : function(data) {
+            alert("Error occured. Please try again!");
+          }
+        });
+   });
+// $(document).on("click", ".list_modal", function() {
+//   var id = $(this).attr('id')
+
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/departments/view_details", 
+//     data: {'id': id},   
+//     success : function(data) {
+//       $('#modal-list').html(data);
+//       $('#modal-list').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+// $(document).on("click", ".new_department_create", function() {
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/departments/new",    
+//     success : function(data) {
+//       $('#modal-responsive').html(data);
+//       $('#modal-responsive').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+//  $(document).on("click", ".edit_department", function() {
+
+//    var departmentId = $(this).closest('td').attr("id");
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/departments/"+departmentId+"/edit",
+   
+//     success : function(data) {
+//       $('#modal-edit').html(data);
+//       $('#modal-edit').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+// $(document).on("click", ".delete_department", function() {
+//   var departmentId = $(this).closest('td').attr("id");
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/departments/get_department_delete",
+//     data: {"id": departmentId},
+   
+//     success : function(data) {
+//       $('#modal-destroy').html(data);
+//       $('#modal-destroy').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+// $(document).on("click", ".assign_head", function() {
+//   var departmentId = $(this).closest('td').attr("id");
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/departments/assign_department_head",
+//     data: {"id": departmentId},
+   
+//     success : function(data) {
+//       $('#modal-assign').html(data);
+//       $('#modal-assign').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+// $(document).on("click", ".show_head", function() {
+//   var departmentId = $(this).closest('td').attr("id");
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/departments/show_department_head",
+//     data: {"id": departmentId},
+   
+//     success : function(data) {
+//       $('#modal-show').html(data);
+//       $('#modal-show').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+// $(document).on("click", ".edit_head", function() {
+//   var departmentId = $(".edit_head").attr("id");
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/departments/edit_department_head",
+//     data: {"id": departmentId},
+   
+//     success : function(data) {
+//       $('#modal-edit_head').html(data);
+//       $('#modal-edit_head').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+// $(document).on("click", ".new_sub_department_create", function() {
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/sub_departments/new",    
+//     success : function(data) {
+//       $('#modal-responsive').html(data);
+//       $('#modal-responsive').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+// $(document).on("click", ".edit_sub_department", function() {
+//   var sub_departmentId = $(this).closest('td').attr("id");
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/sub_departments/"+sub_departmentId+"/edit",
+   
+//     success : function(data) {
+//       $('#modal-responsive').html(data);
+//       $('#modal-responsive').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+// $(document).on("click", ".delete_sub_department", function() {
+//   var sub_departmentId = $(this).closest('td').attr("id");
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/sub_departments/get_sub_department",
+//     data: {"id": sub_departmentId},
+
+//     success : function(data) {
+//       $('#modal-delete').html(data);
+//       $('#modal-delete').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+
+
+// $(document).on("click", ".create_sub_department_head", function() {
+//   var sub_departmentId = $(this).attr("id");
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/sub_departments/sub_department_head_form",
+//     data: {"id": sub_departmentId},
+   
+//     success : function(data) {
+//       $('#modal-responsive').html(data);
+//       $('#modal-responsive').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+
+// $(document).on("click", ".show_sub_department_head", function() {
+//   var sub_departmentId = $(this).closest('td').attr("id");
+//   $.ajax({
+//     async : true,
+//     type : 'GET',
+//     url : "/sub_departments/show_sub_department_head",
+//     data: {"head_id": sub_departmentId},
+   
+//     success : function(data) {
+//       $('#modal-edit-show1').html(data);
+//       $('#modal-edit-show1').modal('show');
+//     },
+//     error : function(data) {
+//       alert("Error occured. Please try again!");
+//     }
+//   });
+// });
+</script>

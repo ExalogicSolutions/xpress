@@ -1,0 +1,193 @@
+ <div class="modal fade" id="modal-edit-image" aria-hidden="true"></div>
+
+<div class="page-app page-profil row">
+  <div class="col-lg-12 col-md-9">
+    <% if current_user.user_type == ADMIN%>
+      <% if @industries.present?%>
+        <div class="row">
+          <div class="col-lg-12 portlets">
+            <div class="panel">
+              <div class="panel-header panel-controls">
+                <h3><strong><%= t('.branches')%></strong></h3>
+                <%= link_to t('.create_branch'), "#", class: "btn btn-embossed btn-primary m-r-20", "data-toggle" => 'modal', onclick: "create_branch()"%>
+              </div>
+              <div class="panel-content">
+                <div class="row">
+                <div class="modal fade" id="modal-show" aria-hidden="true"></div>
+                <div class="modal fade" id="modal-new" aria-hidden="true"></div>
+                <div class="modal fade" id="modal-edit" aria-hidden="true"></div>
+                <div class="modal fade" id="modal-assign" aria-hidden="true"></div>
+                <div class="modal fade" id="modal-show-head" aria-hidden="true"></div>
+                <div class="modal fade" id="modal-new-head" aria-hidden="true"></div>               
+                <div class="modal fade" id="modal-edit-head" aria-hidden="true"></div>
+                <div class="modal fade" id="modal-delete" aria-hidden="true"></div>    
+                <div class="profil-content">                  
+                  <div class="col-md-12">
+                    <div class="row">
+                    <% @industries.each do |i|%>
+                      <div class="col-md-6 col-sm-6 col-xs-6">
+                        <div class="item hover-effect">
+                          <div class="user">
+                            <!-- <img src="/assets/global/profil_page/pics1.jpg" class="img-responsive hover-img" alt=""> -->
+                           <%= i[:avatar].present? ? (image_tag i[:avatar].avatars[0].thumb.url) : (image_tag "global/default_image.jpg")%>
+                            <div class="info">
+                              <div class="f-24"><%= i[:name]%></div>
+                              <div>
+                                <div class="location"><%= i[:industry_type]%></div>
+                                <div class="date"></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="comment">
+                           <label><b><%= t('.branch', count: :branch_count)%></b>:</label><%= i[:branch_count]%> <br />
+                           <label><b><%= t('.head_count', count: :branch_count)%> </b>:</label><%=i[:branch_head_count]%>
+                           <div class="text-center plan-bottom-btn p-b-10">
+													<%= link_to t('.show_details'), "#", class: "btn btn-primary", "data-toggle" => 'modal', id: i[:id], onclick: "list_branches(this)"%>
+												</div>
+                          </div>
+                        </div>
+                      </div>
+                      <%end%>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <%else%>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 ">
+            <div class="panel bg-dark">
+              <div class="panel-header">
+                  <h3 style="text-align: center;"><strong><%= t('.industy')%></strong> <%= t('.not_yet_created')%>!</h3>
+              </div>
+              <div class="panel-content" style="text-align:center">
+                <%= link_to t('.go_to_industries'), industries_path, class: "btn btn-embossed btn-primary m-r-20"%>
+              </div>
+            </div>
+          </div>
+        </div>
+      <%end%>
+    <%elsif current_user.user_type == BRANCH_HEAD%>
+      <div class="row">
+        <div class="col-lg-12 portlets">
+          <div class="panel">
+            <div class="panel-header panel-controls">
+              <h3><strong><%= @branch.personal_detail.name%></strong></h3>
+              <div class="col-md-12">
+                <%= link_to t('.create_department'), "#", class: "btn btn-embossed btn-primary m-r-20", "data-toggle" => 'modal' , branch_id: @branch.id, onclick: "create_department(this)"%>
+              </div>
+              <div class="modal fade" id="modal-show" aria-hidden="true"></div>
+              <div class="modal fade" id="modal-new" aria-hidden="true"></div>
+              <div class="modal fade" id="modal-edit" aria-hidden="true"></div>
+              <div class="modal fade" id="modal-delete" aria-hidden="true"></div>
+            </div>
+            <div class="panel widget-member clearfix col-md-6">
+              <div class="col-xs-3">
+                <img src="/assets/global/avatars/user2.png" alt="avatar 12" class="pull-left img-responsive">
+              </div>
+              <div class="col-xs-9">
+                <h3 class="m-t-0 member-name"><strong><%= @branch.personal_detail.name%></strong></h3>
+                <p class="member-job"><%= @branch.industry.name%></p>
+                <div class="row">
+                  <div class="col-xlg-6">
+                    <p><i class="icon-envelope c-gray-light p-r-10"></i> <%= @branch.personal_detail.address_line1%></p>
+                    <p><i class="fa fa-facebook c-gray-light p-r-10"></i> <%= @branch.personal_detail.city%></p>
+                  </div>
+                  <div class="col-xlg-6 align-right">
+                    <p><i class="icon-calendar c-gray-light p-r-10"></i> <%= @branch.personal_detail.contact_number%></p>
+                    <p><i class="icon-target c-gray-light p-r-10"></i> <%= @branch.personal_detail.website%></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel widget-member clearfix col-md-6">
+              <div class="col-xs-3">
+                <img src="/assets/global/avatars/user2.png" alt="avatar 12" class="pull-left img-responsive">
+              </div>
+              <div class="col-xs-9">
+                <h3 class="m-t-0 member-name"><strong><%= @head.personal_detail.name %></strong></h3>
+                <p class="member-job"><%= @head.user_type %></p>
+                <div class="row">
+                  <div class="col-xlg-6">
+                    <p><i class="icon-envelope c-gray-light p-r-10"></i> <%= @head.personal_detail.address_line1 %></p>
+                    <p><i class="fa fa-facebook c-gray-light p-r-10"></i> <%= @head.personal_detail.city %></p>
+                  </div>
+                  <div class="col-xlg-6 align-right">
+                    <p><i class="icon-calendar c-gray-light p-r-10"></i> <%= @head.personal_detail.contact_number %></p>
+                    <p><i class="icon-target c-gray-light p-r-10"></i> <%= @head.email %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="panel-content">
+              <div class="filter-left">
+                <table class="table table-dynamic table-tools">
+                  <thead>
+                    <tr>
+                      <th><%= PersonalDetail.human_attribute_name(:name)%></th>
+                        <th><%= PersonalDetail.human_attribute_name(:city)%></th>
+                        <th><%= PersonalDetail.human_attribute_name(:contact_number)%></th>
+                        <th><%= PersonalDetail.human_attribute_name(:website)%></th>
+                        <th><%= t('.head')%></th>
+                        <th><%= PersonalDetail.human_attribute_name(:contact_number)%></th>
+                        <th><%= User.human_attribute_name(:email)%></th>               
+                        <th><%= t('.manage')%></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% @departments.each do |d| %>
+                      <tr>
+                        <td><%= d.personal_detail.name %></td>
+                        <td><%= d.personal_detail.city ? d.personal_detail.city : "-"%></td>
+                        <td><%= d.personal_detail.contact_number %></td>
+                        <td><%= d.personal_detail.website ? d.personal_detail.website : "-" %></td>
+                        <td>
+                          <%= d.user ? (link_to d.user.personal_detail.name, "#", "data-toggle" => 'modal', id: d.id, onclick: "show_department_head(this)") : (link_to t('.assign'), "#", "data-toggle" => 'modal', id: d.id, onclick: "create_department_head(this)")%>
+                        </td>
+                        <td><%= d.user ? d.user.personal_detail.contact_number : "-"%></td>
+                        <td><%= d.user ? d.user.email : "-" %></td>
+                        <td>
+                          <%= link_to t('.edit'), "#", "data-toggle" => 'modal', id: d.id, onclick: "edit_department(this)"%> | <%= link_to t('.delete'), "#", "data-toggle" => 'modal', id: d.id, onclick: "delete_department(this)"%>
+                        </td>
+                      </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <%end%>
+  </div>
+</div>
+<script type="text/javascript">
+
+   $(document).on ("click",".click_link",function(){
+     var itemId = $(this).attr('id');
+        $.ajax({
+          async : true,
+          type : 'GET',
+          url : "/branches/show_images",
+          data : {'id' : itemId},    
+          success : function(data) {
+            $('#modal-edit-image').html(data);
+            $('#modal-edit-image').modal('show');
+          },
+          error : function(data) {
+            alert("Error occured. Please try again!");
+          }
+        });
+   });
+  
+  $('.bxslider').bxSlider({
+      auto: true,
+      autoControls: true,
+      responsive: true,
+      randomStart: true
+});
+
+</script>

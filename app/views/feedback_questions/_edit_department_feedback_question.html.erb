@@ -1,0 +1,68 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title">Edit <strong>Feedback Question</strong></h4>
+    </div>
+        <%= form_tag(feedback_questions_edit_department_fbq_path, method: :get) do%>
+        <%= hidden_field_tag :format, @feedback_question.id %>
+        <div class="modal-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th  rowspan="2" style="text-align:center;">Question</th>
+                <th colspan="3" style="text-align:center;">Priority</th>
+                <tr><td>High</td>
+                <td>Medium</td>
+                <td>Low</td>
+                <td><%= [ADMIN,BRANCH_HEAD].include?(current_user.user_type) ? "Status" : ""%></td>
+                <td></td>
+                </tr>
+              </tr>
+            </thead>
+              <tr>
+                <td><%= text_area_tag "question", @feedback_question.question, class: "form-control"%>
+                <span class= "name-error"></span>
+                </td>
+                <td><%= radio_button_tag 'priority', 'High', @feedback_question.priority,"data-radio" => "iradio_square-blue" %></td>
+                <td><%= radio_button_tag 'priority', 'Medium', @feedback_question.priority,"data-radio" => "iradio_square-blue" %></td>
+                <td><%= radio_button_tag 'priority', 'Low', @feedback_question.priority, "data-radio" => "iradio_square-blue" %></td>
+                <%if [ADMIN,BRANCH_HEAD].include?(current_user.user_type) %>
+                <td> <%= radio_button_tag 'status', true, @feedback_question.status,"data-radio" => "iradio_square-blue" %>Approved</td><td><%= radio_button_tag 'status', false, !@feedback_question.status,"data-radio" => "iradio_square-blue" %>Rejected</td>
+                <%else%>
+                 <td></td>
+                 <td></td>
+                <%end%>
+              </tr>
+            <tbody>
+            </tbody>
+          </table>
+          </div>        
+        <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal">Cancel</button>
+      <%= submit_tag 'Update',:id => 'submit_feedback', class: "btn btn-primary btn-embossed bnt-square"%>
+      </div>
+        <%end%>
+      </div>
+    </div>
+    <script type="text/javascript">
+     var submit = false;
+  $(document).on("click", '#submit_feedback', function(e){
+        validName();
+       
+        if(submit == true){
+           e.preventDefault();
+           return false;
+        }
+  });
+  function validName(){
+      submit = false;
+       
+        if($('#question').val()== ""){ 
+          $('.name-error').text('Feedback Question can not be blank').css({color: "red", background: "#ECEDEE"}).css("font-style", "italic")
+          submit = true;
+        }else{
+          $('.name-error').text('')
+        }
+  }
+    </script>

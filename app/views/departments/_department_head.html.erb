@@ -1,0 +1,33 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <% if @user_listing.count == 0 %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+        <h4 class="modal-title"><%= t('.assign')%> <strong><%= t('.department_head')%></strong></h4>
+      </div>
+      <div class="row">
+        <h3 style="text-align: center;"><strong><%= t('.staff')%></strong> <%= t('.not_yet_created')%>!</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      </div>
+    <%else%>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+        <h4 class="modal-title"><%= t('.assign')%> <strong><%= t('.department_head')%></strong></h4>
+      </div>
+      <%= form_tag create_department_head_path, html: {method: :post} do %>
+        <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <%= select_tag "user_id", options_for_select(@user_listing),prompt: t('.prompt_staff'), class: "form-control", required: true %>
+          </div>
+          </div>
+          <%=hidden_field_tag 'department_id',@department.id%>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+        <%= submit_tag t('.assign'), class: "btn btn-primary btn-embossed bnt-square"%>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+</div>

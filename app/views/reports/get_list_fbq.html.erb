@@ -1,0 +1,294 @@
+<!-- 
+<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.0/css/bootstrap-toggle.min.css" rel="stylesheet">
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.0/js/bootstrap-toggle.min.js"></script> -->
+        <!-- Top content -->
+<div class="row">
+              	
+</div>
+<div class="top-content">        	
+    <div class="inner-bg">
+        <div class="container">
+        <div class="row">
+        <!--   <input type="checkbox" data-toggle="toggle"  data-off="Feedback" id="" data-on="Menu"> -->
+       
+                         
+        </div>  
+         
+            <div class="row" id="feedback_div" style="margin-top: -64px;">
+                <div class="col-sm-10 col-sm-offset-1 form-box">                        	
+                	<form role="form"  action="submit_feedback_answers" method="post" class="registration-form">
+                	    <%@item_feedbackquestion.each do |h|%>
+
+                                        	 
+                		<fieldset class= "remBorder">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3 style="color: white;">Your Feedback Matters To Us......</h3><br/>
+                            		<!-- <p>Tell us who you are:</p> -->
+                            		<h4 style="color: white;margin-top: -3%; font-size: 12px;">Please take a few minutes to complete the survey. Your feedback is important to us in how we can make it in better way.
+This survey should only take about 2 – 5 minutes of your time. Your answers will be completely anonymous</h4>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-user"></i>
+                        		</div>
+                            </div>
+                             <div class="form-bottom ">
+			                          <% h.each do |k|%>	
+                                    <div class= "row">
+                                    <div class="col-md-2">
+
+                                        <table class="table">
+								            <thead>
+								              <tr>
+								                <th style="width: 76%; "><%= k.name %></th>
+								              </tr>
+								            </thead>
+								            <tbody>							              
+								             <tr></tr>
+								              <tr>
+								                <td><%= image_tag k.avatars[0].thumb.url %></td>
+        						               </tr>
+								            
+								            
+								            </tbody>
+							            </table>
+                                    </div>
+                                    <div class="col-md-10">
+                                        <table class="table">
+								            <thead>
+								              <tr>
+								                <th style="width: 76%;">Question</th>
+								                <th>Rate</th>   
+								              </tr>
+								            </thead>
+								            <tbody>			
+								            <% if k.feedback_questions.present? %>				              
+								              <%k.feedback_questions.each do |p|%>
+								              <tr>
+								                <td ><b class="colour"><i><%= p.question %></i></b></td>
+								                <td><select class="abc" id="<%= p.id%>">
+										            <option value="1">Bad</option>
+										            <option value="2" selected="selected">Mediocre</option>
+										            <option value="3">Good</option>
+										            <option value="4">Awesome</option>
+										            </select><br />
+										        </td>
+        						               </tr>
+								                 <%end%> 
+								            <%else%>
+								             <tr>
+								             <td>
+								             <b style="color: red">Sorry No Feedback Question available for this item</b></td></tr>
+								            <%end%>
+								            </tbody>
+							            </table>
+							          </div>
+                                    </div>
+                                    <%end%>
+
+
+			            
+						
+							
+							    <%if @item_feedbackquestion.index(h) == 0%>
+							       <%= link_to "Menus",authenticated_root_path,:id => "select_menu",class: "btn btn-default "%>
+							       <button type="button" class="btn btn-next pull-right">Next</button>
+
+							    <%else%>
+							        <button type="button" class="btn btn-previous">Previous</button>    
+							        <%= link_to "Menus",authenticated_root_path,:id => "select_menu",class: "btn btn-default ",:style => "margin-left: 28%;"%>
+							        <button type="button" class="btn btn-next pull-right">Next</button>
+							    <%end%>
+		                        
+		                    </div>
+	                    </fieldset>
+
+
+
+
+
+
+
+                	   <%end%>
+                	   <% @selected_feedback_question.each do |h|%>
+                	 
+                		<fieldset class= "remBorder">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3 style="color: white;">Your Feedback Matters To Us......</h3><br/>
+                            		<!-- <p>Tell us who you are:</p> -->
+                            		<h4 style="color: white;margin-top: -3%; font-size: 12px;">Please take a few minutes to complete the survey. Your feedback is important to us in how we can make it in better way.
+This survey should only take about 2 – 5 minutes of your time. Your answers will be completely anonymous</h4>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-user"></i>
+                        		</div>
+                            </div>
+                             <div class="form-bottom ">
+			                        	<table class="table  ">
+								            <thead>
+								              <tr>
+								                <th style="width: 76%;">Question</th>
+								                <th>Rate</th>
+								               
+								              </tr>
+								            </thead>
+								            <tbody>
+
+								              <% h.each do |k|%>
+								                <tr>
+								                 
+								                  <td ><b class="colour"><i><%= k.feedback_question.question %></i></b></td>
+								                   <td><select class="abc" id="<%= k.feedback_question.id%>">
+										              <option value="1">Bad</option>
+										              <option value="2" selected="selected">Mediocre</option>
+										              <option value="3">Good</option>
+										              <option value="4">Awesome</option>
+										            </select><br /></td>
+								                </tr>
+								              <% end if h%>
+								            </tbody>
+							          </table>
+							    <% if (@selected_feedback_question.index(h) - 1 ) == @selected_feedback_question.length %>  
+							              <div class="row">
+		                        	<div class="form-group col-md-6">
+   										<%= text_area_tag :comment, "" , class: "form-control", placeholder: "Your Comments Please......."%>
+   									</div>
+		                        </div>	
+							       <button type="button" class="btn btn-previous">Previous</button>  
+							       <%= link_to "Menus",authenticated_root_path,:id => "select_menu",class: "btn btn-default ",:style => "margin-left: 28%;"%>  
+							        <button type="button" class="btn btn-next pull-right">Next</button>
+							    <%elsif @item_feedbackquestion.present?%>
+							         <button type="button" class="btn btn-previous">Previous</button>
+							         <%= link_to "Menus",authenticated_root_path,:id => "select_menu",class: "btn btn-default ",:style => "margin-left: 28%;"%>    
+							        <button type="button" class="btn btn-next pull-right">Next</button>
+							    <%elsif @selected_feedback_question.index(h) == 0%>
+							       <%= link_to "Menus",authenticated_root_path,:id => "select_menu",class: "btn btn-default "%>
+							       <button type="button" class="btn btn-next pull-right">Next</button>
+
+							    <%else%>
+							        <button type="button" class="btn btn-previous">Previous</button>  
+							        <%= link_to "Menus",authenticated_root_path,:id => "select_menu",class: "btn btn-default ",:style => "margin-left: 28%;"%>  
+							        <button type="button" class="btn btn-next pull-right">Next</button>
+							    <%end%>
+		                        
+		                    </div>
+	                    </fieldset>
+	                    
+	                    <%end%>
+
+
+	                   
+	                    <fieldset class= "remBorder">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3 style="color: white;">Your Detail Please.....</h3><br/>
+                            		<!-- <p>Tell us who you are:</p> -->
+                            		<h4 style="color: white;margin-top: -3%; font-size: 12px;">Please share your detail with us.So we avail great Offers to you.</h4>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-user"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+		                    	<div class="form-group">
+		                    	 <label for="field-2" class="control-label">Name</label>
+   								 <%= text_field_tag :name, "" , class: "form-control", placeholder: "Name", required: true %>
+		                        </div>
+		                         <div class="form-group">
+						            <label for="field-2" class="control-label">Gender</label>
+						            <div class="input-group">
+						              <div class="icheck-inline">
+						                <%= radio_button_tag 'gender', 'male', "data-radio" => "iradio_square-blue" %>
+						                <label>Male</label>
+						                <%= radio_button_tag 'gender', 'female', "data-radio" => "iradio_square-blue" %>
+						                <label>Female</label>
+						                <%= radio_button_tag 'gender', 'other', "data-radio" => "iradio_square-blue" %>
+						                <label>Other</label>
+						              </div>
+						            </div>
+						          </div>
+		                        <div class="form-group">
+		                    	 <label for="field-2" class="control-label">Phone Number</label>
+   								 <%= text_field_tag :contact_number, "" , class: "form-control", placeholder: "Name", required: true %>
+		                        </div>
+		                        <div class="form-group">
+		                    	 <label for="field-2" class="control-label">Email</label>
+   								 <%= text_field_tag :email, "" , class: "form-control", placeholder: "Email", required: true %>
+		                        </div>
+		                        <button type="button" class="btn btn-previous">Previous</button>
+		                        <button type="submit" class="btn pull-right">Submit Feedback</button>
+		                    </div>
+	                    </fieldset>
+                      <%= hidden_field_tag :rating_value, ""%>
+                    </form>
+                    
+                </div>
+            </div>
+                              
+        </div>
+    </div>          
+</div>
+<style type="text/css">
+	.form-top {
+	  background: rgb(52, 68, 72);
+	}
+
+	.form-bottom {
+	  background: rgba(204,204,204,0.41);
+	}
+	.remBorder {
+	  
+	  border: 0px
+	}
+	.table {
+		table-layout: fixed;
+	}
+	.colour {
+		color: whitesmoke
+	}
+
+			/* Custom indentations are needed because the length of custom labels differs from
+   the length of the standard labels */
+.custom-size-flipswitch.ui-flipswitch .ui-btn.ui-flipswitch-on {
+    text-indent: -4em;
+}
+.custom-size-flipswitch.ui-flipswitch .ui-flipswitch-off {
+    text-indent: 2em;
+}
+/* Custom widths are needed because the length of custom labels differs from
+   the length of the standard labels */
+.custom-size-flipswitch.ui-flipswitch {
+    width: 8.875em;
+}
+.custom-size-flipswitch.ui-flipswitch.ui-flipswitch-active {
+    padding-left: 7em;
+    width: 1.875em;
+}
+		</style>
+        <!-- Javascript -->
+           <script src="/assets/bootstrap-toggle.min.js"></script>
+ <script src="/assets/scripts.js"></script>
+         
+
+ <script type="text/javascript">
+    var ratingValue = {}
+      $(document).ready(function(){
+      	$('.abc').change(function(){
+		   var id = $(this).attr('id');
+		   var value = $(this).val();
+
+		   ratingValue[id] = value
+		   $('#rating_value').val(JSON.stringify(ratingValue))
+		});  
+      
+              
+			      $(".abc").barrating({
+			        theme: '<%= @rating_type%>',
+			        showValues: false,
+			        wrapperClass: 'br-wrapper'
+			      });
+
+      });
+	         
+        </script>

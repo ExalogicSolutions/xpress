@@ -1,0 +1,193 @@
+<div class="row">
+  <div class="col-lg-12 portlets">
+    <div class="panel">
+      <div class="panel-header panel-controls">
+        <h3><strong>Branch</strong></h3>
+          <div class="modal fade" id="modal-responsive" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-delete" aria-hidden="true"></div>  
+          <div class="modal fade" id="modal-edit-show" aria-hidden="true"></div>
+      </div>
+      <div class="panel-content">
+        <div class="row plans pricing-table plan-separated num-plan-3 ui-sortable">
+          <div class="col-sm-12">
+            <div class="plans clearfix">
+              <%= form_tag(feedback_questions_path, method: :post) do%>
+                <div class="modal-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="field-1" class="control-label">Industry</label>
+                        <%= select_tag "industry_id", options_for_select(@industries,@industry_id),prompt: "Select an Industry", class: "form-control",required: true,:disabled => (current_user.user_type != ADMIN),onchange: "industry_change(this);return false;"%> 
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="field-2" class="control-label">Branch</label>
+                        <div id="sub_department_branch_drop_down">
+                          <%= select_tag "branch_id", options_for_select(@branches,@branch_id),prompt: "Select a Branch", class: "form-control",required: true,:disabled => ([ADMIN,BRANCH_HEAD,DEPARTMENT_HEAD,SUB_DEPARTMENT_HEAD].include?(current_user.user_type)) %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th rowspan="2" style="text-align:center;">Question</th>
+                      <th colspan="3" style="text-align:center;">Priority</th>
+                      <th rowspan="2" style="text-align:center;">Manage</th>
+                      <tr>
+                        <th>High</th>
+                        <th>Medium</th>
+                        <th>Low</th>
+                      </tr>
+                    </tr>
+                  </thead>
+                  <button class= "btn btn-primary btn-embossed bnt-square pull-right" id="add_feedback_question" disabled="true"> Add Question </button>
+                  <tbody>
+                  </tbody>
+                </table>
+                <div class="modal-footer">
+                  <a href="<%=feedback_questions_path%>" type="button" class="btn btn-default btn-embossed bnt-square" data-no-turbolink= true>Cancel</a>
+                  <%if current_user.user_type == BRANCH_HEAD%>
+                    <%= hidden_field_tag "branch_id", current_user.branch.id%>
+                  <%end%>
+                  <%= submit_tag 'Create',id: "submit_feedback", class: "btn btn-primary btn-embossed bnt-square", :disabled => true%>
+                </div>
+              <%end%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+var rowId=0;
+var dataArray = [];
+$(document).ready(function() {
+    
+    $('#add_feedback_question').click(function(e) {
+        $('#submit_feedback').attr('disabled',false)
+      rowId=rowId+1;
+        var new_row = $('<tr>').attr({
+            id: rowId
+        });
+        
+        var input_question = $('<input>').attr({
+            type: 'text',
+            placeholder: 'Your Question',
+            name: 'questions'+'['+rowId+']',
+            id: rowId,
+            class: "form-control text"
+        });
+        
+        var input_priority1 = $('<input>').attr({
+            type: "radio",
+            name: "radio"+'['+rowId+']',
+            value: "<%= HIGH%>"
+        });
+         var input_priority2 = $('<input>').attr({
+            type: "radio",
+            name: "radio"+'['+rowId+']',
+            value: "<%= MEDIUM%>"
+        });
+
+          var input_priority3 = $('<input>').attr({
+            type: "radio",
+            name: "radio"+'['+rowId+']',
+            checked: true,
+            value: "<%= LOW%>"
+        });
+
+          var input_delete = $('<input>').attr({
+            type: "button",
+            value: "Delete",
+            id: "delete_"+rowId,
+            class: "delete_row",
+            onchange: "check_name(this)",
+        });
+        
+        var column_question = $('<td>').append( input_question ).append('<span class=name-error'+rowId+'></span>');
+        var column_priority1 = $('<td>').append( input_priority1 );
+        var column_priority2 = $('<td>').append( input_priority2 );
+        var column_priority3 = $('<td>').append( input_priority3 );
+        var column_delete = $('<td>').append( input_delete );
+        
+        new_row.append( column_question ).append( column_priority1 ).append( column_priority2 ).append( column_priority3 ).append( column_delete );        
+        $('table').first().find('tbody').append( new_row );
+        e.preventDefault();
+        return false;
+    });
+
+
+
+  $(document).on("change", "#branch_id", function(){ 
+         if($('#branch_id').val() == ""){
+           $('#submit_feedback').attr('disabled',true) 
+           $('#add_feedback_question').attr('disabled',true)
+
+         }else{
+          
+          $('#add_feedback_question').attr('disabled',false)
+          if ($('table').first().find('.text').length == 0){
+             $('#submit_feedback').attr('disabled',true)
+          }else{
+             $('#submit_feedback').attr('disabled',false)
+          }
+         }
+         
+    });
+  $(document).on("change", "#industry_id", function(){ 
+      if($('#industry_id').val() == ""){
+           $('#submit_feedback').attr('disabled',true) 
+           $('#add_feedback_question').attr('disabled',true)
+
+         }else{
+          
+          $('#add_feedback_question').attr('disabled',false)
+          $('#submit_feedback').attr('disabled',true)
+            // if ($('table').first().find('.text').length == 0){
+            //    $('#submit_feedback').attr('disabled',true)
+            // }else{
+            //    $('#submit_feedback').attr('disabled',false)
+            // }
+         }
+  });  
+
+
+
+
+
+
+
+});
+
+  $(document).on("click", ".delete_row", function(){
+    $(this).closest("tr").remove();
+    if ($('table').first().find('.text').length == 0){
+          $('#submit_feedback').attr('disabled',true)
+    }
+  });
+  var submit = false;
+  $(document).on("click", '#submit_feedback', function(e){
+        validName();
+        if(submit == true){
+           e.preventDefault();
+        return false;
+        }
+  });
+  function validName(){
+      submit = false;
+       $('table').first().find('.text').each(function(){ 
+         id = $(this).attr('id')
+        if($(this).val()== ""){ 
+          $('.name-error'+id).text('Feedback Question can not be blank').css({color: "red", background: "#ECEDEE"}).css("font-style", "italic")
+          submit = true;
+        }else{
+         $('.name-error'+id).text('')
+        }
+    }); 
+  }
+</script>

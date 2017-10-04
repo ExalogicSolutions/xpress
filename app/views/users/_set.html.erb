@@ -1,0 +1,22 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header bg-primary">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><strong><%= t('.set_head')%></strong></h4>
+    </div>
+    <div class="modal-body">
+      <div class="p-t-20 m-b-20 p-l-40">
+      <% if @current_head.present?%>
+        <p style="color:red;"><b><%=@current_head.personal_detail.name%></b> <%= t('.is_the_current_head')%> !</p>
+        <p><%= t('.want_to_re_assign')%> <b><%=@user.personal_detail.name%></b> <%= t('.as_head')%>?</p>
+      <%else%>
+        <p><%= t('.want_to_assign')%> <b><%=@user.personal_detail.name%></b> <%= t('.as_head')%>?</p>
+      <%end%>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= link_to t('.assign'),users_set_path(id: @user), class: "btn btn-primary btn-embossed","data-no-turbolink" => true%>
+    </div>
+  </div>
+</div>

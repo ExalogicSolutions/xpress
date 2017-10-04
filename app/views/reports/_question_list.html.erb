@@ -1,0 +1,111 @@
+<div class="row" id="feedback_div" style="margin-top: -64px;">
+                <div class="col-sm-10 col-sm-offset-1 form-box">                        	
+                	<form role="form"  action="reports/submit_feedback_answers" method="get" class="registration-form">
+                	   <% @selected_feedback_question.each do |h|%>
+                	 
+                		<fieldset class= "remBorder">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3 style="color: white;">Your Feedback Matters To Us......</h3><br/>
+                            		<!-- <p>Tell us who you are:</p> -->
+                            		<h4 style="color: white;margin-top: -3%; font-size: 12px;">Please take a few minutes to complete the survey. Your feedback is important to us in how we can make it in better way.
+This survey should only take about 2 – 5 minutes of your time. Your answers will be completely anonymous</h4>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-user"></i>
+                        		</div>
+                            </div>
+                             <div class="form-bottom ">
+			                        	<table class="table  ">
+								            <thead>
+								              <tr>
+								                <th style="width: 76%;">Question</th>
+								                <th>Rate</th>
+								               
+								              </tr>
+								            </thead>
+								            <tbody>
+
+								              <% h.each do |k|%>
+								                <tr>
+								                 
+								                  <td ><b class="colour"><i><%= k.feedback_question.question %></i></b></td>
+								                   <td><select class="abc" id="<%= k.feedback_question.id%>">
+										              <option value="1">Bad</option>
+										              <option value="2" selected="selected">Mediocre</option>
+										              <option value="3">Good</option>
+										              <option value="4">Awesome</option>
+										            </select><br /></td>
+								                </tr>
+								              <% end if h%>
+								            </tbody>
+							          </table>
+							    <% if (@selected_feedback_question.index(h) - 1 ) == @selected_feedback_question.length %>  
+							              <div class="row">
+		                        	<div class="form-group col-md-6">
+   										<%= text_area_tag :comment, "" , class: "form-control", placeholder: "Your Comments Please......."%>
+   									</div>
+		                        </div>	
+							       <button type="button" class="btn btn-previous">Previous</button>    
+							        <button type="button" class="btn btn-next pull-right">Next</button>
+							    <%elsif @selected_feedback_question.index(h) == 0%>
+							       <button type="button" class="btn btn-next pull-right">Next</button>
+
+							    <%else%>
+							        <button type="button" class="btn btn-previous">Previous</button>    
+							        <button type="button" class="btn btn-next pull-right">Next</button>
+							    <%end%>
+		                        
+		                    </div>
+	                    </fieldset>
+	                    
+	                    <%end%>
+
+
+	                   
+	                    <fieldset class= "remBorder">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3 style="color: white;">Your Detail Please.....</h3><br/>
+                            		<!-- <p>Tell us who you are:</p> -->
+                            		<h4 style="color: white;margin-top: -3%; font-size: 12px;">Please share your detail with us.So we avail great Offers to you.</h4>
+                        		</div>
+                        		<div class="form-top-right">
+                        			<i class="fa fa-user"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+		                    	<div class="form-group">
+		                    	 <label for="field-2" class="control-label">Name</label>
+   								 <%= text_field_tag :name, "" , class: "form-control", placeholder: "Name", required: true %>
+		                        </div>
+		                         <div class="form-group">
+						            <label for="field-2" class="control-label">Gender</label>
+						            <div class="input-group">
+						              <div class="icheck-inline">
+						                <%= radio_button_tag 'gender', 'male', "data-radio" => "iradio_square-blue" %>
+						                <label>Male</label>
+						                <%= radio_button_tag 'gender', 'female', "data-radio" => "iradio_square-blue" %>
+						                <label>Female</label>
+						                <%= radio_button_tag 'gender', 'other', "data-radio" => "iradio_square-blue" %>
+						                <label>Other</label>
+						              </div>
+						            </div>
+						          </div>
+		                        <div class="form-group">
+		                    	 <label for="field-2" class="control-label">Phone Number</label>
+   								 <%= text_field_tag :contact_number, "" , class: "form-control", placeholder: "Name", required: true %>
+		                        </div>
+		                        <div class="form-group">
+		                    	 <label for="field-2" class="control-label">Email</label>
+   								 <%= text_field_tag :email, "" , class: "form-control", placeholder: "Email", required: true %>
+		                        </div>
+		                        <button type="button" class="btn btn-previous">Previous</button>
+		                        <button type="submit" class="btn pull-right">Submit Feedback</button>
+		                    </div>
+	                    </fieldset>
+                      <%= hidden_field_tag :rating_value, ""%>
+                    </form>
+                    
+                </div>
+            </div>

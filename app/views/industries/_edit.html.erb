@@ -1,0 +1,64 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><%= t ".edit"%> <strong><%= @industry.name%></strong></h4>
+    </div>
+    <%= form_tag industry_path(params[:id]), method: :patch, :enctype =>"multipart/form-data" do %>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= Industry.human_attribute_name(:name)%>
+            </label>
+            <div class="prepend-icon" id="name_div">
+              <i class="icons-education-science-18"></i>
+              <%= text_field_tag :name, @industry.name , class: "form-control", placeholder: t('.placeholder_name'), maxlength: 30, onfocusout: "validate_name(this)" %>
+            </div>
+            <span class="name-error"></span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= Industry.human_attribute_name(:type)%>
+            </label>
+            <%= select_tag(:industry_type, options_for_select(INDUSTRY_TYPES,@industry.industry_type),class: "form-control form_dropdown", onchange: "dropdown_color(this)")%>
+            <span class="dropdown-error"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= Industry.human_attribute_name(:rating_type)%>
+            </label>            
+            <%= collection_select(nil, :rating_type_id,  @rating_types,  :id, :name,{prompt: 'Select a Rating Type' ,selected: @industry.rating_type_id}, class: "form-control form_dropdown", onchange: "dropdown_color(this)")%>
+            <span class="dropdown-error"></span>
+          </div>
+        </div>
+         <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label"><%= t('.upload_image')%></label>
+            <div class="file">
+              <div class="option-group">
+                <span class="file-button btn-primary"><%= t('.choose_file')%></span>
+                <input type="file" class="custom-file" name="avatars[]" id="avatars_" onchange="document.getElementById('uploader').value = this.value;" multiple="true">
+                <input type="text" class="form-control" id="uploader" readonly="">
+              </div>
+            </div>
+            <label for="field-3" class="control-label"><%= t('.images')%>: <%= @industry.image.present? ? (link_to ("#{@industry.image.avatars.count}"), "#", class: "click_link", id: @industry.id, "data-toggle" => 'modal') : 0%></label>              
+            <label for="field-3" class="control-label"><%= t('.remove_images')%> <%= check_box_tag 'remove_avatar', true, false%></label> 
+          </div>
+        </div>
+      </div>      
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= submit_tag t('.update'), class: "btn btn-primary btn-embossed bnt-square", onclick: "return validate_industry();"%>
+      </div>
+    <%end%>
+  </div>
+</div>

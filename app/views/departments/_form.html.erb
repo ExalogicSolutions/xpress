@@ -1,0 +1,100 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title">Create <strong>Branch</strong></h4>
+    </div>
+    <%= form_tag departments_path, html: {method: :post} do %>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">Industry</label>
+           <!--  < %= collection_select nil, :industry_id,  @industries,  :id, :name,{include_blank: 'Select an Industry'}, class: "form-control", required: true %> -->
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">Name</label>
+            <%= text_field_tag :name, "" , class: "form-control", placeholder: "Name", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">Address Line 1</label>
+            <%= text_field_tag :address_line1, "" , class: "form-control", placeholder: "Line 1", required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">Address Line 2</label>
+            <%= text_field_tag :address_line2, "" , class: "form-control", placeholder: "Line 2"%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">Landmark</label>
+            <%= text_field_tag :landmark, "" , class: "form-control", placeholder: "Landmark"%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">City</label>
+            <%= text_field_tag :city, "" , class: "form-control", placeholder: "City", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">Pincode</label>
+            <%= text_field_tag :pincode, "" , class: "form-control", placeholder: "Pincode", required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">State</label>
+            <%= text_field_tag :state, "" , class: "form-control", placeholder: "State", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">Country</label>
+            <%= text_field_tag :country, "" , class: "form-control", placeholder: "Country", required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">Contact Number</label>
+            <%= text_field_tag :contact_number, "" , class: "form-control", placeholder: "Contact Number", required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">Fax Number</label>
+            <%= text_field_tag :fax_number, "" , class: "form-control", placeholder: "Fax Number"%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">Website</label>
+            <%= text_field_tag :website, "" , class: "form-control", placeholder: "Website"%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal">Cancel</button>
+      <%= submit_tag 'Create', class: "btn btn-primary btn-embossed bnt-square"%>
+      </div>
+    <%end%>
+  </div>
+</div>

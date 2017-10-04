@@ -1,0 +1,35 @@
+<% if flash.present? %>
+  <% case flash.present? %>
+  <% when flash[:notice].present? then %>
+    <div class="row">
+      <div class="col-md-12" id="preview">
+        <div id="basic-preview" class="preview active">
+          <div class="alert alert-success media fade in">
+            <p> <%= flash[:notice]%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% when flash[:success].present? then %> 
+    <div class="row">
+      <div class="col-md-12" id="preview">
+        <div id="basic-preview" class="preview active">
+          <div class="alert alert-success media fade in">
+            <p><%= flash[:success]%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% when flash[:error].present? then %>
+    <div class="row">
+      <div class="col-md-12" id="preview">
+        <div id="basic-preview" class="preview active">
+          <div class="alert alert-danger media fade in danger">
+            <p><%= flash[:error]%></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>     
+  

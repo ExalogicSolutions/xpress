@@ -1,0 +1,34 @@
+<div class="sidebar">
+  <div class="logopanel">
+    <h1><%= link_to "X-press", root_path, 'data-no-turbolink' => true, style: "color:white;" %></h1>
+  </div>
+  <div class="sidebar-inner">
+    <ul class="nav nav-sidebar">
+      <li class="nav-active <%= params[:controller] == "reports" ? "active open" : "" %>">
+        <%= link_to ('<i class="icon-home"></i>'.html_safe+t('.dashboard')), root_path, 'data-no-turbolink' => true %>
+      </li>
+      <li class="nav-active <%= params[:controller] == "sub_departments" ? "active open" : "" %>">
+        <%= link_to '<i class="icon-home"></i>Sub Department'.html_safe, sub_departments_path, 'data-no-turbolink' => true %>
+      </li>      
+      <!-- To Do -->
+       <li class="nav-active <%= params[:controller] == "feedback_questions" ? "active open" : "" %>"> <%= link_to '<i class="icon-home"></i>Feedback Question'.html_safe, feedback_questions_path%></li>
+       <li class="nav-parent"><a href="dashboard.html"><i class="icon-home"></i><span>Reports</span></a></li>
+       <li class="nav-active">
+        <%= link_to ('<i class="icon-screen-desktop"></i>'.html_safe+t('.users')), users_path, 'data-no-turbolink' => true %>
+      </li>
+       <li class="nav-parent <%= params[:controller] == "menus" ? "active open" : "" %>">
+        <%= link_to '<i class="icon-screen-desktop"></i>Menu List'.html_safe, menus_path, 'data-no-turbolink' => true%>
+      </li>
+    </ul>
+    <div class="sidebar-footer clearfix">
+      <a class="pull-left footer-settings" href="#" data-rel="tooltip" data-placement="top" data-original-title="Settings">
+      <i class="icon-settings"></i></a>
+      <a class="pull-left toggle_fullscreen" href="#" data-rel="tooltip" data-placement="top" data-original-title="Fullscreen">
+      <i class="icon-size-fullscreen"></i></a>
+      <a class="pull-left" href="#" data-rel="tooltip" data-placement="top" data-original-title="Lockscreen">
+      <i class="icon-lock"></i></a>
+      <a class="pull-left btn-effect" href="#" data-modal="modal-1" data-rel="tooltip" data-placement="top" data-original-title="Logout">
+      <i class="icon-power"></i></a>
+    </div>
+  </div>
+</div>

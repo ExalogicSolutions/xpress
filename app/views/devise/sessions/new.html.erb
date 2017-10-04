@@ -1,0 +1,67 @@
+<div class="col-md-6 col-md-offset-3">
+  <%flash.each do |name, msg|%>
+    <div class="alert alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <%= content_tag :div, msg, :id => "flash_#{name}",style: "color: white;text-align: center;" if msg.is_a?(String) %>
+    </div>
+  <%end%>
+</div>
+<div class="container" id="login-block">
+  <i class="user-img icons-faces-users-03"></i>
+  <div class="account-info" style="background: rgba(49, 157, 181, 0.8);">
+    <div class="logo"></div>
+    <h3>Modular &amp; Flexible Admin.</h3>
+    <ul>
+      <li><i class="icon-magic-wand"></i> Fully customizable</li>
+      <li><i class="icon-layers"></i> Various sibebars look</li>
+      <li><i class="icon-arrow-right"></i> RTL direction support</li>
+      <li><i class="icon-drop"></i> Colors options</li>
+    </ul>
+  </div>
+  <div class="account-form" style="background: rgba(255, 255, 255, 0.8);">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "form-signin "}) do |f| %>
+      <h3><strong>Sign in</strong> to your account</h3>
+      <div class="append-icon">
+        <%= f.email_field :email,class: "form-control form-white username",placeholder: "Email", autofocus: true, required: true %>
+        <i class="icon-user"></i>
+      </div>
+      <div class="append-icon m-b-20">
+        <%= f.password_field :password,class: "form-control form-white password",placeholder: "Password", autocomplete: "off" %>
+        <i class="icon-lock"></i>
+      </div>
+      <%= f.submit "Sign In", class: "btn btn-lg btn-dark btn-rounded ladda-button", "data-style"=> "expand-left" %>
+      <span class="forgot-password"><a id="password" href="account-forgot-password.html">Forgot password?</a></span>
+    <% end %>
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post,class: "form-password" }) do |f| %>
+      <h3><strong>Reset</strong> your password</h3>
+      <div class="append-icon m-b-20">
+        <%= f.email_field :email, autofocus: true ,class: "form-control form-white password"%>
+        <i class="icon-lock"></i>
+      </div>
+      <%= f.submit "Send Password Reset Link",id: "submit-password", class: "btn btn-lg btn-danger btn-block ladda-button", "data-style"=> "expand-left" %>
+      <div class="clearfix m-t-60">
+        <p class="pull-left m-t-20 m-b-0"><a id="login" href="#">Have an account? Sign In</a></p>
+      </div>
+    <%end%>
+  </div>
+</div>
+<script src="/assets/jquery.videobackground.js"></script><!--Video Background-->
+<script>
+  var a = ['/assets/17.webm','/assets/16.webm']
+  Array.prototype.pickARandomElement = function() { 
+     return this[Math.floor(Math.random() * this.length)]; 
+  }      
+  $('body').prepend('<div class="video-background"></div>');
+  $('.video-background').videobackground('resize');
+  $('.video-background').videobackground({
+    videoSource: [['/assets/16.webm', 'video/webm']], 
+    controlPosition: '#main',
+    autoplay: 'true',
+    preload:"auto"
+  });
+  $("video").bind('ended', function(){ 
+    console.log("4")
+    newVideo = a.pickARandomElement()
+    $("video").attr('src',newVideo)
+  });
+</script>

@@ -1,0 +1,181 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><%= t('.create')%> <strong><%= t('.branch')%></strong></h4>
+    </div>
+    <%= form_tag branches_path, html: {method: :post}, :enctype =>"multipart/form-data" do %>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+              <%= Branch.human_attribute_name(:industry)%>
+            </label>
+            <% unless @industry%>
+              <%= collection_select nil, :industry_id,  @industries,  :id, :name,{include_blank: t('.prompt_industry')}, class: "form-control", required: true %>
+            <%else%>
+              <div class="form-control">
+                <%= @industry.name%>
+              </div>
+              <%= hidden_field_tag :industry_id, @industry.id%>
+            <%end%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:name)%>
+            </label>
+            <div class="prepend-icon" id="name_div">
+              <i class="fa fa-building"></i>
+              <%= text_field_tag :name, "" , class: "form-control", placeholder: t('.placeholder_name'), maxlength: 30, onfocusout: "validate_name(this)" %>
+            </div>
+            <span class="name-error"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line1)%>
+            </label>
+            <div id="address_line1_div">
+              <%= text_field_tag :address_line1, "" , class: "form-control", placeholder: t('.placeholder_address_line1'), maxlength: 50, onfocusout: "validate_address_line1(this)" %>
+            </div>
+            <span class="address_line1-error"></span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line2)%>
+            </label>
+            <%= text_field_tag :address_line2, "" , class: "form-control", placeholder: t('.placeholder_address_line2'), maxlength: 50%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:landmark)%>
+            </label>
+            <%= text_field_tag :landmark, "" , class: "form-control", placeholder:  t('.placeholder_landmark'), maxlength: 50%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:city)%>
+            </label>
+            <div id="city_div">
+              <%= text_field_tag :city, "" , class: "form-control", placeholder: t('.placeholder_city'), maxlength: 50, onfocusout: "validate_city(this)" %>
+            </div>
+            <span class="city-error"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:pincode)%>
+            </label>
+            <div id="pincode_div">
+              <%= text_field_tag :pincode, "" , class: "form-control", placeholder:  t('.placeholder_pincode'), maxlength: 10, onfocusout: "validate_pincode(this)" %>
+            </div>
+            <span class="pincode-error"></span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:state)%>
+            </label>
+            <div id="state_div">
+              <%= text_field_tag :state, "" , class: "form-control", placeholder: t('.placeholder_state'), maxlength: 50, onfocusout: "validate_state(this)" %>
+            </div>
+            <span class="state-error"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:country)%>
+            </label>
+            <div id="country_div">
+              <%= text_field_tag :country, "" , class: "form-control", placeholder: t('.placeholder_country'), maxlength: 50, onfocusout: "validate_country(this)" %>
+            </div>
+            <span class="country-error"></span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:contact_number)%>
+            </label>
+            <div class="prepend-icon" id="contact_number_div">
+              <i class="icon-screen-smartphone"></i>
+              <%= text_field_tag :contact_number, "" , class: "form-control", placeholder: t('.placeholder_contact_number'), maxlength: 12, onfocusout: "validate_contact_number(this)" %>
+            </div>
+            <span class="contact_number-error"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:fax_number)%>
+            </label>
+            <div class="prepend-icon">
+              <i class="fa fa-fax"></i>
+              <%= text_field_tag :fax_number, "" , class: "form-control", placeholder: t('.placeholder_fax_number'), maxlength: 15 %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:website)%>
+            </label>
+            <div class="prepend-icon">
+              <i class="icon-globe"></i>
+              <%= text_field_tag :website, "" , class: "form-control", placeholder: t('.placeholder_website'), maxlength: 50 %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+               Upload Image
+            </label>            
+             <%= file_field_tag "avatars[]",multiple: true  %>
+          </div>
+        </div>
+      </div>
+       <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              No of Question
+            </label>
+            <div class="prepend-icon">
+              <i class="icon-globe"></i>
+              <%= text_field_tag :no_of_fbq, 10 , class: "form-control" %>
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= submit_tag t('.create'), class: "btn btn-primary btn-embossed bnt-square", onclick: "return validate_branch();"%>
+      </div>
+    <%end%>
+  </div>
+</div>

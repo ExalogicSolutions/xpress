@@ -1,0 +1,47 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <% if @user_listing.count == 0 %>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+        <h4 class="modal-title"><%= t('.assign')%> <strong><%= t('.branch_head')%></strong></h4>
+      </div>
+      <div class="row">
+        <h3 style="text-align: center;"><strong><%= t('.staff')%></strong> <%= t('.not_yet_created')%>!</h3>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      </div>
+    <%else%>
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+        <h4 class="modal-title"><%= t('.assign')%> <strong><%= t('.branch_head')%></strong></h4>
+      </div>
+      <%= form_tag branches_create_branch_head_path, html: {method: :post} do %>
+        <div class="row">
+          <div class="col-md-6 col-md-offset-3 user_listing">
+            <%= select_tag "user_id", options_for_select(@user_listing),prompt: t('.prompt_staff'), class: "form-control", onchange: "dropdown_color(this)" %>  
+          </div>
+          <span class="dropdown-error"></span>            
+        </div>
+          <%=hidden_field_tag 'branch_id',@branch.id%>  
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+        <%= submit_tag t('.assign'), class: "btn btn-primary btn-embossed bnt-square assign", onclick: "return check_selected_dropdown()"%>
+        </div>
+      <%end%>
+    <%end%>
+  </div>
+</div>
+<script>
+  function check_selected_dropdown()
+  {
+    if($("#user_id :selected").val().length<=0)
+    {
+    $(".user_listing").next().text(I18n.t("js.dropdown_error")).css("font-style", "italic");
+    $(".user_listing").css({color: "red", background: "#ECEDEE"});
+    $(".user_listing").effect("shake");
+    return false;
+    }
+
+  }
+</script>

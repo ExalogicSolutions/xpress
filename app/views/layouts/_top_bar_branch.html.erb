@@ -1,0 +1,64 @@
+<div class="sidebar">
+  <div class="logopanel">
+    <h1><%= link_to "X-press", root_path, 'data-no-turbolink' => true, style: "color:white;" %></h1>
+  </div>
+  <div class="sidebar-inner">
+    <ul class="nav nav-sidebar">
+      <li class="nav-active <%= params[:controller] == "reports" ? "active open" : "" %>">
+        <%= link_to ('<i class="icon-home"></i>'.html_safe+t('.dashboard')), root_path, 'data-no-turbolink' => true%>
+      </li>
+      <li class="nav-active <%= params[:controller] == "branches" ? "active open" : "" %>">
+        <%= link_to "<i class='icon-home'></i>Branch".html_safe, branches_path, 'data-no-turbolink' => true %>
+      </li>
+      <li class="nav-parent <%= params[:controller] == "departments" ? "active open" : "" %>">
+        <a href=""><i class="icon-screen-desktop"></i><span>Department</span> <span class="fa arrow"></span></a>
+        <ul class="children collapse">
+          <li> <%= link_to "Department List", departments_path,'data-no-turbolink' => true %></li>
+          <li><a href="ui-components.html"> Reports</a></li>
+        </ul>
+      </li>
+      <!-- To Do -->
+      <li class="nav-parent <%= params[:controller] == "sub_departments" ? "active open" : "" %>">
+        <a href=""><i class="icon-layers"></i><span>Sub Department</span><span class="fa arrow"></span></a>
+        <ul class="children collapse">
+          <li><%= link_to "Sub Department List", sub_departments_path,'data-no-turbolink' => true %></li>
+          <li><a href="layout-topbar-menu.html"> Sub-Department Reports</a></li>
+        </ul>
+      </li>
+      <li class="nav-parent <%= params[:controller] == "feedback_questions" ? "active open" : "" %>">
+         <a href=""><i class="icon-layers"></i><span>Feedback Question</span><span class="fa arrow"></span></a>
+        <ul class="children collapse">
+          <li><%= link_to "List", feedback_questions_path,'data-no-turbolink' => true %></li>
+          <li><a href="forms-validation.html"> Pending</a></li>              
+        </ul>
+      </li>
+      <li class="nav-parent">
+        <a href=""><i class="fa fa-table"></i><span>Reports</span><span class="fa arrow"></span></a>
+        <ul class="children collapse">
+          <li><a href="tables.html"> Overall Reports</a></li>
+          <li><a href="tables-dynamic.html"> Filter Report</a></li>
+        </ul>
+      </li>
+       <li class="nav-active">
+        <%= link_to ('<i class="icon-screen-desktop"></i>'.html_safe+t('.users')), users_path, 'data-no-turbolink' => true %>
+      </li>
+      <li class="nav-parent <%= params[:controller] == "menus" ? "active open" : "" %>">
+        <a href=""><i class="icon-screen-desktop"></i><span>Menu List</span> <span class="fa arrow"></span></a>
+        <ul class="children collapse">
+          <li><%= link_to "Menu List", menus_path,'data-no-turbolink' => true %></li>
+          <li><a href="ui-components.html"> Pending</a></li>
+        </ul>
+      </li>
+    </ul>
+    <div class="sidebar-footer clearfix">
+      <a class="pull-left footer-settings" href="#" data-rel="tooltip" data-placement="top" data-original-title="Settings">
+      <i class="icon-settings"></i></a>
+      <a class="pull-left toggle_fullscreen" href="#" data-rel="tooltip" data-placement="top" data-original-title="Fullscreen">
+      <i class="icon-size-fullscreen"></i></a>
+      <a class="pull-left" href="#" data-rel="tooltip" data-placement="top" data-original-title="Lockscreen">
+      <i class="icon-lock"></i></a>
+      <a class="pull-left btn-effect" href="#" data-modal="modal-1" data-rel="tooltip" data-placement="top" data-original-title="Logout">
+      <i class="icon-power"></i></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,180 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><%= t('.edit')%> <strong><%= @user.personal_detail.name%></strong></h4>
+    </div>
+    <%= form_tag edit_user_path, html: {method: :patch},:enctype =>"multipart/form-data" do %>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= User.human_attribute_name(:first_name)%>
+            </label>
+            <%= text_field_tag :first_name, @user.first_name  if @user.first_name, class: "form-control", placeholder: User.human_attribute_name(:first_name), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= User.human_attribute_name(:last_name)%>
+            </label>
+            <%= text_field_tag :last_name, @user.last_name if @user.last_name , class: "form-control", placeholder: User.human_attribute_name(:last_name), required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= User.human_attribute_name(:user_name)%>
+            </label>
+            <%= text_field_tag :user_name, @user.user_name if @user.user_name, class: "form-control", placeholder: User.human_attribute_name(:user_name), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:gender)%>
+            </label>
+            <div class="input-group">
+              <div class="icheck-inline">
+                <%= radio_button_tag 'gender', t('.male'), @user.personal_detail.gender.eql?(t('.male')) if @user.personal_detail.gender,"data-radio" => "iradio_square-blue" %>
+                <label><%= t('.male')%></label>
+                <%= radio_button_tag 'gender', t('.female'), @user.personal_detail.gender.eql?(t('.female')) if @user.personal_detail.gender,"data-radio" => "iradio_square-blue" %>
+                <label><%= t('.female')%></label>
+                <%= radio_button_tag 'gender', t('.other'), @user.personal_detail.gender.eql?(t('.other')) if @user.personal_detail.gender,"data-radio" => "iradio_square-blue" %>
+                <label><%= t('.other')%></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              Upload
+            </label>
+              <%= file_field_tag :avatar, :id=> "imgInp" %>
+               <%if @user.avatar.present?%>
+               <img id="blah" src="<%= @user.avatar.thumb.url%>" alt="your image" width="100px" height="100px"/>  
+               <%else%>
+               <img id="blah" src="" alt="No Preview" />  
+              <%end%>
+          </div>
+        </div>
+       <!--  <div class="col-md-6">
+          <div class="form-group">
+         
+          </div>
+        </div> -->
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= User.human_attribute_name(:email)%>
+            </label>
+            <%= email_field_tag :email, @user.email if @user.email, class: "form-control", placeholder: User.human_attribute_name(:email), required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line1)%>
+            </label>
+            <%= text_field_tag :address_line1, @user.personal_detail.address_line1 if @user.personal_detail.address_line1 , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:address_line1), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line2)%>
+            </label>
+            <%= text_field_tag :address_line2, @user.personal_detail.address_line2 if @user.personal_detail.address_line2, class: "form-control", placeholder: PersonalDetail.human_attribute_name(:address_line2)%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:landmark)%>
+            </label>
+            <%= text_field_tag :landmark, @user.personal_detail.landmark @user.personal_detail.landmark, class: "form-control", placeholder: PersonalDetail.human_attribute_name(:landmark)%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:city)%>
+            </label>
+            <%= text_field_tag :city, @user.personal_detail.city if @user.personal_detail.city, class: "form-control", placeholder: PersonalDetail.human_attribute_name(:city), required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:pincode)%>
+            </label>
+            <%= text_field_tag :pincode, @user.personal_detail.pincode if @user.personal_detail.pincode, class: "form-control", placeholder: PersonalDetail.human_attribute_name(:pincode), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:state)%>
+            </label>
+            <%= text_field_tag :state, @user.personal_detail.state if @user.personal_detail.state, class: "form-control", placeholder: PersonalDetail.human_attribute_name(:state), required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:country)%>
+            </label>
+            <%= text_field_tag :country, @user.personal_detail.country if @user.personal_detail.country, class: "form-control", placeholder: PersonalDetail.human_attribute_name(:country), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:contact_number)%>
+            </label>
+            <%= text_field_tag :contact_number, @user.personal_detail.contact_number if @user.personal_detail.contact_number , class: "form-control", placeholder: "0000000000", required: true %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= hidden_field_tag :user_id, @user.id%>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= submit_tag t('.update'), class: "btn btn-primary btn-embossed bnt-square"%>
+      </div>
+    <%end%>
+  </div>
+</div>
+
+<script type="text/javascript">
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+</script>

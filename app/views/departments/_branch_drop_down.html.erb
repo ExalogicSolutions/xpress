@@ -1,0 +1,22 @@
+
+<%= select_tag "branch_id", options_for_select(@branch),prompt: t('.prompt_branch'), class: "form-control",onchange: "dropdown_color(this)" %>
+
+<script>
+ // $('#branch_id').change(function(){
+	//     	console.log("0")
+	// 	  var branchValue = $('#branch_id').val()
+	// 	    $.ajax({
+	// 	      async : true,
+	// 	      type : 'GET',
+	// 	      url : "/sub_departments/filter_department", 
+	// 	      data: {'id': branchValue},   
+	// 	      success : function(data) {
+	// 	        $('#sub_department_branch_drop_down1').html(data);       
+	// 	      },
+	// 	      error : function(data) {
+	// 	        alert("Error occured. Please try again!");
+	// 	      }
+	// 	    });
+	  
+	//     });
+</script>

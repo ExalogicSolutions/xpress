@@ -1,0 +1,174 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><%= t('.edit')%> <strong><%= @head.personal_detail.name%></strong></h4>
+    </div>
+    <%= form_tag sub_departments_edit_sub_department_head_path, html: {method: :patch} do %>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label"><%= User.human_attribute_name(:first_name)%></label>
+                <div class="prepend-icon" id="first_name_div">
+                  <i class="fa fa-user"></i>
+                  <%= text_field_tag :first_name, @head.first_name , class: "form-control", placeholder: t('.placeholder_first_name'),maxlength: 30, onfocusout: "validate_first_name(this)" %>
+            </div>
+            <span class="first_name-error"></span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label"><%= User.human_attribute_name(:last_name)%></label>
+            <div class="prepend-icon" id="last_name_div">
+              <i class="fa fa-user"></i>             
+            <%= text_field_tag :last_name, @head.last_name , class: "form-control", placeholder: t('.placeholder_last_name'),maxlength: 30, onfocusout: "validate_last_name(this)" %>
+            </div>
+            <span class="last_name-error"></span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= User.human_attribute_name(:user_name)%>
+            </label>
+            <div class="prepend-icon" id="user_name_div">
+              <i class="fa fa-user"></i>              
+              <%= text_field_tag :user_name, @head.user_name , class: "form-control", placeholder: t('.placeholder_user_name'),maxlength: 30, onfocusout: "validate_user_name(this)"%>
+            </div>
+            <span class="user_name-error"></span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:gender)%>
+            </label>
+            <div class="input-group">
+              <div class="icheck-inline">
+                <%= radio_button_tag 'gender', t('.male'), @head.personal_detail.gender.eql?(t('.male')),"data-radio" => "iradio_square-blue" %>
+                <label><%= t('.male')%></label>
+                <%= radio_button_tag 'gender', t('.female'), @head.personal_detail.gender.eql?(t('.female')),"data-radio" => "iradio_square-blue" %>
+                <label><%= t('.female')%></label>
+                <%= radio_button_tag 'gender', t('.other'), @head.personal_detail.gender.eql?(t('.other')),"data-radio" => "iradio_square-blue" %>
+                <label><%= t('.other')%></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= User.human_attribute_name(:email)%>
+            </label>
+            <div id="email_div">            
+            <%= email_field_tag :email, @head.email , class: "form-control", placeholder: t('.placeholder_email'),maxlength: 50, onfocusout: "validate_email(this)"%>
+            </div>
+            <span class="email-error"></span>            
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line1)%>
+            </label>
+            <div  id="address_line1_div">            
+            <%= text_field_tag :address_line1, @head.personal_detail.address_line1 , class: "form-control", placeholder: t('.placeholder_address_line1'), maxlength: 50, onfocusout: "validate_address_line1(this)" %>
+              </div>
+              <span class="address_line1-error"></span>            
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line2)%>
+            </label>
+            <%= text_field_tag :address_line2, @head.personal_detail.address_line2 , class: "form-control", placeholder:  t('.placeholder_address_line2'), maxlength: 50%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:landmark)%>
+            </label>
+            <%= text_field_tag :landmark, @head.personal_detail.landmark , class: "form-control", placeholder: t('.placeholder_landmark'), maxlength: 50%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:city)%>
+            </label>
+            <div id="city_div">            
+            <%= text_field_tag :city, @head.personal_detail.city , class: "form-control", placeholder: t('.placeholder_city'), maxlength: 50, onfocusout: "validate_city(this)" %>
+            </div>
+            <span class="city-error"></span>              
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:pincode)%>
+            </label>
+            <div id="pincode_div">                   
+            <%= text_field_tag :pincode, @head.personal_detail.pincode , class: "form-control", placeholder: t('.placeholder_pincode'), maxlength: 10, onfocusout: "validate_pincode(this)" %>
+            </div>
+              <span class="pincode-error"></span>             
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:state)%>
+            </label>
+           <div id="state_div">            
+            <%= text_field_tag :state, @head.personal_detail.state , class: "form-control", placeholder: t('.placeholder_state'), maxlength: 50, onfocusout: "validate_state(this)" %>
+            </div>
+            <span class="state-error"></span>                 
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:country)%>
+            </label>
+            <div id="country_div">            
+            <%= text_field_tag :country, @head.personal_detail.country , class: "form-control", placeholder: t('.placeholder_country'), maxlength: 50, onfocusout: "validate_country(this)"  %>
+            </div>
+            <span class="country-error"></span>                   
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:contact_number)%>
+            </label>
+            <div class="prepend-icon" id="contact_number_div">
+              <i class="icon-screen-smartphone"></i>               
+            <%= text_field_tag :contact_number, @head.personal_detail.contact_number , class: "form-control", placeholder: t('.placeholder_contact_number'), maxlength: 12, onfocusout: "validate_contact_number(this)" %>
+            </div>            
+            <span class="contact_number-error"></span>            
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= hidden_field_tag :head_id, @head.id%>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= submit_tag t('.update'), class: "btn btn-primary btn-embossed bnt-square", onclick: "return validate_sub_department_head();"%>
+      </div>
+    <%end%>
+  </div>
+</div>

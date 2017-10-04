@@ -1,0 +1,768 @@
+en:
+  user:
+    not_assigned: "Not Assigned"
+    admin: "Admin"
+    branch_head: "Branch Head"
+    department_head: "Department Head"
+    sub_department_head: "Sub Department Head"
+  devise:
+    registrations:
+      edit:
+        edit: "Edit"
+        user_name: "User Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        current_password: "Current Password"
+        cancel: "Cancel"
+        update: "Update"
+        leave_blank: "(leave blank if you don't want to change it)"
+        confirmation: "(we need your current password to confirm your changes)"
+  js:
+    first_name_error: "Minimum 3 characters"
+    last_name_error: "Minimum 3 characters"
+    user_name_error: "Minimum 3 characters"
+    email_error: "Invalid email address"
+    name_error: "Minimum 3 characters"
+    dropdown_error: "Select one from dropdown"
+    address_line1_error: "Minimum 3 characters"
+    city_error: "Minimum 3 characters"
+    pincode_error: "Has to be fixed"
+    state_error: "Minimum 3 characters"
+    country_error: "Minimum 3 characters"
+    contact_number_error: "Has to be fixed"
+    no_record: "No Matching records found"
+    showing: "Showing"
+    to: "to"
+    of: "of"
+    entries: "entries"
+    filtered_from: "filtered from"
+    total_entries: "total entries"
+    no_data: "No data available in table"
+  layouts:
+    top_bar_all:
+      english: "English"
+      arabic: "Arabic"
+      tamil: "Tamil"
+      language: "Language"
+      account_settings: " Account Settings"
+      logout: " Logout"
+    top_bar_admin:
+      dashboard: "Dashboard"
+      users: "Users"
+    top_bar_branch:
+      dashboard: "Dashboard"
+      users: "Users"
+    top_bar_department:
+      dashboard: "Dashboard"
+      users: "Users"
+    top_bar_sub_department:
+      dashboard: "Dashboard"
+      users: "Users"
+    layout_footer:
+      copyright: "Copyright"
+      rights_reserved: "All rights reserved"
+  users:
+    index:
+      staff: "Staff"
+      list: "list"
+      add_staff: "Add Staff"
+      industry: "Industry"
+      branch: "Branch"
+      department: "Department"
+      sub_department: "Sub Department"
+      post: "Post"
+      manage: "Manage"
+      reset: "Reset"
+      set: "Set"
+      not_yet_created: "not yet created"
+      go_to_branches: "Go to Branches"
+      go_to_industries: "Go to Industries"
+    new:
+      create: "Create"
+      staff: "Staff"
+      cancel: "Cancel"
+      industry: "Industry"
+      branch: "Branch"
+      department: "Department"
+      sub_department: "Sub Department"
+      prompt_industry: "Select an Industry"
+      prompt_branch: "Select a Branch"
+      prompt_department: "Select a Department"
+      prompt_sub_department: "Select a Sub Department"
+      male: "Male"
+      female: "Female"
+      other: "Other"
+    edit:
+      edit: "Edit"
+      update: "Update"
+      cancel: "Cancel"
+      male: "Male"
+      female: "Female"
+      other: "Other"
+      update: "Update"
+      cancel: "Cancel"
+    department_drop_down:
+      prompt_department: "Select a Department"
+    sub_department_drop_down:
+      prompt_sub_department: "Select a Sub Department"
+    show_head_details:
+      cancel: "Cancel"
+      edit: "Edit"
+    set:
+      set_head: "Set Head"
+      is_the_current_head: "is the current head"
+      want_to_re_assign: "Do you want to re-assign"
+      want_to_assign: "Do you want to assign"
+      as_head: "as the head"
+      cancel: "Cancel"
+      assign: "Assign"
+    reset:
+      reset_head: "Reset Head"
+      are_you_sure: "Are you sure you want to remove"
+      from_position: "from head position"
+      cancel: "Cancel"
+      reset: "Reset"
+  industries:
+    create:
+      created: "Industry created successfully!"
+      error: "Something went wrong!"
+    update:
+      updated: "Industry updated successfully!"
+      error: "Something went wrong!"
+    destroy:
+      deleted: "Industry deleted successfully!"
+      error: "Something went wrong!"
+    index:
+      title: "Industries"
+      create_industry: "Create Industry"
+      no_of_branches: "No of Branches"
+      manage: "Manage"
+      edit: "Edit"
+      delete: "Delete"
+    new:
+      placeholder_name: "Enter Industry name..."
+      prompt_industry: "Select an Industry"
+      prompt_rating_type: "Select a Rating Type"
+      create: "Create"
+      industry: "Industry"
+      cancel: "Cancel"
+      upload_image: "Upload Image"
+      choose_file: "Choose File"
+    show:
+      create_branch: "Create Branch"
+      no_of_departments: "No of Departments"
+      head: "Head"
+      manage: "Manage"
+      edit: "Edit"
+      delete: "Delete"
+    edit:
+      placeholder_name: "Enter Industry name..."
+      edit: "Edit"
+      update: "Update"
+      cancel: "Cancel"
+    delete:
+      are_you_sure: "Are you sure you want to delete"
+      cancel: "Cancel"
+      delete: "Delete"
+  branches:
+    create:
+      created: "Branch created successfully!"
+      error: "Something went wrong!"
+    update:
+      updated: "Branch updated successfully!"
+      error: "Something went wrong!"
+    destroy:
+      deleted: "Branch deleted successfully!"
+      error: "Something went wrong!"
+    create_branch_head:
+      assign: "Assgin"
+      branch_head: "Branch Head"
+      staff: "Staff"
+      not_yet_created: "not yet created"
+      head_created: "Branch Head created successfully!"
+      error: "Something went wrong!"
+      cancel: "Cancel"
+      prompt_staff: "Select a Staff"
+    assign_image_head:
+      image_uploaded: "Image uploaded successfully!"
+    index:
+      branches: "Branches"
+      branch:
+        one: "Branch"
+        other: "Branches"
+      head_count:
+        one: "Branch Head"
+        other: "Branch Heads"
+      create_branch: "Create Branch"
+      show_details: "Show Details"
+      industry: "Industry"
+      not_yet_created: "not yet created"
+      go_to_industries: "Go to Industries"
+      head: "Head"
+      manage: "Manage"
+      create_department: "Create Department"
+      edit: "Edit"
+      delete: "Delete"
+    new:
+      placeholder_name: "Enter Branch name..."
+      placeholder_address_line1: "Enter address line 1..."
+      placeholder_address_line2: "Enter address line 2..."
+      placeholder_landmark: "Enter landmark..."
+      placeholder_city: "Enter City name..."
+      placeholder_pincode: "Has to be fixed"
+      placeholder_state: "Enter State name..."
+      placeholder_country: "Enter Country name..."
+      placeholder_contact_number: "Has to be fixed"
+      placeholder_fax_number: "Has to be fixed"
+      placeholder_website: "Enter Website URL..."
+      prompt_industry: "Select an Industry"
+      create: "Create"
+      branch: "Branch"
+      cancel: "Cancel"
+    show:
+      head: "Head"
+      edit: "Edit"
+      cancel: "Cancel"
+    list:
+      image: "Image"
+      head: "Head"
+      assign: "Assign"
+      edit: "Edit"
+      delete: "Delete"
+      manage: "Manage"
+    edit:
+      placeholder_name: "Enter Branch name..."
+      placeholder_address_line1: "Enter address line 1..."
+      placeholder_address_line2: "Enter address line 2..."
+      placeholder_landmark: "Enter landmark..."
+      placeholder_city: "Enter City name..."
+      placeholder_pincode: "Has to be fixed"
+      placeholder_state: "Enter State name..."
+      placeholder_country: "Enter Country name..."
+      placeholder_contact_number: "Has to be fixed"
+      placeholder_fax_number: "Has to be fixed"
+      placeholder_website: "Enter Website URL..."
+      edit: "Edit"
+      update: "Update"
+      cancel: "Cancel"
+    delete:
+      are_you_sure: "Are you sure you want to delete"
+      cancel: "Cancel"
+      delete: "Delete"
+    show_branch_head:
+      branch_head: "Branch Head"
+      edit: "Edit"
+      cancel: "Cancel"
+    edit_branch_head:
+      placeholder_first_name: "Enter First Name..."
+      placeholder_last_name: "Enter Last Name..."
+      placeholder_user_name: "Enter User Name..."
+      placeholder_email: "Enter Email..."
+      placeholder_address_line1: "Enter address line 1..."
+      placeholder_address_line2: "Enter address line 2..."
+      placeholder_landmark: "Enter landmark..."
+      placeholder_city: "Enter City name..."
+      placeholder_pincode: "Has to be fixed"
+      placeholder_state: "Enter State name..."
+      placeholder_country: "Enter Country name..."
+      placeholder_contact_number: "07258956895..."
+      edit: "Edit"
+      update: "Update"
+      cancel: "Cancel"
+      male: "Male"
+      female: "Female"
+      other: "Other"
+      head_updated: "Branch Head updated successfully!!"
+      error: "Something went wrong!"
+    add_image:
+      upload_image: "Upload Image"
+      preview: "Preview"
+      update: "Update"
+      cancel: "Cancel"
+  departments:
+    admin_branch:
+      departments: "Departments"
+      create_department: "Create Department"
+      branch:
+        one: "Branch"
+        other: "Branches"
+      department:
+        one: "Department"
+        other: "Departments"
+      head:
+        one: "Department Head"
+        other: "Department Heads"
+      show_details: "Show Details"
+      branch: "Branch"
+      industry: "Industry"
+      not_yet_created: "not yet created"
+      go_to_branches: "Go to Branches"
+      go_to_industries: "Go to Industries"
+    new:
+      placeholder_name: "Enter Department name..."
+      placeholder_contact_number: "Has to be fixed"
+      create: "Create"
+      department: "Department"
+      cancel: "Cancel"
+      industry: "Industry"
+      branch: "Branch"
+      prompt_industry: "Select an Industry"
+      prompt_branch: "Select a Branch"
+    branch_drop_down:
+      prompt_branch: "Select a Branch"
+    edit:
+      placeholder_name: "Enter Department name..."
+      placeholder_contact_number: "Has to be fixed"
+      edit: "Edit"
+      update: "Update"
+      department: "Department"
+      cancel: "Cancel"
+      industry: "Industry"
+      branch: "Branch"
+      prompt_industry: "Select an Industry"
+      prompt_branch: "Select a Branch"
+    list_details:
+      branch: "Branch"
+      head: "Head"
+      manage: "Manage"
+      image: "Image"
+      assign: "Assign"
+      edit: "Edit"
+      delete: "Delete"
+      not_yet_created: "not yet created"
+      go_to_branches: "Go to Branches"
+    delete:
+      are_you_sure: "Are you sure you want to delete"
+      cancel: "Cancel"
+      delete: "Delete"
+    department_head:
+      assign: "Assign"
+      department_head: "Department Head"
+      staff: "Staff"
+      not_yet_created: "not yet created"
+      cancel: "Cancel"
+      prompt_staff: "Select a Staff"
+    create:
+      created: "Department created successfully!"
+      error: "Something went wrong!"
+    update:
+      updated: "Department updated successfully!"
+      error: "Something went wrong!"
+    destroy:
+      deleted: "Department deleted successfully!"
+      error: "Something went wrong!"
+    create_department_head:
+      head_created: "Department Head created successfully!"
+      error: "Something went wrong!"
+    update_department_head:
+      head_updated: "Department Head updated successfully!"
+      error: "Something went wrong!"
+    assign_image_head:
+      image_uploaded: "Image uploaded successfully!"
+    show:
+      department_head: "Department Head"
+      cancel: "Cancel"
+      edit: "Edit"
+    edit_head:
+      placeholder_first_name: "Enter First Name..."
+      placeholder_last_name: "Enter Last Name..."
+      placeholder_user_name: "Enter User Name..."
+      placeholder_email: "Enter Email..."
+      placeholder_address_line1: "Enter address line 1..."
+      placeholder_address_line2: "Enter address line 2..."
+      placeholder_landmark: "Enter landmark..."
+      placeholder_city: "Enter City name..."
+      placeholder_pincode: "Has to be fixed"
+      placeholder_state: "Enter State name..."
+      placeholder_country: "Enter Country name..."
+      placeholder_contact_number: "07258956895..."
+      edit: "Edit"
+      update: "Update"
+      cancel: "Cancel"
+      male: "Male"
+      female: "Female"
+      other: "Other"
+    add_image:
+      upload_image: "Upload Image"
+      preview: "Preview"
+      update: "Update"
+      cancel: "Cancel"
+    department_index:
+      create_sub_department: "Create Sub Department"
+      head: "Head"
+      manage: "Manage"
+      assign: "Assign"
+      edit: "Edit"
+      delete: "Delete"
+  sub_departments:
+    admin_sub_department_view:
+      sub_departments: "Sub Departments"
+      create_sub_department: "Create Sub Department"
+      branch_count:
+        one: "Branch"
+        other: "Branches"
+      department_count:
+        one: "Department"
+        other: "Departments"
+      sub_department_count:
+        one: "Sub Department"
+        other: "Sub Departments"
+      head_count:
+        one: "Sub Department Head"
+        other: "Sub Department Heads"
+      show_details: "Show Details"
+      industry: "Industry"
+      branch: "Branch"
+      department: "Department"
+      not_yet_created: "not yet created"
+      go_to_industries: "Go to Industries"
+      go_to_branches: "Go to Branches"
+      go_to_departments: "Go to Departments"
+    new:
+      placeholder_name: "Enter Sub deprtment Name..."
+      placeholder_contact_number: "Enter phone Number..."
+      create: "Create"
+      sub_department: "Sub Department"
+      industry: "Industry"
+      branch: "Branch"
+      department: "Department"
+      cancel: "Cancel"
+      prompt_industry: "Select an Industry"
+      prompt_branch: "Select a Branch"
+      prompt_department: "Select a Department"
+    branch_drop_down:
+      prompt_branch: "Select a Branch"
+    department_drop_down:
+      prompt_department: "Select a Department"
+    show_industry_detail:
+      branch: "Branch"
+      department: "Department"
+      sub_department: "Sub Department"
+      head: "Head"
+      manage: "Manage"
+      image: "Image"
+      assign: "Assign"
+      edit: "Edit"
+      delete: "Delete"
+    create_sub_department_head:
+      assign: "Assign"
+      sub_department_head: "Sub Department Head"
+      staff: "Staff"
+      not_yet_created: "not yet created"
+      head_created: "Sub Department Head created successfully!"
+      error: "Something went wrong!"
+      cancel: "Cancel"
+      prompt_staff: "Select a Staff"
+    edit:
+      placeholder_name: "Enter Sub deprtment name..."
+      placeholder_contact_number: "Enter phone Number..."
+      edit: "Edit"
+      update: "Update"
+      cancel: "Cancel"
+      industry: "Industry"
+      branch: "Branch"
+      department: "Department"
+      prompt_industry: "Select an Industry"
+      prompt_branch: "Select a Branch"
+      prompt_department: "Select a Department"
+    delete:
+      are_you_sure: "Are you sure you want to remove"
+      cancel: "Cancel"
+      delete: "Delete"
+    show_sub_department_head:
+      sub_department_head: "Sub Department Head"
+      edit: "Edit"
+      cancel: "Cancel"
+    edit_sub_department_head:
+      placeholder_first_name: "Enter First Name..."
+      placeholder_last_name: "Enter Last Name..."
+      placeholder_user_name: "Enter User Name..."
+      placeholder_email: "Enter Email..."
+      placeholder_address_line1: "Enter address line 1..."
+      placeholder_address_line2: "Enter address line 2..."
+      placeholder_landmark: "Enter landmark..."
+      placeholder_city: "Enter City name..."
+      placeholder_pincode: "Has to be fixed"
+      placeholder_state: "Enter State name..."
+      placeholder_country: "Enter Country name..."
+      placeholder_contact_number: "07258956895..."
+      edit: "Edit"
+      update: "Update"
+      cancel: "Cancel"
+      male: "Male"
+      female: "Female"
+      other: "Other"
+      head_updated: "Sub Department Head updated successfully!"
+      error: "Something went wrong!"
+    add_image:
+      upload_image: "Upload Image"
+      preview: "Preview"
+      update: "Update"
+      cancel: "Cancel"
+    create:
+      created: "Sub Department created successfully!"
+      error: "Something went wrong!"
+    update:
+      updated: "Sub Department updated successfully!"
+      error: "Something went wrong!"
+    destroy:
+      deleted: "Sub Department deleted successfully!"
+      error: "Something went wrong!"
+    assign_image_head:
+      image_uploaded: "Image uploaded successfully"
+    branch_sub_department_view:
+      sub_departments: "Sub Departments"
+      create_sub_department: "Create SUb Department"
+      department: "Department"
+      sub_department: "Sub Department"
+      assign: "Assign"
+      edit: "Edit"
+      delete: "Delete"
+    department_sub_department_view:
+      create_sub_department: "Create Sub Department"
+      sub_department: "Sub Department"
+      assign: "Assign"
+      edit: "Edit"
+      delete: "Delete"
+      head: "Head"
+      manage: "Manage"
+  menus:
+    branch_drop_down:
+      prompt_branch: "Select a Branch"
+    department_drop_down:
+      prompt_department: "Select a Department"
+  activerecord:
+    attributes:
+      user:
+        first_name: "First Name"
+        last_name: "Last Name"
+        user_name: "User Name"
+        email: "Email"
+        password: "Password"
+      industry:
+        name: "Name"
+        type: "Type"
+        rating_type: "Rating Type"
+      personal_detail:
+        name: "Name"
+        gender: "Gender"
+        address_line1: "Address Line 1"
+        address_line2: "Address Line 2"
+        landmark: "Landmark"
+        city: "City"
+        pincode: "Pincode"
+        state: "State"
+        country: "Country"
+        contact_number: "Contact Number"
+        fax_number: "Fax Number"
+        website: "Website"
+      branch:
+        industry: "Industry"
+    errors:
+      messages:
+        record_invalid: "Validation failed: %{errors}"
+        restrict_dependent_destroy:
+          has_one: "Cannot delete record because a dependent %{record} exists"
+          has_many: "Cannot delete record because dependent %{record} exist"
+  date:
+    abbr_day_names:
+    - Sun
+    - Mon
+    - Tue
+    - Wed
+    - Thu
+    - Fri
+    - Sat
+    abbr_month_names:
+    -
+    - Jan
+    - Feb
+    - Mar
+    - Apr
+    - May
+    - Jun
+    - Jul
+    - Aug
+    - Sep
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Sunday
+    - Monday
+    - Tuesday
+    - Wednesday
+    - Thursday
+    - Friday
+    - Saturday
+    formats:
+      default: "%Y-%m-%d"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names:
+    -
+    - January
+    - February
+    - March
+    - April
+    - May
+    - June
+    - July
+    - August
+    - September
+    - October
+    - November
+    - December
+    order:
+    - :year
+    - :month
+    - :day
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: about 1 hour
+        other: about %{count} hours
+      about_x_months:
+        one: about 1 month
+        other: about %{count} months
+      about_x_years:
+        one: about 1 year
+        other: about %{count} years
+      almost_x_years:
+        one: almost 1 year
+        other: almost %{count} years
+      half_a_minute: half a minute
+      less_than_x_minutes:
+        one: less than a minute
+        other: less than %{count} minutes
+      less_than_x_seconds:
+        one: less than 1 second
+        other: less than %{count} seconds
+      over_x_years:
+        one: over 1 year
+        other: over %{count} years
+      x_days:
+        one: 1 day
+        other: "%{count} days"
+      x_minutes:
+        one: 1 minute
+        other: "%{count} minutes"
+      x_months:
+        one: 1 month
+        other: "%{count} months"
+      x_seconds:
+        one: 1 second
+        other: "%{count} seconds"
+    prompts:
+      day: Day
+      hour: Hour
+      minute: Minute
+      month: Month
+      second: Seconds
+      year: Year
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: must be accepted
+      blank: can't be blank
+      present: must be blank
+      confirmation: doesn't match %{attribute}
+      empty: can't be empty
+      equal_to: must be equal to %{count}
+      even: must be even
+      exclusion: is reserved
+      greater_than: must be greater than %{count}
+      greater_than_or_equal_to: must be greater than or equal to %{count}
+      inclusion: is not included in the list
+      invalid: is invalid
+      less_than: must be less than %{count}
+      less_than_or_equal_to: must be less than or equal to %{count}
+      model_invalid: "Validation failed: %{errors}"
+      not_a_number: is not a number
+      not_an_integer: must be an integer
+      odd: must be odd
+      required: must exist
+      taken: has already been taken
+      too_long:
+        one: is too long (maximum is 1 character)
+        other: is too long (maximum is %{count} characters)
+      too_short:
+        one: is too short (minimum is 1 character)
+        other: is too short (minimum is %{count} characters)
+      wrong_length:
+        one: is the wrong length (should be 1 character)
+        other: is the wrong length (should be %{count} characters)
+      other_than: must be other than %{count}
+    template:
+      body: 'There were problems with the following fields:'
+      header:
+        one: 1 error prohibited this %{model} from being saved
+        other: "%{count} errors prohibited this %{model} from being saved"
+  helpers:
+    select:
+      prompt: Please select
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "$"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: Billion
+          million: Million
+          quadrillion: Quadrillion
+          thousand: Thousand
+          trillion: Trillion
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ", and "
+      two_words_connector: " and "
+      words_connector: ", "
+  time:
+    am: am
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: pm

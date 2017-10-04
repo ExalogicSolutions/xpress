@@ -1,0 +1,30 @@
+<div class="fields ml50">
+  <div class="form-group row">
+  	<div class="col-md-2 mt10">
+  		<%= m.text_field :name, class: "form-control" ,maxlength: 20, placeholder: "Enter Item name",required: true%>
+  	</div>
+    	<div class="col-md-2  mt10">
+    		<%= m.text_field :price, class: "form-control" ,maxlength: 5, placeholder: "Enter Item Price",required: true%>
+  	</div>	
+  <div class="col-md-3  mt10">
+      <!-- put image selection in this div-->
+      <%if params[:action] == "edit"%>
+       <label> Image Preview: <%= m.object.avatars.present? ? (link_to ("#{m.object.avatars.count}"), "#", class: "click_link", id: m.object.id, "data-toggle" => 'modal') : 0%>               
+       </label>
+      <%end%> 
+       <%= m.file_field :avatars, multiple: true %>
+     
+    <!--  < %= file_field_tag "item[images[]]", type: :file, multiple: true %> -->
+  </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-md-6 mt10">
+      <%= m.text_area :description, class: "form-control" ,maxlength: 100, placeholder: "Enter Item Description",required: true%>
+    </div>
+    <div class="col-md-1 mt20">
+    <%= link_to_remove_fields '<i class="fa fa-times"></i>'.html_safe, m, class: "btn btn-primary-purple btn-xs pull-right"%>           
+    </div>
+  </div>
+
+</div>
+

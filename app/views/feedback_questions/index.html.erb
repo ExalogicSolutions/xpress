@@ -1,0 +1,269 @@
+
+<% if current_user.user_type == ADMIN%>
+	<% if @industries.present? && @industries.map{|i| i.branches.count}.sum>0 && @industries.map{|i| i.branches.map{|b| b.departments.count}.sum}.sum > 0%>
+	<div class="page-app page-profil row">
+    <div class="col-lg-12 col-md-9">
+		<div class="row">
+			<div class="col-lg-12 portlets">
+				<div class="panel">
+					<div class="panel-header panel-controls">
+						<h3><strong>Feedback Questions</strong></h3>
+						<%case current_user.user_type
+						when ADMIN
+						%>
+							<%= link_to "Branch", new_feedback_question_path(question_for: 'branch'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>
+							<%= link_to "Department", new_feedback_question_path(question_for: 'department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>
+							<%= link_to "Sub Department", new_feedback_question_path(question_for: 'sub_department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>	
+						<%
+						when BRANCH_HEAD
+						%>
+							<%= link_to "Branch", new_feedback_question_path(question_for: 'branch'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>
+							<%= link_to "Department", new_feedback_question_path(question_for: 'department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>
+							<%= link_to "Sub Department", new_feedback_question_path(question_for: 'sub_department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>	
+						<%
+						when DEPARTMENT_HEAD
+						%>
+							<%= link_to "Department", new_feedback_question_path(question_for: 'department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>
+
+							<%= link_to "Sub Department", new_feedback_question_path(question_for: 'sub_department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>	
+						<%
+						when SUB_DEPARTMENT_HEAD
+						%>
+							<%= link_to "Sub Department", new_feedback_question_path(question_for: 'sub_department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>	
+						<%
+						end %>
+						<div class="modal fade" id="modal-show" aria-hidden="true"></div>
+						<div class="modal fade" id="modal-edit" aria-hidden="true"></div>
+						<div class="modal fade" id="modal-delete" aria-hidden="true"></div>
+						<div class="modal fade" id="modal-responsive_approve" aria-hidden="true">
+						</div>
+					</div>
+
+                             <div class="profil-content">                  
+                           <div class="col-md-12">
+                          <div class="row">
+                         <% @tree.each do |i|%>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                              <div class="item hover-effect">
+                                <div class="user">
+                                  <!-- <img src="/assets/global/profil_page/pics1.jpg" class="img-responsive hover-img" alt="">--> 
+              
+                                  <%= i['avatar'].present? ? (image_tag i['avatar'].avatars[0].thumb.url) : (image_tag "global/default_image.jpg")%>
+                                  <div class="info">
+                                    <div class="f-24"><%= i['name']%></div>
+                                    <div>
+                                      <div class="location"><%= i['industry_type']%></div>
+                                      <div class="date"><%= i['branch_name'].present? ? i['branch_name'] : "-" %></div>
+                                       <div class="date"><%= @user_type == DEPARTMENT_HEAD ? i['department_name'] : ""%>
+                                       </div>
+                                       <div class="date"><%= @user_type == SUB_DEPARTMENT_HEAD  ? i['sub_department_name'] : ""%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="comment">
+                                	<% if [ADMIN, BRANCH_HEAD].include?(@user_type)  %> 
+										<% branch_link = " Branch Questions".pluralize(i["no_of_branch_question"])%>
+										 <label><b><%= i["no_of_branch_question"].present? ? (link_to (  "#{i['no_of_branch_question'] } #{branch_link}"), "#", onclick: "list_feedback_questions(this)", id: i["branch_id"], "data-toggle" => 'modal') : 0%></b>:</label>
+									<% end %>
+                                  
+                                  <% if [ADMIN, BRANCH_HEAD, DEPARTMENT_HEAD].include?(@user_type)  %> 
+									<% case current_user.user_type 
+										when ADMIN,BRANCH_HEAD
+											@id = i['branch_id']	    
+										when DEPARTMENT_HEAD
+											@id = i['department_id']	
+										end
+									%>
+										<% department_link = " Department Questions".pluralize(i["no_of_department_question"])%>				
+										 <label><b><%= (link_to (  "#{i['no_of_department_question'] } #{department_link}"), "#", onclick: "list_department_feedback_questions(this)", id: @id, "data-toggle" => 'modal') %></b></label>
+									<% end %>
+
+									<% if [ADMIN,BRANCH_HEAD,DEPARTMENT_HEAD,SUB_DEPARTMENT_HEAD].include?(@user_type)  %>
+										<% case current_user.user_type 
+											when ADMIN,BRANCH_HEAD
+												@id = i['branch_id']	    
+											when DEPARTMENT_HEAD
+												@id = i['department_id']    
+											when	SUB_DEPARTMENT_HEAD
+												@id = i['sub_department_id']	
+										   end
+										%>
+														<% sub_department_link = " Sub Department Questions".pluralize(i["no_of_sub_department_question"])%>
+														
+																 <label><b><%=i["no_of_sub_department_question"].present? ? (link_to ("#{i['no_of_sub_department_question'] } #{sub_department_link}"), "#", onclick: "list_sub_department_feedback_questions(this)", id: @id, "data-toggle" => 'modal') : 0%></b></label>
+													
+                                    <%end%>  
+                                
+                                 </div>
+                                </div>
+                              </div>
+                             <%end%> 
+                            </div>
+                      
+                    </div>
+                  </div>
+				</div>
+			</div>
+		</div>
+	<%elsif @industries.present? && @industries.map{|i| i.branches.count}.sum == 0%>
+	  <div class="row">
+	    <div class="col-md-6 col-md-offset-3 ">
+	      <div class="panel bg-dark">
+	        <div class="panel-header">
+	          <h3 style="text-align: center;"><strong>Branch</strong> not yet created!</h3>
+	        </div>
+	        <div class="panel-content" style="text-align:center">
+	          <%= link_to "Go to Branches", branches_path, class: "btn btn-embossed btn-primary m-r-20"%>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	<%elsif @industries.present? && @industries.map{|i| i.branches.map{|b| b.departments.count}.sum}.sum == 0%>
+	  <div class="row">
+	    <div class="col-md-6 col-md-offset-3 ">
+	      <div class="panel bg-dark">
+	        <div class="panel-header">
+	          <h3 style="text-align: center;"><strong>Department</strong> not yet created!</h3>
+	        </div>
+	        <div class="panel-content" style="text-align:center">
+	          <%= link_to "Go to Departments", departments_path, class: "btn btn-embossed btn-primary m-r-20"%>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	<%else%>
+	  <div class="row">
+	    <div class="col-md-6 col-md-offset-3 ">
+	      <div class="panel bg-dark">
+	        <div class="panel-header">
+	          <h3 style="text-align: center;"><strong>Industry</strong> not yet created!</h3>
+	        </div>
+	        <div class="panel-content" style="text-align:center">
+	          <%= link_to "Go to Industries", industries_path, class: "btn btn-embossed btn-primary m-r-20"%>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	  </div>
+</div>
+	<%end%>
+<%else%>
+<div class="page-app page-profil row">
+    <div class="col-lg-12 col-md-9">
+	<div class="row">
+		<div class="col-lg-12 portlets">
+			<div class="panel">
+				<div class="panel-header panel-controls">
+					<h3><strong>Feedback Questions</strong></h3>
+					<%case current_user.user_type
+					when ADMIN
+					%>
+						<%= link_to "Branch", new_feedback_question_path(question_for: 'branch'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>
+						<%= link_to "Department", new_feedback_question_path(question_for: 'department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>
+						<%= link_to "Sub Department", new_feedback_question_path(question_for: 'sub_department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>	
+					<%
+					when BRANCH_HEAD
+					%>
+						<%= link_to "Branch", new_feedback_question_path(question_for: 'branch'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>
+						<%= link_to "Department", new_feedback_question_path(question_for: 'department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>
+						<%= link_to "Sub Department", new_feedback_question_path(question_for: 'sub_department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>	
+					<%
+					when DEPARTMENT_HEAD
+					%>
+						<%= link_to "Department", new_feedback_question_path(question_for: 'department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>
+
+						<%= link_to "Sub Department", new_feedback_question_path(question_for: 'sub_department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>	
+					<%
+					when SUB_DEPARTMENT_HEAD
+					%>
+						<%= link_to "Sub Department", new_feedback_question_path(question_for: 'sub_department'), class: "btn btn-embossed btn-primary m-r-20",'data-no-turbolink' => true%>	
+					<%
+					end %>
+					<div class="modal fade" id="modal-show" aria-hidden="true"></div>
+					<div class="modal fade" id="modal-edit" aria-hidden="true"></div>
+					<div class="modal fade" id="modal-delete" aria-hidden="true"></div>
+					<div class="modal fade" id="modal-responsive_approve" aria-hidden="true">
+					</div>
+				</div>
+                             <div class="profil-content">                  
+                           <div class="col-md-12">
+                          <div class="row">
+                         <% @tree.each do |i|%>
+                            <div class="col-md-6 col-sm-6 col-xs-6">
+                              <div class="item hover-effect">
+                                <div class="user">
+                                  <!-- <img src="/assets/global/profil_page/pics1.jpg" class="img-responsive hover-img" alt="">--> 
+
+                                 <%= i['avatar'].present? ? (image_tag i['avatar'].avatars[0].thumb.url) : (image_tag "global/default_image.jpg")%>
+                                  <div class="info">
+                                    <div class="f-24"><%= i['name']%></div>
+                                    <div>
+                                      <div class="location"><%= i['industry_type']%></div>
+                                      <div class="date"><%= i['branch_name'].present? ? i['branch_name'] : "-" %></div>
+                                       <div class="date"><%= @user_type == DEPARTMENT_HEAD ? i['department_name'] : ""%>
+                                       </div>
+                                       <div class="date"><%= @user_type == SUB_DEPARTMENT_HEAD  ? i['sub_department_name'] : ""%></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="comment">
+                                	<% if [ADMIN, BRANCH_HEAD].include?(@user_type)  %> 
+													<% branch_link = " Branch Questions".pluralize(i["no_of_branch_question"])%>
+												
+															 <label><b><%= i["no_of_branch_question"].present? ? (link_to (  "#{i['no_of_branch_question'] } #{branch_link}"), "#", onclick: "list_feedback_questions(this)", id: i["branch_id"], "data-toggle" => 'modal') : 0%></b></label>
+														
+												<% end %>
+												<% if [ADMIN, BRANCH_HEAD, DEPARTMENT_HEAD].include?(@user_type)  %> 
+												
+														<% case current_user.user_type 
+															# when ADMIN  
+															# 	    @id = i['id']
+															when ADMIN,BRANCH_HEAD
+																@id = i['branch_id']	    
+															when	DEPARTMENT_HEAD
+																@id = i['department_id']	
+														end
+														%>
+														<% department_link = " Department Questions".pluralize(i["no_of_department_question"])%>
+													
+															 <label><b><%= (link_to (  "#{i['no_of_department_question'] } #{department_link}"), "#", onclick: "list_department_feedback_questions(this)", id: @id, "data-toggle" => 'modal') %></b></label>
+												
+												<% end %>
+												<% if [ADMIN,BRANCH_HEAD,DEPARTMENT_HEAD,SUB_DEPARTMENT_HEAD].include?(@user_type)  %>
+													<% case current_user.user_type 
+														# when ADMIN  
+														# 	    @id = i['id']
+														when ADMIN,BRANCH_HEAD
+															@id = i['branch_id']	    
+														when DEPARTMENT_HEAD
+															@id = i['department_id']    
+														when	SUB_DEPARTMENT_HEAD
+															@id = i['sub_department_id']	
+													end
+													%>
+													<% sub_department_link = " Sub Department Questions".pluralize(i["no_of_sub_department_question"])%>
+													
+													 <label><b>		<%=i["no_of_sub_department_question"].present? ? (link_to ("#{i['no_of_sub_department_question'] } #{sub_department_link}"), "#", onclick: "list_sub_department_feedback_questions(this)", id: @id, "data-toggle" => 'modal') : 0%>
+													</b></label>													
+                                    <%end%>  
+                                
+                                 </div>
+                                </div>
+                              </div>
+                             <%end%> 
+                            </div>
+                      
+                    </div>
+                  </div>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+<%end%>
+
+<script type="text/javascript">
+ $(function() {
+   $('.BSswitch').bootstrapSwitch('state', true);
+  })
+</script>

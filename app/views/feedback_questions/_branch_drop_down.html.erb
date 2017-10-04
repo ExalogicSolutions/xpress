@@ -1,0 +1,19 @@
+
+<%= select_tag "branch_id", options_for_select(@branches),prompt: "Select a Branch", class: "form-control", required: true %>
+<script>
+$('#branch_id').change(function(){
+  var branchValue = $('#branch_id').val()
+    $.ajax({
+      async : true,
+      type : 'GET',
+      url : "/feedback_questions/filter_department", 
+      data: {'id': branchValue},   
+      success : function(data) {
+        $('#sub_department_department_drop_down').html(data);       
+      },
+      error : function(data) {
+        alert("Error occured. Please try again!");
+      }
+    });
+ });
+</script>

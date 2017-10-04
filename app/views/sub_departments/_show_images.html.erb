@@ -1,0 +1,35 @@
+<div class="modal-dialog modal-lg" style="background-color: transparent;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title">Image Preview</strong></h4>
+    </div>
+   
+    <div class="modal-body">
+   <div class="panel panel-transparent">
+                <div class="panel-content">
+                  <div class="portfolioContainer grid">
+                  
+                  <%  @images.each do |i|%>
+                   
+                   <!--  <figure class="effect-lily magnific" data-mfp-src= '< %= a %>'> -->
+                    <figure class="effect-lily magnific" >
+                    <!--   <img src="< %= image_tag(+i[0].avatar)+ %>" alt="img01"/> -->
+                    <%= image_tag i%>
+                      
+                    </figure>
+                  
+                    <%end%>
+                  </div>
+                </div>
+</div>
+  
+   
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal">Cancel</button>
+    
+      </div>
+
+  </div>
+</div>

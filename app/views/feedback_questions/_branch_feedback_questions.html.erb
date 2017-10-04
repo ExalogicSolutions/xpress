@@ -1,0 +1,40 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><strong><%= @branch.personal_detail.name%></strong> Feedback Questions</h4>
+    </div>
+    <div class="modal-body">
+      <div class="panel-content">
+        <div class="filter-left">
+          <div  ><label id="error_message" style="color: red;"></label></div> 
+          <table class="table table-dynamic table-tools">
+            <thead>
+              <tr>
+                <th>Question</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Manage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @feedback_questions.each do |fbq| %>
+                <tr id='<%= fbq.id%>'>
+                  <td><%= fbq.question %></td>
+                  <td><%= fbq.priority %></td>
+                  <td><%= fbq.status ? "<i class='fa fa-check'></i>".html_safe : fbq.status.nil? ? "Pending" : "Rejected" %></td>
+                  <td>
+                    <%= link_to "Edit", "#", "data-toggle" => 'modal', id: fbq.id, onclick: "edit_branch_feedback_question(this)"%> | <%= link_to "Delete", "#", "data-toggle" => 'modal', id: fbq.id, onclick: "delete_branch_feedback_question(this)"%> | 
+                      <div id='customer_list_<%= fbq.id%>'>
+                       <%= render partial: "feedback_questions/list_customer_feedback_question", :locals => {:fbq => fbq}%>
+                      </div>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

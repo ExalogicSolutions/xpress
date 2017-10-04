@@ -1,0 +1,757 @@
+ta:
+  user:
+    not_assigned: "நியமிக்கப்படவில்லை"
+    admin: "நிர்வாகி"
+    branch_head: "கிளை தலைவர்"
+    department_head: "துறை தலைவர்"
+    sub_department_head: "துணை துறை தலைவர்"
+  devise:
+    registrations:
+      edit:
+        edit: "தொகு"
+        user_name: "பயனர்பெயர்"
+        email: "மின்னஞ்சல்"
+        password: "கடவுச்சொல்"
+        password_confirmation: "கடவுச்சொல் உறுதிப்படுத்தும்"
+        current_password: "தற்போதைய கடவுச்சொல்லை"
+        cancel: "ரத்து"
+        update: "மேம்படுத்து"
+        leave_blank: "(நீங்கள் அதை மாற்ற விரும்பவில்லை என்றால் வெறுமையாக விடுக)"
+        confirmation: "(நாங்கள் உங்கள் மாற்றங்களை உறுதிப்படுத்த உங்கள் தற்போதைய கடவுச்சொல்லை வேண்டும்)"
+  js:
+    first_name_error: "Minimum 3 characters"
+    last_name_error: "Minimum 3 characters"
+    user_name_error: "Minimum 3 characters"
+    email_error: "Invalid email address"
+    name_error: "Minimum 3 characters"
+    dropdown_error: "Select one from dropdown"
+    address_line1_error: "Minimum 3 characters"
+    city_error: "Minimum 3 characters"
+    pincode_error: "Has to be fixed"
+    state_error: "Minimum 3 characters"
+    country_error: "Minimum 3 characters"
+    contact_number_error: "Has to be fixed"
+    no_record: "பொருத்தம் இல்லை பதிவுகளை காணப்படவில்லை"
+    showing: "காண்பிக்கப்படுகிறது"
+    to: "இருந்து"
+    of: "உள்ள"
+    entries: "பதிவுகள்"
+    filtered_from: "இருந்து வடிகட்டப்பட்ட"
+    total_entries: "மொத்த உள்ளீடுகளை"
+    no_data: "அட்டவணை தகவல்கள் இல்லை"
+  layouts:
+    top_bar_all:
+      english: "ஆங்கிலம்"
+      arabic: "அரபு"
+      tamil: "தமிழ்"
+      language: "மொழி"
+      account_settings: " கணக்கு அமைப்புகள்"
+      logout: " வெளியேறு"
+    top_bar_admin:
+      dashboard: "கட்டுப்பாட்டு அறை"
+      users: "பயனர்கள்"
+    top_bar_branch:
+      dashboard: "கட்டுப்பாட்டு அறை"
+      users: "பயனர்கள்"
+    top_bar_department:
+      dashboard: "கட்டுப்பாட்டு அறை"
+      users: "பயனர்கள்"
+    top_bar_sub_department:
+      dashboard: "கட்டுப்பாட்டு அறை"
+      users: "பயனர்கள்"
+    layout_footer:
+      copyright: "பதிப்புரிமை"
+      rights_reserved: "அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை"
+  users:
+    index:
+      staff: "ஊழியர்கள்"
+      list: "பட்டியல்"
+      add_staff: "ஊழியர்கள் சேர்க்க"
+      industry: "தொழில்"
+      branch: "கிளை"
+      department: "துறை"
+      sub_department: "துணை துறை"
+      post: "பதவி"
+      manage: "நிர்வகிக்க"
+      reset: "மீட்டமைக்க"
+      set: "பொறுத்து"
+      not_yet_created: "இன்னும் உருவாகபடவில்லை"
+      go_to_branches: "கிளைகள் செல்ல"
+      go_to_industries: "தொழில்கள் செல்ல"
+    new:
+      create: "உருவாக்க"
+      staff: "பணியாளர்"
+      cancel: "ரத்து"
+      industry: "தொழில்"
+      branch: "கிளை"
+      department: "துறை"
+      sub_department: "துணை துறை"
+      prompt_industry: "ஒரு தொழில் தேர்ந்தெடுக்கவும்"
+      prompt_branch: "ஒரு கிளை தேர்ந்தெடுக்கவும்"
+      prompt_department: "ஒரு துறை தேர்ந்தெடுக்கவும்"
+      prompt_sub_department: "ஒரு துணை துறை தேர்ந்தெடுக்கவும்"
+      male: "ஆண்"
+      female: "பெண்"
+      other: "வேறு"
+    edit:
+      edit: "தொகு"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+      male: "ஆண்"
+      female: "பெண்"
+      other: "வேறு"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+    department_drop_down:
+      prompt_department: "ஒரு துறை தேர்ந்தெடுக்கவும்"
+    sub_department_drop_down:
+      prompt_sub_department: "ஒரு துணை துறை தேர்ந்தெடுக்கவும்"
+    show_head_details:
+      cancel: "ரத்து"
+      edit: "தொகு"
+    set:
+      set_head: "தலை ஒதுக்க"
+      is_the_current_head: "தற்போதைய தலைவர் ஆகும்"
+      want_to_re_assign: "மீண்டும் ஒதுக்க வேண்டும் என்று நீங்கள் விரும்புகிறீர்களா"
+      want_to_assign: "நீங்கள் ஒதுக்க விரும்புகிறீர்கள"
+      as_head: "தலைவராக"
+      cancel: "ரத்து"
+      assign: "நியமி"
+    reset:
+      reset_head: "தலைவர் மீட்டமைக்க"
+      are_you_sure: "நீங்கள் நீக்க வேண்டும் என்பதில் உறுதியாக இருக்கிறீர்களா"
+      from_position: "தலையில் நிலையில் இருந்து"
+      cancel: "ரத்து"
+      reset: "மீட்டமைக்க"
+  industries:
+    create:
+      created: "தொழில் வெற்றிகரமாக உருவாக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    update:
+      updated: "தொழில் வெற்றிகரமாக மேம்படுத்தப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    destroy:
+      deleted: "தொழில் வெற்றிகரமாக நீக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    index:
+      title: "தலைப்பு"
+      create_industry: "தொழில் உருவாக்க"
+      no_of_branches: "கிளைகள் எண்ணிக்கை"
+      manage: "நிர்வகிக்க"
+      edit: "தொகு"
+      delete: "நீக்க"
+    new:
+      placeholder_name: "Enter your Industry name..."
+      prompt_industry: "ஒரு தொழில் தேர்ந்தெடுக்கவும்"
+      prompt_rating_type: "ஒரு மதிப்பெண் வகை தேர்ந்தெடுக்கவும்"
+      create: "உருவாக்க"
+      industry: "தொழில்"
+      cancel: "ரத்து"
+      upload_image: "படத்தை பதிவேற்ற"
+      choose_file: "கோப்பை தேர்ந்தெடுக்கவும்"
+    show:
+      create_branch: "கிளை உருவாக்க"
+      no_of_departments: "துறைகள் எண்ணிக்கை"
+      head: "துறை தலைவர்"
+      manage: "நிர்வகிக்க"
+      edit: "தொகு"
+      delete: "நீக்க"
+    edit:
+      placeholder_name: "Enter your Industry name..."
+      edit: "தொகு"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+    delete:
+      are_you_sure: "நீங்கள் நீக்க வேண்டும் என்பதில் உறுதியாக உள்ளன"
+      cancel: "ரத்து"
+      delete: "நீக்க"
+  branches:
+    create:
+      created: "கிளை வெற்றிகரமாக உருவாக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    update:
+      updated: "கிளை வெற்றிகரமாக மேம்படுத்தப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    destroy:
+      deleted: "கிளை வெற்றிகரமாக நீக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    create_branch_head:
+      assign: "நியமி"
+      branch_head: "கிளை தலைவர்"
+      staff: "பணியாளர்"
+      not_yet_created: "இன்னும் உருவாகபடவில்லை"
+      head_created: "கிளை தலைவர் வெற்றிகரமாக உருவாக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+      cancel: "ரத்து"
+      prompt_staff: "ஒரு பணியாளர் தேர்ந்தெடுக்கவும்"
+    assign_image_head:
+      image_uploaded: "படம் வெற்றிகரமாக பதிவேற்றம் செய்யப்பட்டது"
+    index:
+      branches: "கிளைகள்"
+      branch:
+        one: "கிளை"
+        other: "கிளைகள்"
+      head_count:
+        one: "துறை தலைவர்"
+        other: "துறை தலைவர்கள்"
+      create_branch: "கிளை உருவாக்க"
+      show_details: "விவரங்களை காட்டு"
+      industry: "தொழில்"
+      not_yet_created: "இன்னும் உருவாகபடவில்லை"
+      go_to_industries: "தொழில்கள் செல்ல"
+      head: "தலைவர்"
+      manage: "நிர்வகிக்க"
+      create_department: "துறை உருவாக்க"
+      edit: "தொகு"
+      delete: "நீக்க"
+    new:
+      placeholder_name: "Enter Branch name..."
+      placeholder_address_line1: "Enter address line 1..."
+      placeholder_address_line2: "Enter address line 2..."
+      placeholder_landmark: "Enter landmark..."
+      placeholder_city: "Enter City name..."
+      placeholder_pincode: "Has to be fixed"
+      placeholder_state: "Enter State name..."
+      placeholder_country: "Enter Country name..."
+      placeholder_contact_number: "Has to be fixed"
+      placeholder_fax_number: "Has to be fixed"
+      placeholder_website: "Enter Website URL..."
+      prompt_industry: "ஒரு தொழில் தேர்ந்தெடுக்கவும்"
+      create: "உருவாக்க"
+      branch: "கிளை"
+      cancel: "ரத்து"
+    show:
+      head: "துறை தலைவர்"
+      edit: "தொகு"
+      cancel: "ரத்து"
+    list:
+      image: "புகைப்படம்"
+      head: "துறை தலைவர்"
+      assign: "நியமி"
+      edit: "தொகு"
+      delete: "நீக்க"
+      manage: "நிர்வகிக்க"
+    edit:
+      placeholder_name: "Enter Branch name..."
+      placeholder_address_line1: "Enter address line 1..."
+      placeholder_address_line2: "Enter address line 2..."
+      placeholder_landmark: "Enter landmark..."
+      placeholder_city: "Enter City name..."
+      placeholder_pincode: "Has to be fixed"
+      placeholder_state: "Enter State name..."
+      placeholder_country: "Enter Country name..."
+      placeholder_contact_number: "Has to be fixed"
+      placeholder_fax_number: "Has to be fixed"
+      placeholder_website: "Enter Website URL..."
+      edit: "தொகு"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+    delete:
+      are_you_sure: "நீங்கள் நீக்க வேண்டும் என்பதில் உறுதியாக உள்ளன"
+      cancel: "ரத்து"
+      delete: "நீக்க"
+    show_branch_head:
+      branch_head: "கிளை தலைவர்"
+      edit: "தொகு"
+      cancel: "ரத்து"
+    edit_branch_head:
+      placeholder_first_name: "Enter First Name..."
+      placeholder_last_name: "Enter Last Name..."
+      placeholder_user_name: "Enter User Name..."
+      placeholder_email: "Enter Email..."
+      placeholder_address_line1: "Enter address line 1..."
+      placeholder_address_line2: "Enter address line 2..."
+      placeholder_landmark: "Enter landmark..."
+      placeholder_city: "Enter City name..."
+      placeholder_pincode: "Has to be fixed"
+      placeholder_state: "Enter State name..."
+      placeholder_country: "Enter Country name..."
+      placeholder_contact_number: "07258956895..."
+      edit: "தொகு"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+      male: "ஆண்"
+      female: "பெண்"
+      other: "வேறு"
+      head_updated: "கிளை தலைவர் வெற்றிகரமாக மேம்படுத்தப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    add_image:
+      upload_image: "படத்தை பதிவேற்ற"
+      preview: "முற்காட்சி"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+  departments:
+    admin_branch:
+      departments: "துறைகள்"
+      create_department: "துறை உருவாக்க"
+      branch:
+        one: "கிளை"
+        other: "கிளைகள்"
+      department:
+        one: "துறை"
+        other: "துறைகள்"
+      head_count:
+        one: "துறை தலைவர்"
+        other: "துறை தலைவர்கள்"
+      show_details: "விவரங்களை காட்டு"
+      branch: "கிளை"
+      industry: "தொழில்"
+      not_yet_created: "இன்னும் உருவாகபடவில்லை"
+      go_to_branches: "கிளைகள் செல்ல"
+      go_to_industries: "தொழில்கள் செல்ல"
+    new:
+      placeholder_name: "Enter Department name..."
+      placeholder_contact_number: "Has to be fixed"
+      create: "உருவாக்க"
+      department: "துறை"
+      cancel: "ரத்து"
+      industry: "தொழில்"
+      branch: "கிளை"
+      prompt_industry: "ஒரு தொழில் தேர்ந்தெடுக்கவும்"
+      prompt_branch: "ஒரு கிளை தேர்ந்தெடுக்கவும்"
+    branch_drop_down:
+      prompt_branch: "ஒரு கிளை தேர்ந்தெடுக்கவும்"
+    edit:
+      placeholder_name: "Enter Department name..."
+      placeholder_contact_number: "Has to be fixed"
+      edit: "தொகு"
+      update: "மேம்படுத்து"
+      department: "துறை"
+      cancel: "ரத்து"
+      industry: "தொழில்"
+      branch: "கிளை"
+      prompt_industry: "ஒரு தொழில் தேர்ந்தெடுக்கவும்"
+      prompt_branch: "ஒரு கிளை தேர்ந்தெடுக்கவும்"
+    list_details:
+      branch: "கிளை"
+      head: "தலைவர்"
+      manage: "நிர்வகிக்க"
+      image: "புகைப்படம்"
+      assign: "நியமி"
+      edit: "தொகு"
+      delete: "நீக்க"
+      not_yet_created: "இன்னும் உருவாகபடவில்லை"
+      go_to_branches: "கிளைகள் செல்ல"
+    delete:
+      are_you_sure: "நீங்கள் நீக்க வேண்டும் என்பதில் உறுதியாக உள்ளன"
+      cancel: "ரத்து"
+      delete: "நீக்க"
+    department_head:
+      assign: "நியமி"
+      department_head: "துறை தலைவர்"
+      staff: "பணியாளர்"
+      not_yet_created: "இன்னும் உருவாகபடவில்லை"
+      cancel: "ரத்து"
+      prompt_staff: "ஒரு பணியாளர் தேர்ந்தெடுக்கவும்"
+    create:
+      created: "துறை வெற்றிகரமாக உருவாக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    update:
+      updated: "துறை வெற்றிகரமாக மேம்படுத்தப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    destroy:
+      deleted: "துறை வெற்றிகரமாக நீக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    create_department_head:
+      head_created: "துறை தலைவர் வெற்றிகரமாக உருவாக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    update_department_head:
+      head_updated: "துறை தலைவர் வெற்றிகரமாக மேம்படுத்தப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    assign_image_head:
+      image_uploaded: "படம் வெற்றிகரமாக பதிவேற்றம் செய்யப்பட்டது"
+    show:
+      department_head: "துறை தலைவர்"
+      cancel: "ரத்து"
+      edit: "தொகு"
+    edit_head:
+      placeholder_first_name: "Enter First Name..."
+      placeholder_last_name: "Enter Last Name..."
+      placeholder_user_name: "Enter User Name..."
+      placeholder_email: "Enter Email..."
+      placeholder_address_line1: "Enter address line 1..."
+      placeholder_address_line2: "Enter address line 2..."
+      placeholder_landmark: "Enter landmark..."
+      placeholder_city: "Enter City name..."
+      placeholder_pincode: "Has to be fixed"
+      placeholder_state: "Enter State name..."
+      placeholder_country: "Enter Country name..."
+      placeholder_contact_number: "07258956895..."
+      edit: "தொகு"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+      male: "ஆண்"
+      female: "பெண்"
+      other: "வேறு"
+    add_image:
+      upload_image: "படத்தை பதிவேற்ற"
+      preview: "முற்காட்சி"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+    department_index:
+      create_sub_department: "துணை துறை உருவாக்க"
+      head: "தலைவர்"
+      manage: "நிர்வகிக்க"
+      assign: "நியமி"
+      edit: "தொகு"
+      delete: "நீக்க"
+  sub_departments:
+    admin_sub_department_view:
+      sub_departments: "துணை துறைகள்"
+      create_sub_department: "துணை துறை உருவாக்க"
+      branch_count:
+        one: "கிளை"
+        other: "கிளைகள்"
+      department_count:
+        one: "துறை"
+        other: "துறைகள்"
+      sub_department_count:
+        one: "துணை துறை"
+        other: "துணை துறைகள்"
+      head_count:
+        one: "துணை துறை தலைவர்"
+        other: "துணை துறை தலைவர்கள்"
+      show_details: "விவரங்களை காட்டு"
+      industry: "தொழில்"
+      branch: "கிளை"
+      department: "துறை"
+      not_yet_created: "இன்னும் உருவாகபடவில்லை"
+      go_to_industries: "தொழில்கள் செல்ல"
+      go_to_branches: "கிளைகள் செல்ல"
+      go_to_departments: "துறைகள் செல்ல"
+    new:
+      placeholder_name: "Enter Sub deprtment Name..."
+      placeholder_contact_number: "Enter phone Number..."
+      create: "உருவாக்க"
+      sub_department: "துணை துறை"
+      industry: "தொழில்"
+      branch: "கிளை"
+      department: "துறை"
+      cancel: "ரத்து"
+      prompt_industry: "ஒரு தொழில் தேர்ந்தெடுக்கவும்"
+      prompt_branch: "ஒரு கிளை தேர்ந்தெடுக்கவும்"
+      prompt_department: "ஒரு துறை தேர்ந்தெடுக்கவும்"
+    branch_drop_down:
+      prompt_branch: "ஒரு கிளை தேர்ந்தெடுக்கவும்"
+    department_drop_down:
+      prompt_department: "ஒரு துறை தேர்ந்தெடுக்கவும்"
+    show_industry_detail:
+      branch: "கிளை"
+      department: "துறை"
+      sub_department: "துணை துறை"
+      head: "தலைவர்"
+      manage: "நிர்வகிக்க"
+      image: "புகைப்படம்"
+      assign: "நியமி"
+      edit: "தொகு"
+      delete: "நீக்க"
+    create_sub_department_head:
+      assign: "நியமி"
+      sub_department_head: "துணை துறை தலைவர்"
+      staff: "பணியாளர்"
+      not_yet_created: "இன்னும் உருவாகபடவில்லை"
+      head_created: "துணை துறை தலைவர் வெற்றிகரமாக உருவாக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+      cancel: "ரத்து"
+      prompt_staff: "ஒரு பணியாளர் தேர்ந்தெடுக்கவும்"
+    edit:
+      placeholder_name: "Enter Sub deprtment name..."
+      placeholder_contact_number: "Enter phone Number..."
+      edit: "தொகு"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+      industry: "தொழில்"
+      branch: "கிளை"
+      department: "துறை"
+      prompt_industry: "ஒரு தொழில் தேர்ந்தெடுக்கவும்"
+      prompt_branch: "ஒரு கிளை தேர்ந்தெடுக்கவும்"
+      prompt_department: "ஒரு துறை தேர்ந்தெடுக்கவும்"
+    delete:
+      are_you_sure: "நீங்கள் நீக்க வேண்டும் என்பதில் உறுதியாக உள்ளன"
+      cancel: "ரத்து"
+      delete: "நீக்க"
+    show_sub_department_head:
+      sub_department_head: "துணை துறை தலைவர்"
+      edit: "தொகு"
+      cancel: "ரத்து"
+    edit_sub_department_head:
+      edit: "தொகு"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+      male: "ஆண்"
+      female: "பெண்"
+      other: "வேறு"
+      head_updated: "துணை துறை தலைவர் வெற்றிகரமாக மேம்படுத்தப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    add_image:
+      upload_image: "படத்தை பதிவேற்ற"
+      preview: "முற்காட்சி"
+      update: "மேம்படுத்து"
+      cancel: "ரத்து"
+    create:
+      created: "துணை துறை வெற்றிகரமாக உருவாக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    update:
+      updated: "துணை துறை வெற்றிகரமாக மேம்படுத்தப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    destroy:
+      deleted: "துணை துறை வெற்றிகரமாக நீக்கப்பட்டது!"
+      error: "ஏதோ தவறு நடந்துவிட்டது!"
+    assign_image_head:
+      image_uploaded: "படம் வெற்றிகரமாக பதிவேற்றம் செய்யப்பட்டது"
+    branch_sub_department_view:
+      sub_departments: "துணை துறைகள்"
+      create_sub_department: "துணை துறை உருவாக்க"
+      department: "துறை"
+      sub_department: "துணை துறை"
+      assign: "நியமி"
+      edit: "தொகு"
+      delete: "நீக்க"
+    department_sub_department_view:
+      create_sub_department: "துணை துறை உருவாக்க"
+      sub_department: "துணை துறை"
+      assign: "நியமி"
+      edit: "தொகு"
+      delete: "நீக்க"
+      head: "தலைவர்"
+      manage: "நிர்வகிக்க"
+  menus:
+    branch_drop_down:
+      prompt_branch: "ஒரு கிளை தேர்ந்தெடுக்கவும்"
+    department_drop_down:
+      prompt_department: "ஒரு துறை தேர்ந்தெடுக்கவும்"
+  activerecord:
+    attributes:
+      user:
+        first_name: "முதல் பெயர்"
+        last_name: "குடும்ப பெயர்"
+        user_name: "பயனர்பெயர்"
+        email: "மின்னஞ்சல்"
+        password: "கடவுச்சொல்"
+      industry:
+        name: "பெயர்"
+        type: "வகை"
+        rating_type: "மதிப்பெண் வகை"
+      personal_detail:
+        name: "பெயர்"
+        gender: "பாலினம்"
+        address_line1: "முகவரி வரி 1"
+        address_line2: "முகவரி வரி 2"
+        landmark: "குறிப்பிடத்தக்க தோற்றம்"
+        city: "நகரம்"
+        pincode: "அஞ்சல் குறியீடு"
+        state: "மாநிலம்"
+        country: "நாடு"
+        contact_number: "தொடர்பு எண்"
+        fax_number: "தொலைநகல் எண்"
+        website: "வலைத்தளம்"
+      branch:
+        industry: "தொழில்"
+    errors:
+      messages:
+        record_invalid: 'சரிபார்த்தல் தோல்வியுற்றது: %{errors}'
+        restrict_dependent_destroy:
+          has_one: பதிவை நீக்க முடியாது, ஏனெனில் ஒரு சார்பு %{record} உள்ளது
+          has_many: பதிவை நீக்க முடியாது, ஏனெனில் சார்புகள் %{record} உள்ளது
+  date:
+    abbr_day_names:
+    - ஞாயிறு
+    - திங்கள்
+    - செவ்வாய்
+    - புதன்
+    - வியாழன்
+    - வெள்ளி
+    - சனி
+    abbr_month_names:
+    -
+    - ஜன
+    - பிப்
+    - மார்ச்
+    - ஏப்
+    - மே
+    - ஜூன்
+    - ஜூலை
+    - ஆக
+    - செப்
+    - அக்
+    - நவ
+    - டிச
+    day_names:
+    - ஞாயிற்றுக்கிழமை
+    - திங்கட்கிழமை
+    - செவ்வாய்க்கிழமை
+    - புதன்கிழமை
+    - வியாழக்கிழமை
+    - வெள்ளிக்கிழமை
+    - சனிக்கிழமை
+    formats:
+      default: "%d-%m-%Y"
+      long: "%B %d, %Y"
+      short: "%b %d"
+    month_names:
+    -
+    - ஜனவரி
+    - பிப்ரவரி
+    - மார்ச்
+    - ஏப்ரல்
+    - மே
+    - ஜூன்
+    - ஜூலை
+    - ஆகஸ்ட்
+    - செப்டம்பர்
+    - அக்டோபர்
+    - நவம்பர்
+    - டிசம்பர்
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      about_x_hours:
+        one: சுமார் 1 மணி நேரம்
+        other: சுமார் %{count} மணி
+      about_x_months:
+        one: சுமார் 1 மாதம்
+        other: சுமார் %{count} மாதங்களுக்கு
+      about_x_years:
+        one: சுமார் 1  ஆண்டு
+        other: சுமார் %{count}  ஆண்டுகள்
+      almost_x_years:
+        one: கிட்டத்தட்ட 1  ஆண்டு
+        other: கிட்டத்தட்ட %{count}  ஆண்டுகள்
+      half_a_minute: அரை நிமிடம்
+      less_than_x_minutes:
+        one: ஒரு நிமிடத்திற்கும் குறைவாக
+        other: குறைவாக %{count} நிமிடங்கள்
+      less_than_x_seconds:
+        one: ஒரு வினாடிக்கும் குறைவாக
+        other: குறைவாக %{count} வினாடிகள்
+      over_x_years:
+        one: ஒரு  ஆண்டிற்கு மேலாக
+        other: "%{count}  ஆண்டிற்கு மேலாக"
+      x_days:
+        one: 1 நாள்
+        other: "%{count} நாட்கள்"
+      x_minutes:
+        one: 1 நிமிடம்
+        other: "%{count} நிமிடங்கள்"
+      x_months:
+        one: 1 மாதம்
+        other: "%{count} மாதங்கள்"
+      x_seconds:
+        one: 1 வினாடி
+        other: "%{count} விநாடிகள்"
+    prompts:
+      day: நாள்
+      hour: மணி
+      minute: நிமிடம்
+      month: மாதம்
+      second: விநாடிகள்
+      year: ஆண்டு
+  errors:
+    format: "%{attribute} %{message}"
+    messages:
+      accepted: ஏற்கப்பட வேண்டும்
+      blank: காலியாக இருக்க முடியாது
+      present: காலியாக இருக்க வேண்டும்
+      confirmation: "%{attribute}  பொருந்தவில்லை"
+      empty: வெறுமையாக இருக்க முடியாது
+      equal_to: "%{count} சமமாக இருக்க வேண்டும்"
+      even: இரட்டைப்படை இருக்க வேண்டும்
+      exclusion: ஒதுக்கப்பட்டுள்ளது
+      greater_than: "%{count} ஐ விட அதிகமாக இருக்க வேண்டும்"
+      greater_than_or_equal_to: "%{count}  அதிகமாக அல்லது சமமாக இருக்க வேண்டும்"
+      inclusion: பட்டியலில் சேர்க்கப்படவில்லை
+      invalid: செல்லுபடியானதல்ல
+      less_than: "%{count} ஐ விட குறைவாக இருக்க வேண்டும்"
+      less_than_or_equal_to: "%{count} குறைவாக அல்லது சமமாக இருக்க வேண்டும்"
+      not_a_number: ஒரு எண் அல்ல
+      not_an_integer: ஒரு முழு எண்ணாக இருக்க வேண்டும்
+      odd: ஒற்றைப்படை இருக்க வேண்டும்
+      taken: ஏற்கனவே எடுத்துகொள்ள பட்டது
+      too_long:
+        one: மிக நீளமாக உள்ளது (அதிகபட்சமாக ஒரு எழுத்து)
+        other: மிக நீளமாக உள்ளது (அதிகபட்சமாக %{count} எழுத்துக்கள்)
+      too_short:
+        one: மிகவும் குறுகியதாக உள்ளது (குறைந்தபட்சம் ஒரு எழுத்து)
+        other: மிகவும் குறுகியதாக உள்ளது (குறைந்தபட்சம் %{count} எழுத்துக்கள்)
+      wrong_length:
+        one: தவறான நீளம் (1 எழுத்து இருக்கவேண்டும்)
+        other: தவறான நீளம் (%{count} எழுத்துக்கள் இருக்கவேண்டும்)
+      other_than: "%{count} தவிர வேறு இருக்க வேண்டும்"
+    template:
+      body: 'பின்வரும் புலங்களில் பிரச்சினைகள் உள்ளது:'
+      header:
+        one: 1 பிழை இந்த %{model} ஐ சேமிக்க தடையாக உள்ளது
+        other: "%{count} பிழைகள் இந்த %{model} ஐ சேமிக்க தடையாக உள்ளது"
+  helpers:
+    placeholder:
+      industry:
+        name: "பெயர்"
+    select:
+      prompt: தேர்வு செய்க
+    submit:
+      create: "%{model} ஐ  உருவாக்கு"
+      submit: "%{model} ஐ சேமி"
+      update: "%{model} ஐ புதுப்பி"
+  number:
+    currency:
+      format:
+        delimiter: ","
+        format: "%u%n"
+        precision: 2
+        separator: "."
+        significant: false
+        strip_insignificant_zeros: false
+        unit: "₹"
+    format:
+      delimiter: ","
+      precision: 3
+      separator: "."
+      significant: false
+      strip_insignificant_zeros: false
+    human:
+      decimal_units:
+        format: "%n %u"
+        units:
+          billion: பில்லியன்
+          million: மில்லியன்
+          quadrillion: குவாட்ரில்லியன்
+          thousand: ஆயிரம்
+          trillion: டிரில்லியன்
+          unit: ''
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: Byte
+            other: Bytes
+          gb: GB
+          kb: KB
+          mb: MB
+          tb: TB
+    percentage:
+      format:
+        delimiter: ''
+        format: "%n%"
+    precision:
+      format:
+        delimiter: ''
+  support:
+    array:
+      last_word_connector: ", மற்றும் "
+      two_words_connector: " மற்றும் "
+      words_connector: ", "
+  time:
+    am: மு.ப.
+    formats:
+      default: "%a, %d %b %Y %H:%M:%S %z"
+      long: "%B %d, %Y %H:%M"
+      short: "%d %b %H:%M"
+    pm: பி.ப.

@@ -1,0 +1,264 @@
+ <div class="modal fade" id="modal-edit-image" aria-hidden="true"></div>
+ <div class="modal fade" id="modal-show-image" aria-hidden="true"></div>
+ <div class="modal fade" id="modal-edit_page" aria-hidden="true"></div>
+ <div class="modal fade" id="modal-delete" aria-hidden="true"></div>  
+ <div class="modal fade" id="modal-responsive_approve" aria-hidden="true"></div>
+<div class="row">
+  <div class="col-lg-12 portlets">
+    <div class="panel">
+      <div class="row">
+        <div class="panel-header panel-controls">
+          <h2><strong>Menu</strong> List</h2>
+           <%= link_to "Create Menu", new_menu_path,  class: "btn btn-embossed btn-primary m-r-20 pull-right", 'data-no-turbolink' => true%>
+            <div class="modal fade" id="modal-edit-show" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-responsive" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-delete" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-show" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="panel-content">
+        <div class="filter-left">
+          <div class="row plans pricing-table plan-separated num-plan-3 ui-sortable filtering_div">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="field-1" class="control-label">Industry</label>
+                  <%= select_tag "industry_id", options_for_select(@industries,@industry_id),prompt: "Select an Industry", class: "form-control",required: true,onchange: "industry_change(this)", :disabled => current_user.user_type != ADMIN%> 
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="field-2" class="control-label">Branch</label>
+                  <div id="branch_drop_down">
+                    <%= select_tag "branch_id", options_for_select(@branches,@branch_id),prompt: "Select a Branch", class: "form-control",required: true, :disabled => [ADMIN,BRANCH_HEAD,DEPARTMENT_HEAD,SUB_DEPARTMENT_HEAD].include?(current_user.user_type) %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="field-1" class="control-label">Department</label>
+                  <div id="department_drop_down">
+                    <%= select_tag "department_id", options_for_select(@departments,@department_id),prompt: "Select a Department", class: "form-control",required: true, :disabled => [ADMIN,DEPARTMENT_HEAD,SUB_DEPARTMENT_HEAD].include?(current_user.user_type)  %>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <label for="field-1" class="control-label">Category</label>
+                  <div id="categories_drop_down">
+                    <%= select_tag "category_id", options_for_select(@categories),prompt: "Select a Category", class: "form-control", required: true%>
+                  </div>
+                </div>
+              </div>                            
+            </div>
+          </div> 
+          <div calss="row">         
+            <div class="col-md-6">
+              <button name="button" type="button" class="btn btn-embossed btn-primary m-r-20 pull-right go" disabled= true id="go_filter">Go</button>
+            </div>
+            <div class="col-md-6">
+              <button name="button" type="button" class="btn btn-embossed btn-primary m-r-20 pull-left reset">Reset</button>
+            </div>            
+          </div>
+          <div class="row plans pricing-table plan-separated num-plan-3 ui-sortable">
+            <div class="col-sm-12">
+              <div class="plans clearfix previous_div">
+              <table class="table table-dynamic table-tools">
+                <thead>
+                  <tr>
+                    <th>Industry</th>
+                    <th>Branch</th>
+                    <th>Department</th>
+                    <%if action_show(current_user) %>
+                    <th>Action</th>
+                    <%end%>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% @menus.each do |m| %>
+                    <tr>
+                      <td><%= m.department.branch.industry.name %></td>
+                      <td><%= m.department.branch.personal_detail.name%></td>
+                      <td><%= m.department.personal_detail.name %></td>
+                      <%if action_show(current_user) %>
+                      <td>
+                        <!--%= link_to "Show", "#", "data-toggle" => 'modal', id: m.id, onclick: "get_menu(this)"%-->
+                        <%= link_to "Edit", edit_menu_path(m[:id]), 'data-no-turbolink' => true%> 
+                        | <%= link_to "Delete", "#", "data-toggle" => 'modal', id: m.id, onclick: "delete_menu(this)"%>
+                      </td>
+                      <%end%>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>            
+              </div>
+              <div class="plans clearfix listing_div">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+$(document).ready(function(){
+
+  $(document).on("change","#industry_id",function(){
+    if($("#industry_id").val() == ""){
+      $('#category_id').val("")
+      $('#branch_id').val("")
+      $('#department_id').val("")
+      $("#branch_id,#department_id,#category_id").attr('disabled',true)        
+      $('#go_filter').attr('disabled',true) 
+    }
+  });
+
+  $(document).on("change","#branch_id",function(){  
+    if($("#branch_id").val() == ""){
+      $('#category_id').val("")
+      $("#department_id,#category_id").attr('disabled',true)        
+      $('#go_filter').attr('disabled',true) 
+    }
+  });
+
+
+  $(document).on("click",".go",function(){
+    var category_id=$("#category_id :selected").val();
+    $.ajax({
+        async : true,
+        type : 'GET',
+        url : "/menus/get_items", 
+        data: {'id': category_id},   
+        success : function(data) {
+          $(".previous_div").hide();
+          $('.listing_div').show();
+          $('.listing_div').html(data);       
+        },
+        error : function(data) {
+          alert("Error occured. Please try again!");
+        }
+      });
+    
+  });
+  $(document).on("click",".reset",function(){
+    $("#industry_id").get(0).selectedIndex = 0;
+    $("#branch_id").get(0).selectedIndex = 0;
+    $("#department_id").get(0).selectedIndex = 0;
+    $("#category_id").get(0).selectedIndex = 0;
+    $(".previous_div").show();
+    $('.listing_div').hide();   
+    $("#branch_id,#department_id,#category_id").attr('disabled',true)       
+    $('#go_filter').attr('disabled',true)     
+  });
+
+$(document).on("change","#department_id",function(){
+  
+  if($("#department_id").val() == ""){
+    $('#category_id').val("")
+    $("#category_id").attr('disabled',true)        
+    $('#go_filter').attr('disabled',true) 
+  }
+
+if($("#department_id :selected").val().length>0)
+{
+    if(getCurentFileName() == 'menus')
+  {
+    var department_id=$("#department_id :selected").val();
+    $.ajax({
+        async : true,
+        type : 'GET',
+        url : "/menus/get_categories", 
+        data: {'id': department_id},   
+        success : function(data) {
+          $(".categories").show();
+          $('#categories_drop_down').html(data);       
+        },
+        error : function(data) {
+          alert("Error occured. Please try again!");
+        }
+      });
+  }
+  if(getCurentFileName() == 'new')
+  {
+    var department_id=$("#department_id :selected").val();
+    $.ajax({
+        async : true,
+        type : 'GET',
+        url : "/menus/get_menus", 
+        data: {'id': department_id},   
+        success : function(json, status, xhr) {
+          var ct = xhr.getResponseHeader("content-type") || "";
+                if (ct.indexOf('html') > -1) {
+              $(".add_button").hide();
+              $('.show_div').show();       
+              $('.show_div').html(json);       
+              }
+                if (ct.indexOf('json') > -1) {
+                  $('.show_div').empty().hide();       
+                    $(".add_button").show();
+                    }  
+        },
+        error : function(data) {
+          alert("Error occured. Please try again!");
+        }
+      }); 
+  }
+}
+else
+{
+  $(".add_button").hide();
+  $('.show_div').empty().hide();
+}
+
+})
+  $(document).on("change","#category_id",function(){
+    if($('#category_id').val() == ""){
+      $('#go_filter').attr('disabled',true) 
+    }else{
+      $('#go_filter').attr('disabled',false) 
+    }
+
+  });
+
+ 
+$(document).on ("click",".show_all_preview",function(){
+     var itemId = $(this).attr('id');
+        $.ajax({
+          async : true,
+          type : 'GET',
+          url : "/menus/show_images",
+          data : {'id' : itemId},    
+          success : function(data) {
+            $('#modal-show-image').html(data);
+            $('#modal-show-image').modal('show');
+          },
+          error : function(data) {
+            alert("Error occured. Please try again!");
+          }
+        });
+   });
+ 
+  
+       
+
+});
+
+
+
+ function getCurentFileName(){
+    var pagePathName= window.location.pathname;
+    return pagePathName.substring(pagePathName.lastIndexOf("/") + 1);
+}
+  
+
+
+
+
+   //    $('.slider1') .cycle({
+   //        fx: 'fade', // here change effect to blindX, blindY, blindZ etc 
+   //        speed: 'slow', 
+   //        timeout: 2000 
+   //    });  
+ 
+</script>

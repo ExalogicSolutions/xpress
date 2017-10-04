@@ -1,0 +1,120 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><strong><%= @branch.personal_detail.name%></strong></h4>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= Branch.human_attribute_name(:industry)%>
+            </label>
+            <%= @branch.industry.name%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label"><%= t('.head')%></label>
+            <%= @branch.user ? @branch.user.personal_detail.name : "Not Assigned"%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line1)%>
+            </label>
+            <%= @branch.personal_detail.address_line1%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line2)%>
+            </label>
+            <%= @branch.personal_detail.address_line2%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:landmark)%>
+            </label>
+            <%= @branch.personal_detail.landmark%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:city)%>
+            </label>
+            <%= @branch.personal_detail.city%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:pincode)%>
+            </label>
+            <%= @branch.personal_detail.pincode%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:state)%>
+            </label>
+            <%= @branch.personal_detail.state%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:country)%>
+            </label>
+            <%= @branch.personal_detail.country%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:contact_number)%>
+            </label>
+            <%= @branch.personal_detail.contact_number%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:fax_number)%>
+            </label>
+            <%= @branch.personal_detail.fax_number%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:website)%>
+            </label>
+            <%= @branch.personal_detail.website%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= link_to t('.edit'), "#", "data-toggle" => 'modal', class: "btn btn-primary", id: @branch.id, style: "margin:0px;", onclick: "edit_branch(this)"%>
+      </div>
+  </div>
+</div>

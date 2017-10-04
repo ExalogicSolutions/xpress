@@ -1,0 +1,62 @@
+ <div class="modal fade" id="modal-edit-image" aria-hidden="true"></div>
+<%if current_user.user_type == ADMIN%>
+  <%=render partial: "admin_sub_department_view"%>
+<%elsif current_user.user_type == BRANCH_HEAD %>
+<%=render partial: "branch_sub_department_view"%>
+<%elsif current_user.user_type == SUB_DEPARTMENT_HEAD%>
+  <%=render partial: "sub_dept_sub_department_view"%>
+<%elsif current_user.user_type == DEPARTMENT_HEAD%>
+<%=render partial: "department_sub_department_view"%>
+<%end%>
+<script type="text/javascript">
+$(document).on ("click",".click_link",function(){
+     var itemId = $(this).attr('id');
+        $.ajax({
+          async : true,
+          type : 'GET',
+          url : "/sub_departments/show_images",
+          data : {'id' : itemId},    
+          success : function(data) {
+            $('#modal-edit-image').html(data);
+            $('#modal-edit-image').modal('show');
+          },
+          error : function(data) {
+            alert("Error occured. Please try again!");
+          }
+        });
+   });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

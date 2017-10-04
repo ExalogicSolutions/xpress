@@ -1,0 +1,17 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header bg-primary">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><strong><%= t('.reset_head')%></strong></h4>
+    </div>
+    <div class="modal-body">
+      <div class="p-t-20 m-b-20 p-l-40">
+      <p><%= t '.are_you_sure'%> <strong><%= @user.personal_detail.name%></strong> <%= t '.from_position'%>?</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= link_to t('.reset'), user_reset_path(:id => @user),  class: "btn btn-primary btn-embossed","data-no-turbolink" => true%>
+    </div>
+  </div>
+</div>

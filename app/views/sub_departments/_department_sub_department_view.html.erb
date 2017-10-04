@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-lg-12 portlets">
+    <div class="panel">
+      <div class="panel-header panel-controls">
+        <%= link_to t('.create_sub_department'), "#", class: "btn btn-embossed btn-primary m-r-20", "data-toggle" => 'modal',onclick: "new_sub_department_create()"%>
+          <div class="modal fade" id="modal-show" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-new" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-edit" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-show-head" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-new-head" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-edit-head" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-delete" aria-hidden="true"></div>            
+      </div>
+          <div class="panel-content">
+        <div class="filter-left">
+          <table class="table table-dynamic table-tools">
+            <thead>
+              <tr>
+                <th><%= t('.sub_department')%></th>
+                <th><%= t('.head')%></th>
+                <th><%= t('.manage')%></th>
+              </tr>
+            </thead>
+            <tbody>
+              <%@department.sub_departments.each do |s|%>
+                <tr>
+                  <td><%=s.personal_detail.name%></td>
+                  <td>
+                    <%= s.user ? (link_to s.user.personal_detail.name , "#", "data-toggle" => 'modal', id: s.user.id,onclick: "show_sub_department_head(this)") : (link_to t('.assign'), "#", "data-toggle" => 'modal', id: s.id,onclick: "create_sub_department_head(this)")%>
+                  </td>
+                  <td>
+                    <%= link_to t('.edit'), "#", "data-toggle" => 'modal', id: s.id,onclick: "edit_sub_department(this)"%> | <%= link_to t('.delete'), "#", "data-toggle" => 'modal', id: s.id,onclick: "delete_sub_department(this)"%>
+                  </td>
+                </tr>
+              <%end%>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

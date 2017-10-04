@@ -1,0 +1,43 @@
+<div class="modal-dialog modal-lg" style="background-color: transparent;">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title">Menu Preview</strong></h4>
+    </div>
+   
+    <div class="modal-body">
+   <div class="panel panel-transparent">
+                <div class="panel-content">
+                  <div class="portfolioContainer grid">
+                  <%  @item.each do |i|%>
+                    <% i.avatars.each do |a|%>
+                   <!--  <figure class="effect-lily magnific" data-mfp-src= '< %= a %>'> -->
+                    <figure class="effect-lily magnific" data-mfp-src= '<%= a %>'>
+                    <!--   <img src="< %= image_tag(+i[0].avatar)+ %>" alt="img01"/> -->
+                    <%= image_tag a%>
+                      <figcaption>
+                        <h1> <span><%= i.name if i.name%></span></h1>
+                        <h2><b><%= i.description if i.description%></b></h2>
+                         <h2><b>Rs<%= i.price if i.price%></b></h2>
+                        <a href="#">View more</a>
+                        <!-- <a href="#">View more</a>
+                         <i class="fa fa-heart"></i>
+                        <i class="fa fa-eye"></i>
+                        <i class="fa fa-paperclip"></i> -->
+                      </figcaption>
+                    </figure>
+                    <%end%>
+                    <%end%>
+                  </div>
+                </div>
+</div>
+  
+   
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal">Cancel</button>
+    
+      </div>
+
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="modal-dialog modal-lg">
+<% if @tree_sub_depart.present? %>
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title">
+       <!-- <strong>< %= Industry.find(@tree_sub_depart.first['branch']['id']).name%></strong> -->
+       <strong><%= @industry_name %></strong>
+      </h4>
+    </div>
+    <div class="modal-body ">
+      <% @tree_sub_depart.each do |k|%>
+        <div class="row">
+           <label><%= t('.branch')%>: <%= k['branch']['name']%></label>
+         <table class="table table-dynamic table-tools">
+            <thead>
+              <tr>
+                <th><%= PersonalDetail.human_attribute_name(:name)%></th>
+                <th><%= PersonalDetail.human_attribute_name(:contact_number)%></th>
+                <th colspan="2" style="text-align: center;"><%= t('.head')%></th>
+                <th><%= t('.manage')%></th>
+              </tr>
+            </thead>
+            <tbody>
+             <% k['branch']['department'].each do |k|%>
+                <tr>
+                  <td><%= k['name']%></td>
+                   <td><%= k['department_contact']%></td>                   
+                   <td id="<%= k['id']%>"><% if k['department_user'].present? %>
+                    <a href="" data-toggle='modal' class="" onclick="return show_head(this)"> <%= (k['department_user'].first_name+ " " + k['department_user'].last_name)  %></a>                    
+                    <%else%>
+                    <a href="" data-toggle='modal' class="" onclick="return assign_head(this)"> <%= t('.assign')%></a>
+                    <%end%>
+                    </td>
+                    <td>
+                      <% if k['department_user'].present? %>
+                        <a href="" data-toggle='modal' class="image_add", id= "<%= k['id']%>" ><%= t('.image')%></a>
+                      <%else%>
+                        -
+                      <%end%>
+                    </td>
+                   <td id="<%= k['id']%>">
+                   <a href="" data-toggle='modal' class="" onclick ="return edit_department(this)"> <%= t('.edit')%></a> |
+                   <a href="" data-toggle='modal' class="" onclick="return delete_department(this)"> <%= t('.delete')%></a>
+                  </td>                  
+                </tr>
+             <%end%>
+            </tbody>
+          </table>
+      </div>
+     <%end%>      
+    </div>
+  </div>
+  <%else%>
+      <div class="row">
+      <div class="col-md-6 col-md-offset-3 ">
+        <div class="panel bg-dark">
+                      <div class="panel-header">
+                          <h3 style="text-align: center;"><strong><%= t('.branch')%></strong> <%= t('.not_yet_created')%>!</h3>
+                      </div>
+                      <div class="panel-content" style="text-align:center">
+                        <%= link_to t('.go_to_branches'), branches_path, class: "btn btn-embossed btn-primary m-r-20", 'data-no-turbolink' => true%>
+                      </div>
+                  </div>
+              </div>
+             </div>
+      <%end%>
+</div>
+
+<script type="text/javascript">
+$('.image_add').click(function(){
+  var departmentId = $(this).attr('id')
+   $.ajax({
+    async : true,
+    type : 'GET',
+    url : "/departments/assign_department_head",
+    data: {"id": departmentId,
+           "image" : true },
+   
+    success : function(data) {
+      $('#modal-assign').html(data);
+      $('#modal-assign').modal('show');
+    },
+    error : function(data) {
+      alert("Error occured. Please try again!");
+    }
+  });
+});
+</script>

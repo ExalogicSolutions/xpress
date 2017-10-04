@@ -1,0 +1,204 @@
+<div class="page-app page-profil row">
+  <div class="col-lg-12 col-md-9">
+    <div class="row profil-header" >
+      <div class="col-lg-9 col-md-12">
+        <div class="row">
+          <div class="col-xs-4 profil-img">
+            <%if @user.avatar.present?%>
+              <%= image_tag @user.avatar.pro_pic.url, title: (@user.personal_detail ? @user.personal_detail.name : @user.user_name)%>   
+            <%else%>
+              <img src="/assets/global/default_user1.png" alt="profil">
+            <%end%>
+          </div>
+            <div class="col-xs-8 p-l-0 col-map">
+              <div class="panel no-bd bd-3 panel-stat" style="margin-left:7px;">
+                <div class="panel-header">
+                  <h3><i class="icon-graph"></i> <strong>Feedback</strong> Statistic</h3>
+                  <div class="control-btn">
+                    <a href="#" class="panel-reload hidden"><i class="icon-reload"></i></a>
+                  </div>
+                </div>
+                <div class="panel-body p-15 p-b-0">
+                  <div class="row m-b-10">
+                    <div class="col-xs-12">
+                      <div class="col-xs-4">
+                        <div class="live-tile" data-mode="carousel" data-direction="vertical" data-delay="3500" data-height="60">
+                          <div>
+                            <small class="stat-title">Feedbacks today</small>
+                            <%@feedback_count=FeedbackAnswer.find_by_sql("select * from feedback_answers where CAST(CURRENT_TIMESTAMP AS DATE) - CAST(created_at AS DATE)=0")%>
+                              <h1 class="f-40 m-0 w-300"><%=@feedback_count.count > 0 ? @feedback_count.count : 0%> </h1>
+                          </div>
+                          <div>
+                            <small class="stat-title">Feedbacks yesterday</small>
+                            <%@feedback_count=FeedbackAnswer.find_by_sql("select * from feedback_answers where CAST(CURRENT_TIMESTAMP AS DATE) - CAST(created_at AS DATE)=1")%>
+                            <h1 class="f-40 m-0 w-300"><%=@feedback_count.count > 0 ? @feedback_count.count : 0%></h1>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-xs-4">
+                        
+                        <div class="live-tile" data-mode="carousel" data-direction="vertical" data-delay="3500" data-height="60">
+                          <div>
+                            <small class="stat-title"><i class="fa fa-thumbs-up fa-2x"></i> Feedbacks</small>
+                            <h1 class="f-40 m-0 w-300">4</h1>
+                          </div>
+                          <div> 
+                            <small class="stat-title"><i class="fa fa-thumbs-down fa-2x"></i> Feedbacks</small>                          
+                            <h1 class="f-40 m-0 w-300">3</h1>
+                          </div>
+                        </div>
+                      </div>
+                     
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row header-name">
+          <div class="col-xs-9">
+            <div class="name">
+              <%= @user.personal_detail ? @user.personal_detail.name : @user.user_name%>
+            </div>
+            <div class="profil-info">
+              <i class="icon icons-chat-messages-13"></i><%= @user.email%>
+            </div>
+            <% if @user.personal_detail.present?%>
+              <div class="profil-info">
+                <i class="icon-call-end"></i><%= @user.personal_detail.contact_number%>
+              </div>
+            <%end%>
+          </div>
+          <div class="col-xs-3 moments">
+            <div class="num-moments c-primary countup" data-from="0" data-to="137" data-delay="2000" data-suffix="+" data-duration="6"><%= @user.fetch_user_type(@user)%></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-12 user-friends">
+      <%    
+      if @user_lists.count <= 3
+      %>
+      <div class="row m-r-0">
+        <%@user_lists.each do |user|%>
+          <div class="col-sm-4">
+            <%=image_tag user.avatar.thumb.url,title: (user.personal_detail ? user.personal_detail.name : ""),class: "img-responsive"%>    
+          </div>          
+        <%end%>
+      </div>      
+      <%else%>
+        <%count=0%>
+        <% @user_lists.limit(8).each_slice(3) do |slice|%>
+          <div class="row m-r-0">
+            <% slice.each do |user| %>
+              <div class="col-sm-4 image" id="<%=user.id%>" style="position: relative;">
+                <div class="text hide" id="text_<%=user.id%>" style="font-weight: bold; z-index: 1;position: absolute;top: 50%; color: #FFFFFF;">
+                  <%=user.personal_detail ? user.personal_detail.name : ""%>
+                </div>
+                <%=image_tag user.avatar.url,title: (user.personal_detail ? user.personal_detail.name : ""),class: "img-responsive" %>
+              </div>
+              <%count=count+1%>
+            <% end %>
+            <%if count >= 8%>
+              <a href="<%=users_path%>" class="col-sm-4 bg-primary more-friends">
+                <span class="num-friends"><%=@user_lists.count - 8%></span>
+                <p>Staffs</p>
+              </a>
+            <%end%>
+          </div>
+        <% end %>      
+      <%end%>      
+      </div>
+    </div>
+    <div class="profil-content">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="row">
+            <div class="col-sm-7">
+              <div class="item item-comment">
+                <div class="user">
+                  <img alt="Profile Image" src="/assets/global/profil_page/friend2.jpg">
+                  <h5 class="name">Anupam Mohapatra</h5>
+                  <div class="comment">I like the way this foiod was served and awesome Test.</div>
+                </div>
+                <div class="widget-slider-img">
+                  <div class="slick" data-fade="true" data-dots="false">
+                    <div class="slide opacity-70">
+                      <img src="/assets/global/gallery/4.jpg" alt="1">
+                      <div class="text">
+                        <p>Sun shining</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>            
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+              <div class="item hover-effect">
+                <div class="user">
+                  <img src="/assets/global/profil_page/pics1.jpg" class="img-responsive hover-img" alt="">
+                  <img src="/assets/global/profil_page/friend7.jpg" class="img-user" alt="picture 2">
+                  <div class="info">
+                    <div class="f-24">Mark Addams</div>
+                    <div>
+                      <div class="location"><i class="icon-pointer"></i> London, UK</div>
+                      <div class="date"><i class="icon-clock"></i> 49min ago</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="comment">
+                Perfection is not attainable, but if we chase perfection we can catch excellence.
+                </div>
+              </div>
+            </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+              <div class="item hover-effect">
+                <div class="user">
+                  <img src="/assets/global/profil_page/pics1.jpg" class="img-responsive hover-img" alt="">
+                  <img src="/assets/global/profil_page/friend7.jpg" class="img-user" alt="picture 2">
+                  <div class="info">
+                    <div class="f-24">Mark Addams</div>
+                    <div>
+                      <div class="location"><i class="icon-pointer"></i> London, UK</div>
+                      <div class="date"><i class="icon-clock"></i> 49min ago</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="comment">
+                Perfection is not attainable, but if we chase perfection we can catch excellence.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+$(document).ready(function () {
+    $('.image').hover(function () {
+        $("#"+$(this).attr("id")).stop();
+        $('#text_'+$(this).attr("id")).removeClass('hide');
+    }, function () {
+        $("#"+$(this).attr("id")).stop();
+        $('#text_'+$(this).attr("id")).addClass('hide');
+    });
+});
+</script>

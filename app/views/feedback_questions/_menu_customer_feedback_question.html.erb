@@ -1,0 +1,47 @@
+
+<label class="switch switch-green">
+
+    <%= check_box_tag 'tos', 'yes', fbq.fq_enabled,class: "switch-input abc " ,:id => fbq.id, :onchange => "menu_fbq_list(this)"%>
+        <span class="switch-label" data-on="On" data-off="Off"></span>
+            <span class="switch-handle"></span>
+</label>
+<%= hidden_field_tag :error ,@error%>
+<script type="text/javascript">
+
+
+function menu_fbq_list(fbq){
+
+   id = fbq.id	 
+   if(fbq.checked){
+      list = 'create'
+   }else{
+      list = 'delete'
+
+   }
+   console.log(fbq)
+   console.log(list)
+    $.ajax({
+        async : true,
+        type : 'GET',
+        url : "/feedback_questions/customer_feedback_question",
+        data: {
+            'id' : id,  
+            'list' : list,
+            'mod' : 'menu'
+        },
+        success : function(data) {
+          $('#item_customer_list_'+id).html(data)
+
+          $('#error_message').html($('#error').val())
+        },
+        error : function(data) {
+          alert("Error occured. Please try again!");
+        }
+    });
+}
+
+
+
+
+ 
+</script>

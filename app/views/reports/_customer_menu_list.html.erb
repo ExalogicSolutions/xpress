@@ -1,0 +1,24 @@
+ <% @category.each do |k|%>   
+               <div class="colour"><p><b>Category  : <%= k.name%></b></p></div>
+		       <div class="col-md-12" >
+		      <% k.items.each do |i|%> 
+		     
+		        <div class="col-md-1" ></div>
+		        <div class="col-md-5" style="height:290px;">
+			        <ul class="bxslider show_all_preview " id="<%= i.id%>">
+			               <% i.avatars.each do |k|%>          
+			                  <li> <%= image_tag k.thumb.url %>
+			                   <div style="position: absolute; bottom: 0; left: 0.5em; width: 400px; font-weight: bold; color: #fff;">
+			                    
+			                    <p>Name : <%= i.name%></p>
+			                    <p>Description : <%= i.description%></p>
+			                    <p>Price : <%= i.price%></p>
+			                    </div>
+			                  </li>
+			              <%end%>
+			        </ul> 
+		        </div>  
+		        <div class="col-md-1" ></div>
+               
+		      <%end%></div><div class="clearfix"></div>
+		       <%end%>

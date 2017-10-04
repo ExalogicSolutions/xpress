@@ -1,0 +1,139 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><strong><%= @user.personal_detail.name%></strong></h4>
+    </div>
+    <div class="modal-body">
+    <div class="row">
+       <div class="col-md-6">
+          <div class="form-group">
+           <%= @user.avatar.present? ? (image_tag @user.avatar.thumb.url) : (image_tag "global/default_user.png")%>
+          </div>
+          </div>
+    </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= User.human_attribute_name(:first_name)%>: 
+            </label>
+            <%= @user.first_name%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= User.human_attribute_name(:last_name)%>: 
+            </label>
+            <%= @user.last_name%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= User.human_attribute_name(:user_name)%>: 
+            </label>
+            <%= @user.user_name%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:gender)%>: 
+            </label>
+            <%= @user.personal_detail.gender%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= User.human_attribute_name(:email)%>: 
+            </label>
+            <%= @user.email%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line1)%>: 
+            </label>
+            <%= @user.personal_detail.address_line1%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line2)%>: 
+            </label>
+            <%= @user.personal_detail.address_line2%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:landmark)%>: 
+            </label>
+            <%= @user.personal_detail.landmark%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:city)%>: 
+            </label>
+            <%= @user.personal_detail.city%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:pincode)%>: 
+            </label>
+            <%= @user.personal_detail.pincode%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:state)%>: 
+            </label>
+            <%= @user.personal_detail.state%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:country)%>: 
+            </label>
+            <%= @user.personal_detail.country%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:contact_number)%>: 
+            </label>
+            <%= @user.personal_detail.contact_number%>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= link_to t('.edit'), "#", "data-toggle" => 'modal', class: "btn btn-primary", id: @user.id, style: "margin:0px;", onclick: "edit_head_details(this)"%>
+      </div>
+  </div>
+</div>

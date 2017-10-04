@@ -1,0 +1,35 @@
+source 'https://rubygems.org'
+
+#default gems
+
+gem 'rails', '4.1.5'
+
+gem 'sass-rails', '~> 4.0.3' #stylesheet
+
+gem 'uglifier', '>= 1.3.0' #wraps UglifyJS to be accessible in Ruby
+
+gem 'coffee-rails', '~> 4.0.0' #CoffeeScript adapter for the asset pipeline
+
+gem 'jquery-rails'
+
+gem 'turbolinks' #makes links faster
+
+gem 'jbuilder', '~> 2.0' #generate JSON objects
+
+gem 'sdoc', '~> 0.4.0', group: :doc
+
+gem 'spring', group: :development #application preloader
+
+#custom gems
+
+gem 'pg' #postgres database
+
+gem 'devise' #user authentication
+
+gem 'globalize', '~> 4.0.3' #Globalization
+
+gem 'byebug' #checking for bugs
+
+gem 'better_errors' #browser error page
+
+gem 'will_paginate-bootstrap' #pagination TO-DO

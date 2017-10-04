@@ -1,0 +1,235 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><%= t('.create')%> <strong><%= t('.staff')%></strong></h4>
+    </div>
+    <%= form_tag users_create_staff_path, html: {method: :post},:enctype =>"multipart/form-data" do %>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="field-1" class="control-label"><%= t('.industry')%></label>
+            <%= select_tag "industry_id", options_for_select(@industries,@industry_id),prompt: t('.prompt_industry'), class: "form-control",required: true,onchange: "industry_change(this)", :disabled => current_user.user_type != ADMIN%> 
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="field-2" class="control-label"><%= t('.branch')%></label>
+            <div id="branch_drop_down">
+              <%= select_tag "branch_id", options_for_select(@branches,@branch_id),prompt: t('.prompt_branch'), class: "form-control",required: true,onchange: "branch_change(this)", :disabled => [ADMIN,BRANCH_HEAD,DEPARTMENT_HEAD,SUB_DEPARTMENT_HEAD].include?(current_user.user_type) %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="field-1" class="control-label"><%= t('.department')%></label>
+            <div id="department_drop_down">
+              <%= select_tag "department_id", options_for_select(@departments, @department_id),prompt: t('.prompt_department'), class: "form-control",onchange: "department_change(this)", :disabled => [ADMIN,DEPARTMENT_HEAD,SUB_DEPARTMENT_HEAD].include?(current_user.user_type)  %>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="field-1" class="control-label"><%= t('.sub_department')%></label>
+            <div id="sub_department_drop_down">
+              <%= select_tag "sub_department_id", options_for_select(@sub_departments, @sub_department_id),prompt: t('.prompt_sub_department'), class: "form-control", :disabled => [ADMIN,SUB_DEPARTMENT_HEAD].include?(current_user.user_type)  %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= User.human_attribute_name(:first_name)%>
+            </label>
+            <%= text_field_tag :first_name, "" , class: "form-control", placeholder: User.human_attribute_name(:first_name), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= User.human_attribute_name(:last_name)%>
+            </label>
+            <%= text_field_tag :last_name, "" , class: "form-control", placeholder: User.human_attribute_name(:last_name), required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= User.human_attribute_name(:user_name)%>
+            </label>
+            <%= text_field_tag :user_name, "" , class: "form-control", placeholder: User.human_attribute_name(:user_name), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:gender)%>
+            </label>
+            <div class="input-group">
+              <div class="icheck-inline">
+                <%= radio_button_tag 'gender', t('.male'), "data-radio" => "iradio_square-blue" %>
+                <label><%= t('.male')%></label>
+                <%= radio_button_tag 'gender', t('.female'), "data-radio" => "iradio_square-blue" %>
+                <label><%= t('.female')%></label>
+                <%= radio_button_tag 'gender', t('.other'), "data-radio" => "iradio_square-blue" %>
+                <label><%= t('.other')%></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              Upload
+            </label>
+              <%= file_field_tag :avatar, :id=> "imgInp" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+          
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= User.human_attribute_name(:email)%>
+            </label>
+            <%= email_field_tag :email, "" , class: "form-control", placeholder: User.human_attribute_name(:email), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= User.human_attribute_name(:password)%>
+            </label>
+            <%= text_field_tag :password, "" , class: "form-control", placeholder: User.human_attribute_name(:password)%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line1)%>
+            </label>
+            <%= text_field_tag :address_line1, "" , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:address_line1), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:address_line2)%>
+            </label>
+            <%= text_field_tag :address_line2, "" , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:address_line2)%>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:landmark)%>
+            </label>
+            <%= text_field_tag :landmark, "" , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:landmark)%>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:city)%>
+            </label>
+            <%= text_field_tag :city, "" , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:city), required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:pincode)%>
+            </label>
+            <%= text_field_tag :pincode, "" , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:pincode), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:state)%>
+            </label>
+            <%= text_field_tag :state, "" , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:state), required: true %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:country)%>
+            </label>
+            <%= text_field_tag :country, "" , class: "form-control", placeholder: PersonalDetail.human_attribute_name(:country), required: true %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:contact_number)%>
+            </label>
+            <%= text_field_tag :contact_number, "" , class: "form-control", placeholder: "0000000000", required: true %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%if current_user.user_type == BRANCH_HEAD%>
+      <%= hidden_field_tag "industry_id", @industry_id%>
+      <%= hidden_field_tag "branch_id", @branch_id%>
+    <%elsif current_user.user_type == DEPARTMENT_HEAD%>
+      <%= hidden_field_tag "industry_id", @industry_id%>
+      <%= hidden_field_tag "branch_id", @branch_id%>
+      <%= hidden_field_tag "department_id", @department_id%>
+    <%elsif current_user.user_type == SUB_DEPARTMENT_HEAD%>
+      <%= hidden_field_tag "industry_id", @industry_id%>
+      <%= hidden_field_tag "branch_id", @branch_id%>
+      <%= hidden_field_tag "department_id", @department_id%>
+      <%= hidden_field_tag "sub_department_id", @sub_department_id%>
+    <%end%>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= submit_tag t('.create'), id: "submit_staff", class: "btn btn-primary btn-embossed bnt-square",:disabled => true%>
+      </div>
+    <%end%>
+  </div>
+</div>
+<script type="text/javascript">
+
+$(document).on('change', '#industry_id', function(){
+  if($('#industry_id').val() == ""){
+   $('#submit_staff').attr('disabled',true)
+   $('#sub_department_id').val('')
+   $('#department_id').attr('disabled',true)
+   $('#sub_department_id').attr('disabled',true)
+   $('#branch_id').attr('disabled',true)
+   
+  }else{
+   $('#submit_staff').attr('disabled',false) 
+  }
+});
+
+
+ $(document).on('change', '#branch_id', function(){
+    if($('#branch_id').val() == ""){
+     $('#sub_department_id').val('')
+     $('#department_id').attr('disabled',true)
+     $('#sub_department_id').attr('disabled',true)
+  }
+});
+</script>

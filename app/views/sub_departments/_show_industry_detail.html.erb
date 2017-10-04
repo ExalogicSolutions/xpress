@@ -1,0 +1,77 @@
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><strong><b><%=@industry.name%></b></strong></h4>
+    </div>
+          <div class="panel-content">
+        <div class="filter-left">
+          <table class="table table-dynamic table-tools">
+            <thead>
+              <tr>
+                <th><%= t('.branch')%></th>
+                <th><%= t('.department')%></th>
+                <th><%= t('.sub_department')%></th>
+                <th colspan="2" style="text-align: center;"><%= t('.head')%></th>
+                <th><%= t('.manage')%></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @industry.branches.each do |b| %>
+                <tr>
+                  <td rowspan="<%=b.departments.count + b.departments.map{|d|d.sub_departments.count}.flatten.sum+1%>">
+                    <%= b.branch_name%>
+                    <%b.departments.each do |d|%>
+                    <tr>
+                      <td rowspan="<%=d.sub_departments.count+1%>">
+                        <%=d.department_name%>
+                         <%d.sub_departments.each do |s|%>
+                          <tr>
+                            <td><%=s.personal_detail.try(:name)%></td>
+                            <%if s.user%>
+                              <td><%=link_to s.user.email, "#", "data-toggle" => 'modal', id: s.user.id,onclick: "show_sub_department_head(this)"%></td>
+                              <td>
+                                <%= link_to t('.image'), "", class: "image_add", id: s.id, "data-toggle" => 'modal'%>
+                              </td>
+                            <%else%>
+                              <td><%=link_to t('.assign'), "#", "data-toggle" => 'modal', id: s.id,onclick: "create_sub_department_head(this)"%></td>
+                              <td>-</td>
+                            <%end%>
+                            <td>
+                              <%= link_to t('.edit'), "#", "data-toggle" => 'modal', id: s.id, onclick: "edit_sub_department(this)"%> | 
+                              <%= link_to t('.delete'), "#", "data-toggle" => 'modal', id: s.id,onclick: "delete_sub_department_by_admin(this)"%>
+                            </td>
+                          </tr>
+                        <%end%>
+                      </td>
+                    </tr>
+                    <%end%>
+                  </td>                  
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$('.image_add').click(function(){
+  var sub_departmentId = $(this).attr('id')
+   $.ajax({
+    async : true,
+    type : 'GET',
+    url : "/sub_departments/sub_department_head_form",
+    data: {"id": sub_departmentId,
+           "image" : true },   
+    success : function(data) {
+      $('#modal-assign').html(data);
+      $('#modal-assign').modal('show');
+    },
+    error : function(data) {
+      alert("Error occured. Please try again!");
+    }
+  });
+});
+</script>

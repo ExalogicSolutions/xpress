@@ -1,0 +1,47 @@
+ <% @item_list.each do |k|%>
+        <div class="row" style="background: #D5D5DC;">
+          <div class="col-md-4">
+            <div class="form-group">
+             <label>Item Name: <%= k['name']%></label>
+           </div>
+           </div>
+           </div>
+             <div class="row">
+              <table class="table table-hover table-dynamic">
+              <thead>
+                <tr>
+                  <% if [ADMIN, BRANCH_HEAD].include?(current_user.user_type)%>
+                  <th><%= check_box_tag "check_all", "check_all", false, :id => "c1" %><label for="c1"></label></th>
+                  <%end%>
+                  <th>Question</th>
+                  <th>Priority</th>
+                  <th>Status</th>
+                  <th>Manage</th>
+                </tr>
+              </thead>
+              <% k.feedback_questions.each do |fbq| %>
+              <tbody>
+                
+                  <tr id="<%= fbq.id%>">
+                  <% if [ADMIN, BRANCH_HEAD].include?(current_user.user_type)%>
+                   <td >
+                   <%= check_box_tag "fbq[]", fbq.id, false, :id => fbq.id.to_s,class: "input_checkbox" %></td>
+                   <%end%>
+                    <td><%= fbq.question %></td>
+                    <td><%= fbq.priority %></td>
+                    <td><%= fbq.status ? "<i class='fa fa-check'></i>".html_safe : fbq.status.nil? ? "Pending" : "Rejected" %></td>
+                    <td>
+                      <%= link_to "Edit", "#", "data-toggle" => 'modal', id: fbq.id , class: "edit_item_fbq"%> | <%= link_to "Delete", "#", "data-toggle" => 'modal', id: fbq.id , class: "delete_item_fbq"%> |
+                      <div id='item_customer_list_<%= fbq.id%>'>
+                            <%= render partial: "feedback_questions/department_customer_feedback_question", :locals => {:fbq => fbq}%>
+                      </div>
+                    </td>
+                  </tr>
+                
+                
+              </tbody>
+               <%end%>
+            </table>
+ 
+        </div>
+        <%end%>

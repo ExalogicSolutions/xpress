@@ -1,0 +1,58 @@
+
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      
+    </div>
+    <div class="modal-body">
+
+      <div class="panel-content table-responsive">
+        <div class="row" style="background: #D5D5DC;">
+          <div class="col-md-4">
+            <div class="form-group">
+             <label>Industry Name: <%=@menu.department.branch.industry.name%></label>
+           </div>
+          </div>  
+          <div class="col-md-4">
+            <div class="form-group">
+             <label>Branch Name: <%=@menu.department.branch.personal_detail.name%></label>
+           </div>
+          </div>  
+          <div class="col-md-4">
+            <div class="form-group">
+             <label>Department Name: <%=@menu.department.personal_detail.name%></label>
+           </div>
+          </div>  
+        </div>        
+        <%@menu.categories.each do |cat|%>
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+               <label><b><u><%=cat.name%></u></b></label>
+             </div>
+            </div>           
+          </div>
+          <%cat.items.each do |item|%>
+            <div class="filter-left">
+              <table class="table table-dynamic table-tools">
+                <tbody>
+                  <tr>
+                    <td class="wdt80" width="">
+                    <b><%=item.name%></b><br/><span style="color: brown;"><%=item.description%></span>
+                    </td>
+                    <td class="wdt20" width="">
+                      <%=item.price.to_s%>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          <%end%>
+        <%end%> 
+        <div class="modal-footer">
+          <%= link_to "Edit", edit_menu_path(@menu.id),class: "btn btn-embossed btn-primary m-r-20", 'data-no-turbolink' => true%>            
+        </div>
+    </div>
+  </div>
+</div>
+

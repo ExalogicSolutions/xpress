@@ -1,0 +1,65 @@
+ <div class="modal fade" id="modal-edit-image" aria-hidden="true"></div>
+<div class="row">
+  <div class="col-lg-12 portlets">
+    <div class="panel">
+      <div class="panel-header panel-controls">
+        <h3><strong><%= t ".title"%></strong></h3>
+        <%= link_to "#{ t '.create_industry'}", "#", "data-toggle" => 'modal', class: "btn btn-embossed btn-primary m-r-20", onclick: "create_industry()"%>
+          <div class="modal fade" id="modal-responsive" aria-hidden="true">
+          </div>
+          <div class="modal fade" id="modal-delete" aria-hidden="true">
+          </div>
+      </div>
+      <div class="panel-content">
+        <div class="filter-left">
+          <table class="table table-dynamic table-tools">
+            <thead>
+              <tr>
+                <th><%= Industry.human_attribute_name(:name)%></th>
+                <th><%= Industry.human_attribute_name(:type)%></th>
+                <th><%= Industry.human_attribute_name(:rating_type)%></th>
+                <th><%= t ".no_of_branches"%></th>
+                <th>Images</th>
+                <th><%= t ".manage"%></th>
+              </tr>
+            </thead>
+            <tbody>
+              <% @industries.each do |i| %>
+                <tr>
+                  <td><%= link_to i.name, industry_path(id: i.id) , 'data-no-turbolink' => true%></td>
+                  <td><%= i.industry_type %></td>
+                  <td><%= i.rating_type.try(:name) %></td>
+                  <td><%= i.branches.count %></td>
+                  <td><%= i.image.present? ? (image_tag i.image.avatars[0].small_thumb.url) : (image_tag "global/default_user.png")   %></td>
+                  <td>
+                    <%= link_to t('.edit'), "#", "data-toggle" => 'modal', id: i.id, onclick: "edit_industry(this)",'data-no-turbolink' => true%> | <%= link_to t('.delete'), "#", "data-toggle" => 'modal', id: i.id, onclick: "delete_industry(this)",'data-no-turbolink' => true%>
+                  </td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+   $(document).on ("click",".click_link",function(){
+     var itemId = $(this).attr('id');
+        $.ajax({
+          async : true,
+          type : 'GET',
+          url : "/industries/show_images",
+          data : {'id' : itemId},    
+          success : function(data) {
+            $('#modal-edit-image').html(data);
+            $('#modal-edit-image').modal('show');
+          },
+          error : function(data) {
+            alert("Error occured. Please try again!");
+          }
+        });
+   });
+
+</script>

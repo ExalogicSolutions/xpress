@@ -1,0 +1,37 @@
+  <a href="#" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+      <i class="icon-bell"></i>
+      <span class="badge badge-danger badge-header number" >
+      <!--   < %=(current_user.user_type == ADMIN and current_user.industries.present? and @updation_detail.present? and @updation_detail.count> 0) ? @updation_detail.count+1 : @question_pending.present? ? (@question_pending.count > 0 ? 1 : 0) : 0%> -->
+       <%= @count%>
+
+      </span>
+      </a>
+      <ul class="dropdown-menu">
+        <li>
+          <ul class="dropdown-menu-list withScroll" data-height="220">
+            <%class_array=["fa fa-star p-r-10 f-18 c-orange","fa fa-heart p-r-10 f-18 c-red","fa fa-file-text p-r-10 f-18","fa fa-picture-o p-r-10 f-18 c-blue","fa fa-bell p-r-10 f-18 c-orange","fa fa-comment p-r-10 f-18 c-gray"]
+            if @updation_detail.present?
+              @updation_detail.each do |detail|
+              %>
+              <li>
+                <a href="#">
+                <i class="<%=class_array.sample(1).join%>"></i>
+                <%=detail[:name]%> has updated
+                <span class="dropdown-time"><%=detail[:time].to_date%></span>
+                </a>
+              </li>
+              <%end
+            end
+            %>
+            <li>
+              <%if  @question_pending  and  @question_pending > 0%>
+                <a href="#">
+                <i class="<%=class_array.sample(1).join%>"></i>
+                 <%= @question_pending%><%=' question'.pluralize(@question_pending)%> pending for approval/rejection
+                <span class="dropdown-time"><%=Time.now.to_date%></span>
+                </a>
+              <%end%>
+            </li>                      
+          </ul>
+        </li>
+      </ul>

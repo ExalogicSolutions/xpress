@@ -1,0 +1,20 @@
+<div class="fields">
+  <div class="form-group row">
+  	<div class="col-md-3  mt10 input_category">
+  		<%= m.text_field :name, class: "form-control" ,maxlength: 20, placeholder: "Enter Category name",required: true%>
+		</div>
+
+    <div class="col-md-1 mt20">
+    <%= link_to_remove_fields '<i class="fa fa-times"></i>'.html_safe, m, class: "btn btn-primary-purple btn-xs pull-right"%> 
+    </div>
+    
+  </div>
+      <div class="col-md-2 pull-right" style="margin-top: -52px;">
+      <%= link_to_add_fields "Add Item", m, :items, "btn btn-primary", "Add a new Item" %>
+    </div>
+    <div class="form-group sections-wrapper">        
+    <%= m.fields_for :items do |builder| %>
+      <%= render 'item_fields', m: builder%>                    
+    <%end%>
+  </div>
+</div>

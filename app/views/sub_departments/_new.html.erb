@@ -1,0 +1,178 @@
+<%if current_user.user_type=="admin"%>
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><%= t('.create')%> <strong><%= t('.sub_department')%></strong></h4>
+    </div>
+    <%= form_tag sub_departments_path, html: {method: :post}, :enctype =>"multipart/form-data" do %>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="field-1" class="control-label"><%= t('.industry')%></label>
+            <div id="industry_name_div">              
+            <%= select_tag "industry_id", options_for_select(@industry),prompt: t('.prompt_industry'), class: "form-control form_dropdown",onchange: "industry_change(this)"%>
+            </div>
+           <span class="dropdown-error"></span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="field-2" class="control-label"><%= t('.branch')%></label>
+            <div id="sub_department_branch_drop_down">
+              <%= select_tag "branch_id", options_for_select(@branch),prompt: t('.prompt_branch'), class: "form-control form_dropdown",required: true,:disabled => true %>
+            </div>
+            <span class="dropdown-error"></span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="field-1" class="control-label"><%= t('.department')%></label>
+            <div id="sub_department_department_drop_down">
+              <%= select_tag "department_id", options_for_select(@department),prompt: t('.prompt_department'), class: "form-control form_dropdown",required: true,:disabled => true %>
+            </div>
+            <span class="dropdown-error"></span>
+          </div>
+        </div>        
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:name)%>
+            </label>
+            <div class="prepend-icon" id="name_div">
+              <i class="icons-education-science-18"></i>            
+              <%= text_field_tag :name, "" , class: "form-control", placeholder: t('.placeholder_name'), maxlength: 30, onfocusout: "validate_name(this)" %>
+              </div>
+              <span class="name-error"></span>
+          </div>
+        </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="field-1" class="control-label">
+                    <%= PersonalDetail.human_attribute_name(:contact_number)%>
+                </label>                
+                <div class="prepend-icon" id="contact_number_div">
+                  <i class="icon-screen-smartphone"></i>                
+                  <%= text_field_tag :contact_number, "" , class: "form-control", placeholder: t('.placeholder_contact_number'), maxlength: 12, onfocusout: "validate_contact_number(this)" %>
+                  </div>
+                  <span class="contact_number-error"></span>
+              </div>
+            </div>
+        </div>
+          <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-3" class="control-label">
+               Upload Image
+            </label>            
+             <%= file_field_tag "avatars[]",multiple: true  %>
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= submit_tag t('.create'), class: "btn btn-primary btn-embossed bnt-square", onclick: "return validate_sub_department();"%>
+      </div>
+    <%end%>
+  </div>
+</div>
+<%elsif current_user.user_type=="branch_head"%>
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><%= t('.create')%> <strong><%= t('.sub_department')%></strong></h4>
+    </div>
+    <%= form_tag sub_departments_path, html: {method: :post} do %>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label"><%= t('.department')%></label>
+            <div id="sub_department_department_drop_down">
+              <%= select_tag "department_id", options_for_select(@department),prompt: t('.prompt_department'), class: "form-control form_dropdown", onchange: "dropdown_color(this)"%>
+            </div>
+            <span class="dropdown-error"></span>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:name)%>
+            </label>
+            <div class="prepend-icon" id="name_div">
+              <i class="icons-education-science-18"></i> 
+              <%= text_field_tag :name, "" , class: "form-control", placeholder: t('.placeholder_name'), maxlength: 30, onfocusout: "validate_name(this)" %>
+              </div>
+              <span class="name-error"></span>
+          </div>
+        </div>        
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:contact_number)%>
+            </label>
+              <div class="prepend-icon" id="contact_number_div">
+                <i class="icon-screen-smartphone"></i>            
+              <%= text_field_tag :contact_number, "" , class: "form-control", placeholder: t('.placeholder_contact_number'), maxlength: 12, onfocusout: "validate_contact_number(this)" %>
+                  </div>
+                <span class="contact_number-error"></span>
+          </div>
+        </div>        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= submit_tag t('.create'), class: "btn btn-primary btn-embossed bnt-square", onclick: "return validate_sub_department();"%>
+      </div>
+    <%end%>
+  </div>
+</div>
+<%elsif current_user.user_type=="department_head"%>
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><%= t('.create')%> <strong><%= t('.sub_department')%></strong></h4>
+    </div>
+    <%= form_tag sub_departments_path, html: {method: :post} do %>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:name)%>
+            </label>
+            <div class="prepend-icon" id="name_div">
+              <i class="icons-education-science-18"></i>            
+              <%= text_field_tag :name, "" , class: "form-control", placeholder:   t('.placeholder_name'), maxlength: 30, onfocusout: "validate_name(this)"  %>
+              </div>
+              <span class="name-error"></span>
+          </div>
+        </div>        
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-1" class="control-label">
+              <%= PersonalDetail.human_attribute_name(:contact_number)%>
+            </label>
+              <div class="prepend-icon" id="contact_number_div">
+                <i class="icon-screen-smartphone"></i> 
+              <%= text_field_tag :contact_number, "" , class: "form-control", placeholder: t('.placeholder_contact_number'), maxlength: 12, onfocusout: "validate_contact_number(this)" %>
+                  </div>
+                <span class="contact_number-error"></span>
+          </div>
+        </div>        
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= submit_tag t('.create'), class: "btn btn-primary btn-embossed bnt-square", onclick: "return validate_sub_department();"%>
+      </div>
+    <%end%>
+  </div>
+</div>
+<%end%>

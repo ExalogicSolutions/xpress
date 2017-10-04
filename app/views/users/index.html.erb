@@ -1,0 +1,330 @@
+<% if current_user.user_type == ADMIN%>
+  <% if @industries.present? && @industries.map{|i| i.branches.count}.sum > 0 %>
+    <div class="row">
+      <div class="col-lg-12 portlets">
+        <div class="panel">
+          <div class="panel-header panel-controls">
+            <h2><strong><%= t '.staff'%></strong> <%= t '.list'%></h2>
+            <%= link_to t('.add_staff'), new_user_path,  class: "btn btn-embossed btn-primary m-r-20 pull-right", 'data-no-turbolink' => true, onclick: "create_staff()", "data-toggle" => 'modal'%>
+            <div class="modal fade" id="modal-show" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-new" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-edit" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-reset" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-set" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-delete" aria-hidden="true"></div>
+          </div>
+          <div class="panel-content">
+            <div class="filter-left">
+              <div class="row plans pricing-table plan-separated num-plan-3 ui-sortable">
+                <div class="col-sm-12">
+                  <div class="plans clearfix previous_div">
+                  <table class="table table-dynamic table-tools">
+                    <thead>
+                      <tr>
+                        <th><%= PersonalDetail.human_attribute_name(:name)%></th>
+                        <th><%= User.human_attribute_name(:email)%></th>
+                        <th><%= t '.industry'%></th>
+                        <th><%= t '.branch'%></th>
+                        <th><%= t '.department'%></th>
+                        <th><%= t '.sub_department'%></th>
+                        <th><%= t '.post'%></th>
+                        <th><%= t '.manage'%></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @users.each do |u| %>
+                        <tr>
+                          <td>
+                            <%= (u.user_name == "admin") ? u.user_name : (link_to u.user_name, "#", "data-toggle" => 'modal', id: u.id, onclick: "show_head_details(this)") %>
+                          </td>
+                          <td><%= u.email %></td>
+                          <td><%= u.fetch_industry(u).name%></td>
+                          <td><%= u.fetch_branch(u).personal_detail.name %></td>
+                          <td><%= u.fetch_department(u).personal_detail.name if u.fetch_department(u) %></td>
+                          <td><%= u.fetch_sub_department(u).personal_detail.name if u.fetch_sub_department(u) %></td>
+                          <td><%= u.fetch_user_type(u) %></td>
+                          <td><%= u.user_type? ? (link_to t('.reset'), "#", "data-toggle" => 'modal', id: u.id, onclick: "reset_head(this)",class: "reset_class") : (link_to t('.set'), "#", "data-toggle" => 'modal', id: u.id, onclick: "set_head(this)",class: "set_class")  %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%elsif @industries.present? && @industries.map{|i| i.branches.count}.sum == 0%>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 ">
+        <div class="panel bg-dark">
+          <div class="panel-header">
+            <h3 style="text-align: center;"><strong><%= t '.branch'%></strong> <%= t '.not_yet_created'%>!</h3>
+          </div>
+          <div class="panel-content" style="text-align:center">
+            <%= link_to t('.go_to_branches'), branches_path, class: "btn btn-embossed btn-primary m-r-20"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%else%>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3 ">
+        <div class="panel bg-dark">
+          <div class="panel-header">
+            <h3 style="text-align: center;"><strong><%= t '.industry'%></strong> <%= t '.not_yet_created'%>!</h3>
+          </div>
+          <div class="panel-content" style="text-align:center">
+            <%= link_to t('.go_to_industries'), industries_path, class: "btn btn-embossed btn-primary m-r-20"%>
+          </div>
+        </div>
+      </div>
+    </div>
+  <%end%>
+<%elsif current_user.user_type == BRANCH_HEAD%>
+  <div class="row">
+      <div class="col-lg-12 portlets">
+        <div class="panel">
+          <div class="panel-header panel-controls">
+            <h2><strong><%= t '.staff'%></strong> <%= t '.list'%></h2>
+            <%= link_to t('.add_staff'), new_user_path,  class: "btn btn-embossed btn-primary m-r-20 pull-right", 'data-no-turbolink' => true, onclick: "create_staff()", "data-toggle" => 'modal'%>
+            <div class="modal fade" id="modal-show" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-new" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-edit" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-reset" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-set" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-delete" aria-hidden="true"></div>
+          </div>
+          <div class="panel-content">
+            <div class="filter-left">
+              <div class="row plans pricing-table plan-separated num-plan-3 ui-sortable">
+                <div class="col-sm-12">
+                  <div class="plans clearfix previous_div">
+                  <table class="table table-dynamic table-tools">
+                    <thead>
+                      <tr>
+                        <th><%= PersonalDetail.human_attribute_name(:name)%></th>
+                        <th><%= User.human_attribute_name(:email)%></th>
+                        <th><%= t '.department'%></th>
+                        <th><%= t '.sub_department'%></th>
+                        <th><%= t '.post'%></th>
+                        <th><%= t '.manage'%></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @users.each do |u| %>
+                        <tr>
+                          <td>
+                            <%= (u.user_name == "admin") ? u.user_name : (link_to u.user_name, "#", "data-toggle" => 'modal', id: u.id, onclick: "show_head_details(this)") %>
+                          </td>
+                          <td><%= u.email %></td>
+                          <td><%= u.fetch_department(u).personal_detail.name if u.fetch_department(u) %></td>
+                          <td><%= u.fetch_sub_department(u).personal_detail.name if u.fetch_sub_department(u) %></td>
+                          <td><%= u.fetch_user_type(u) %></td>
+                          <td>
+                            <% unless Staff.find_by(user_id: u.id, department_id: nil, sub_department_id: nil).present?%>
+                            <%= u.user_type? ? (link_to t('.reset'), "#", "data-toggle" => 'modal', id: u.id, onclick: "reset_head(this)",class: "reset_class") : (link_to t('.set'), "#", "data-toggle" => 'modal', id: u.id, onclick: "set_head(this)",class: "set_class")  %>
+                            <%else%>
+                              -
+                            <%end%>
+                          </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%elsif current_user.user_type == DEPARTMENT_HEAD%>
+  <div class="row">
+      <div class="col-lg-12 portlets">
+        <div class="panel">
+          <div class="panel-header panel-controls">
+            <h2><strong><%= t '.staff'%></strong> <%= t '.list'%></h2>
+            <%= link_to t('.add_staff'), new_user_path,  class: "btn btn-embossed btn-primary m-r-20 pull-right", 'data-no-turbolink' => true, onclick: "create_staff()", "data-toggle" => 'modal'%>
+            <div class="modal fade" id="modal-show" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-new" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-edit" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-reset" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-set" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-delete" aria-hidden="true"></div>
+          </div>
+          <div class="panel-content">
+            <div class="filter-left">
+              <div class="row plans pricing-table plan-separated num-plan-3 ui-sortable">
+                <div class="col-sm-12">
+                  <div class="plans clearfix previous_div">
+                  <table class="table table-dynamic table-tools">
+                    <thead>
+                      <tr>
+                        <th><%= PersonalDetail.human_attribute_name(:name)%></th>
+                        <th><%= User.human_attribute_name(:email)%></th>
+                        <th><%= t '.sub_department'%></th>
+                        <th><%= t '.post'%></th>
+                        <th><%= t '.manage'%></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @users.each do |u| %>
+                        <tr>
+                          <td>
+                            <%= (u.user_name == "admin") ? u.user_name : (link_to u.user_name, "#", "data-toggle" => 'modal', id: u.id, onclick: "show_head_details(this)") %>
+                          </td>
+                          <td><%= u.email %></td>
+                          <td><%= u.fetch_sub_department(u).personal_detail.name if u.fetch_sub_department(u) %></td>
+                          <td><%= u.fetch_user_type(u) %></td>
+                          <td>
+                            <% unless Staff.find_by(user_id: u.id, sub_department_id: nil).present?%>
+                            <%= u.user_type? ? (link_to t('.reset'), "#", "data-toggle" => 'modal', id: u.id, onclick: "reset_head(this)",class: "reset_class") : (link_to t('.set'), "#", "data-toggle" => 'modal', id: u.id, onclick: "set_head(this)",class: "set_class")  %>
+                            <%else%>
+                              -
+                            <%end%>
+                          </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%elsif current_user.user_type == SUB_DEPARTMENT_HEAD%>
+  <div class="row">
+      <div class="col-lg-12 portlets">
+        <div class="panel">
+          <div class="panel-header panel-controls">
+            <h2><strong><%= t '.staff'%></strong> <%= t '.list'%></h2>
+            <%= link_to t('.add_staff'), new_user_path,  class: "btn btn-embossed btn-primary m-r-20 pull-right", 'data-no-turbolink' => true, onclick: "create_staff()", "data-toggle" => 'modal'%>
+            <div class="modal fade" id="modal-show" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-new" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-edit" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-reset" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-set" aria-hidden="true"></div>
+            <div class="modal fade" id="modal-delete" aria-hidden="true"></div>
+          </div>
+          <div class="panel-content">
+            <div class="filter-left">
+              <div class="row plans pricing-table plan-separated num-plan-3 ui-sortable">
+                <div class="col-sm-12">
+                  <div class="plans clearfix previous_div">
+                  <table class="table table-dynamic table-tools">
+                    <thead>
+                      <tr>
+                        <th><%= PersonalDetail.human_attribute_name(:name)%></th>
+                        <th><%= User.human_attribute_name(:email)%></th>
+                        <th><%= t '.post'%></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @users.each do |u| %>
+                        <tr>
+                          <td>
+                            <%= (u.user_name == "admin") ? u.user_name : (link_to u.user_name, "#", "data-toggle" => 'modal', id: u.id, onclick: "show_head_details(this)") %>
+                          </td>
+                          <td><%= u.email %></td>
+                          <td><%= u.fetch_user_type(u) %></td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%end%>
+
+<script>
+$(document).on("click",".go",function(){
+
+  var category_id=$("#category_id :selected").val();
+  $.ajax({
+      async : true,
+      type : 'GET',
+      url : "/menus/get_items", 
+      data: {'id': category_id},   
+      success : function(data) {
+        $(".previous_div").hide();
+        $('.listing_div').show();
+        $('.listing_div').html(data);       
+
+      },
+      error : function(data) {
+        alert("Error occured. Please try again!");
+      }
+    });  
+});
+
+$(document).on("click",".reset",function(){
+  $("#industry_id").get(0).selectedIndex = 0;
+  $("#branch_id").get(0).selectedIndex = 0;
+  $("#department_id").get(0).selectedIndex = 0;
+  $("#category_id").get(0).selectedIndex = 0;
+  $(".previous_div").show();
+  $('.listing_div').hide();       
+});
+
+$(document).on("change","#department_id",function(){
+    var departmentValue = $('#department_id').val()
+    $.ajax({
+      async : true,
+      type : 'GET',
+      url : "/users/filter_sub_department", 
+      data: {'id': departmentValue},   
+      success : function(data) {
+        $('#sub_department_drop_down').html(data);       
+      },
+      error : function(data) {
+        alert("Error occured. Please try again!");
+      }
+    });
+  })
+
+$(document).on("click",".reset_class",function(){
+    var userId = $(this).attr("id")
+    $.ajax({
+      async : true,
+      type : 'GET',
+      url : "/users/reset_head", 
+      data: {'id': userId},   
+      success : function(data) {
+      $('#modal-reset').html(data);
+      $('#modal-reset').modal('show');
+      },
+      error : function(data) {
+        alert("Error occured. Please try again!");
+      }
+    });
+  })
+
+$(document).on("click",".set_class",function(){
+    var userId = $(this).attr("id")
+    $.ajax({
+      async : true,
+      type : 'GET',
+      url : "/users/set_head", 
+      data: {'id': userId},   
+      success : function(data) {
+            $('#modal-set').html(data);
+            $('#modal-set').modal('show');
+      },
+      error : function(data) {
+        alert("Error occured. Please try again!");
+      }
+    });
+  })
+</script>

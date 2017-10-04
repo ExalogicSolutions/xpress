@@ -1,0 +1,8 @@
+<%= case current_user.user_type 
+	 when ADMIN  then render partial: "layouts/top_bar_admin" 
+	 when BRANCH_HEAD then render partial: "layouts/top_bar_branch" 
+	 when DEPARTMENT_HEAD then render partial: "layouts/top_bar_department" 
+	 when SUB_DEPARTMENT_HEAD then render partial: "layouts/top_bar_subdepartment" 
+	 when GUEST_USER then render partial: "layouts/guest_user"	
+  end %>
+  

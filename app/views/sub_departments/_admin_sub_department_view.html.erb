@@ -1,0 +1,108 @@
+<div class="page-app page-profil row">
+  <div class="col-lg-12 col-md-9">
+<% if @industries.present? && @industries.map{|i| i.branches.count}.sum>0 && @industries.map{|i| i.branches.map{|b| b.departments.count}.sum}.sum > 0%>
+  <div class="row">
+    <div class="col-lg-12 portlets">
+      <div class="panel">
+        <div class="panel-header panel-controls">
+          <h3><strong><%= t('.sub_departments')%></strong></h3>
+          <%= link_to t('.create_sub_department'), "#", class: "btn btn-embossed btn-primary m-r-20", "data-toggle" => 'modal',onclick: "new_sub_department_create()"%>
+          <div class="modal fade" id="modal-show" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-new" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-edit" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-show-head" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-new-head" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-edit-head" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-delete" aria-hidden="true"></div>
+          <div class="modal fade" id="modal-assign" aria-hidden="true"></div>
+        </div>
+        <div class="panel-content">
+          <div class="row">
+                <div class="profil-content">                  
+                  <div class="col-md-12">
+                    <div class="row">
+                    <%@industries.each do |industry|%>
+                      <div class="col-md-6 col-sm-6 col-xs-6">
+                              <div class="item hover-effect">
+                                <div class="user">
+                                  <!-- <img src="/assets/global/profil_page/pics1.jpg" class="img-responsive hover-img" alt="">--> 
+                                  <%= industry.image.present? ? (image_tag industry.image.avatars[0].thumb) : (image_tag "global/default_image.jpg")%>
+                                  <div class="info">
+                                    <div class="f-24"><%=industry.name%></div>
+                                    <div>
+                                      <div class="location"><%=industry.industry_type%></div>
+                                      <div class="date"></div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="comment">
+                                 <%if current_user.user_type != BRANCH_HEAD%>
+                                   <% branch_count = industry.branches.count%>
+                                 <label><b><%= t('.branch_count', count: :branch_count)%></b>:</label><%= branch_count%> <br />
+                                 <%end%>
+                                 <% department_count = industry.branches.map{|b|b.departments.count}.flatten.sum%>
+                          
+                                 <label><b><%= t('.department_count', count: :department_count)%></b>:</label><%= department_count%> 
+                                  <% sub_department_count = industry.branches.map{|b|b.departments.map{|d|d.sub_departments.count}}.flatten.sum%>
+                             
+                                 <label><b><%= t('.sub_department_count', count: :sub_department_count)%></b>:</label><%= sub_department_count%>
+                                 <% sub_department_head_count = industry.branches.map{|b|b.departments.map{|d|d.sub_departments.where.not(user_id: nil).count}}.flatten.sum%>
+                                 
+                                 <label><b><%= t('.head_count', count: :sub_department_head_count)%></b>:</label><%=sub_department_head_count%> 
+                                  <!-- <a href="#" data-toggle='modal' class="btn btn-primary " id='< %= k['id'] %>' onclick= "return list_modal(this);"> Show Detail</a> -->
+                                   <%= link_to t('.show_details'), "#", class: "btn btn-primary show_detail", "data-toggle" => 'modal', id: industry.id,onclick: "show_detail(this)"%>
+                              </div>
+                                </div>
+                              </div>
+                      
+                      <%end%>
+                    </div>
+                  </div>
+                </div>          
+              </div>          
+        </div>
+      </div>
+    </div>
+  </div>   
+<%elsif @industries.present? && @industries.map{|i| i.branches.count}.sum == 0%>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 ">
+      <div class="panel bg-dark">
+        <div class="panel-header">
+          <h3 style="text-align: center;"><strong><%= t('.branch')%></strong> <%= t('.not_yet_created')%>!</h3>
+        </div>
+        <div class="panel-content" style="text-align:center">
+          <%= link_to t('.go_to_branches'), branches_path, class: "btn btn-embossed btn-primary m-r-20"%>
+        </div>
+      </div>
+    </div>
+  </div>
+<%elsif @industries.present? && @industries.map{|i| i.branches.map{|b| b.departments.count}.sum}.sum == 0%>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 ">
+      <div class="panel bg-dark">
+        <div class="panel-header">
+          <h3 style="text-align: center;"><strong><%= t('.department')%></strong> <%= t('.not_yet_created')%>!</h3>
+        </div>
+        <div class="panel-content" style="text-align:center">
+          <%= link_to t('.go_to_departments'), departments_path, class: "btn btn-embossed btn-primary m-r-20"%>
+        </div>
+      </div>
+    </div>
+  </div>
+<%else%>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 ">
+      <div class="panel bg-dark">
+        <div class="panel-header">
+          <h3 style="text-align: center;"><strong><%= t('.industy')%></strong> <%= t('.not_yet_created')%>!</h3>
+        </div>
+        <div class="panel-content" style="text-align:center">
+          <%= link_to t('.go_to_industries'), industries_path, class: "btn btn-embossed btn-primary m-r-20"%>
+        </div>
+      </div>
+    </div>
+  </div>
+<%end%>
+  </div>
+</div>

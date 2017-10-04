@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>X-press</title>
+    <%= stylesheet_link_tag 'application',  params[:controller], media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag  'application',  params[:controller] ,  'data-turbolinks-track' => true%>
+    <%= javascript_include_tag "i18n" %>
+    <%= javascript_include_tag "translations" %>
+    <%= javascript_tag do %> 
+      I18n.defaultLocale = "<%= I18n.default_locale %>"; 
+      I18n.locale = "<%= I18n.locale %>"; 
+    <% end %>
+    <%= csrf_meta_tags %>
+    
+    <!-- BEGIN PAGE STYLE -->
+     <!--  <link href="/assets/metrojs/metrojs.min.css" rel="stylesheet">
+      <link href="/assets/maps-amcharts/ammap/ammap.min.css" rel="stylesheet">
+      <link href="/assets/datatables/dataTables.min.css" rel="stylesheet">
+      <link href="/assets/jquery.bxslider.css" rel="stylesheet" />
+      <link rel="stylesheet" href="assets/css/form-elements.css">
+      <link rel="stylesheet" href="assets/css/form_style.css"> -->
+    <!-- END PAGE STYLE -->
+  
+  </head>
+  <% if !user_signed_in?%>
+    <% content_for :body_class, "sidebar-top account2" %>
+    <% content_for :data_page, "login" %>
+  <% else %>
+    <% content_for :body_class, "sidebar-top fixed-topbar fixed-sidebar theme-sdtl color-default dashboard" %>
+    <% content_for :data_page, "" %>
+    <% if current_user.user_type == GUEST_USER%>
+      <% content_for :background_image, "background-image: url('/assets/1.jpg'); margin-left: -5%; margin-right: -4%; margin-top: -5%;margin-bottom: -5%" %>
+    <%else%>
+      <% content_for :background_image, "" %>
+    <%end%>
+  <% end %>
+  <body class="<%= yield (:body_class) %>" data-page= "<%= yield(:data_page) %>">
+    <section>
+      <% if user_signed_in?%>
+        <%= render partial: "layouts/upper_bar_layout" %>        
+        <div class="main-content">
+          <div class="topbar">
+            <%= render partial: "layouts/top_bar_all"%>
+          </div>
+          <div class="page-content page-thin" style="<%= yield(:background_image)%>">
+            <%= render partial: "layouts/success_error_messages"%>
+            <%= yield %>
+            <%= render partial: "layouts/layout_footer"%>
+          </div>
+        </div>
+        <%=render partial: 'layouts/theme_customization'%>
+      <%else%>
+        <%= yield%>
+        <%= render partial: "layouts/layout_footer"%>
+      <%end%>
+      <div class="loader-overlay">
+        <div class="spinner">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
+      </div>
+      <!-- END PRELOADER -->
+      <script src="/assets/backstretch/backstretch.min.js"></script>
+      <script src="/assets/modernizr/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+      <script src="/assets/jquery-1.11.1.min "></script>
+      <script src="/assets/jquery-migrate-1.2.1.min.js"></script>
+      <script src="/assets/main-gsap.min.js"></script>
+      <script src="/assets/bootstrap.min.js"></script>
+      <script src="/assets/lada.min.js"></script>
+      <script src="/assets/login-v2.js"></script>
+      <!--              NEW JS                 -->
+      <script src="/assets/jquery-ui/jquery-ui-1.11.2.min.js"></script>
+      <script src="/assets/jquery-cookies/jquery.cookies.min.js"></script> <!-- Jquery Cookies, for theme -->
+      <script src="/assets/jquery-block-ui/jquery.blockUI.min.js"></script> <!-- simulate synchronous behavior when using AJAX -->
+      <script src="/assets/jquery.dataTables.min.js"></script>
+      <script src="/assets/bootbox/bootbox.min.js"></script> <!-- Modal with Validation -->
+      <script src="/assets/mcustom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script> <!-- Custom Scrollbar sidebar -->
+      <script src="/assets/bootstrap-dropdown/bootstrap-hover-dropdown.min.js"></script> <!-- Show Dropdown on Mouseover -->
+      <script src="/assets/charts-sparkline/sparkline.min.js"></script> <!-- Charts Sparkline -->
+      <script src="/assets/retina/retina.min.js"></script> <!-- Retina Display -->
+      <script src="/assets/select2/select2.min.js"></script> <!-- Select Inputs -->
+      <script src="/assets/icheck/icheck.min.js"></script> <!-- Checkbox & Radio Inputs -->
+       <!-- Background Image -->
+      <script src="/assets/bootstrap-progressbar/bootstrap-progressbar.min.js"></script> <!-- Animated Progress Bar -->
+      <script src="/assets/js/builder.js"></script> <!-- Theme Builder -->
+      <script src="/assets/js/sidebar_hover.js"></script> <!-- Sidebar on Hover -->
+      <script src="/assets/js/application.js"></script> <!-- Main Application Script -->
+      <script src="/assets/js/plugins.js"></script> <!-- Main Plugin Initialization Script -->
+      <script src="/assets/js/widgets/notes.js"></script> <!-- Notes Widget -->
+      <script src="/assets/js/quickview.js"></script> <!-- Chat Script -->
+      <script src="/assets/js/pages/search.js"></script> <!-- Search Script -->
+      <!-- BEGIN PAGE SCRIPT -->
+      <script src="/assets/noty/jquery.noty.packaged.min.js"></script>  <!-- Notifications -->
+      <script src="/assets/bootstrap-editable/js/bootstrap-editable.min.js"></script> <!-- Inline Edition X-editable -->
+      <script src="/assets/bootstrap-context-menu/bootstrap-contextmenu.min.js"></script> <!-- Context Menu -->
+      <script src="/assets/multidatepicker/multidatespicker.min.js"></script> <!-- Multi dates Picker -->
+      <script src="/assets/js/widgets/todo_list.js"></script>
+      <script src="/assets/metrojs/metrojs.min.js"></script> <!-- Flipping Panel -->
+      <script src="/assets/charts-chartjs/Chart.min.js"></script>  <!-- ChartJS Chart -->
+      <script src="/assets/charts-highstock/js/highstock.min.js"></script> <!-- financial Charts -->
+      <script src="/assets/charts-highstock/js/modules/exporting.min.js"></script> <!-- Financial Charts Export Tool -->
+      <script src="/assets/maps-amcharts/ammap/ammap.min.js"></script> <!-- Vector Map -->
+      <script src="/assets/maps-amcharts/ammap/maps/js/worldLow.min.js"></script> <!-- Vector World Map  -->
+      <script src="/assets/maps-amcharts/ammap/themes/black.min.js"></script> <!-- Vector Map Black Theme -->
+      <script src="/assets/skycons/skycons.min.js"></script> <!-- Animated Weather Icons -->
+      <script src="/assets/simple-weather/jquery.simpleWeather.js"></script> <!-- Weather Plugin -->
+      <script src="/assets/js/widgets/widget_weather.js"></script>
+      <script src="/assets/js/pages/dashboard.js"></script>
+      <script src="/assets/slick.min.js"></script> 
+      <!-- END PAGE SCRIPT -->
+      <script src="/assets/layout4/js/layout.js"></script>
+      <script src="/assets/jquery.magnific-popup.min.js"></script>
+      <script src="/assets/profil.js"></script> 
+      <script src="/assets/jquery.bxslider.js"></script>
+      <script src="/assets/scripts.js"></script>
+      <script src="/assets/jquery.barrating.min.js"></script>
+      <script src="/assets/jquery.cycle.all.js"></script> 
+    
+    </section>
+  </body>
+</html>

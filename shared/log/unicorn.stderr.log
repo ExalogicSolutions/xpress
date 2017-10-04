@@ -1,0 +1,599 @@
+I, [2016-02-10T13:26:58.884372 #26640]  INFO -- : listening on addr=127.0.0.1:3000 fd=11
+I, [2016-02-10T13:26:58.884541 #26640]  INFO -- : listening on addr=/home/exalogic/X-press/shared/sockets/unicorn.sock fd=12
+I, [2016-02-10T13:26:58.884612 #26640]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:26:58.886224 #26640]  INFO -- : worker=1 spawning...
+I, [2016-02-10T13:26:58.886620 #26643]  INFO -- : worker=0 spawned pid=26643
+I, [2016-02-10T13:26:58.886775 #26643]  INFO -- : worker=0 ready
+I, [2016-02-10T13:26:58.887910 #26640]  INFO -- : master process ready
+I, [2016-02-10T13:26:58.888426 #26646]  INFO -- : worker=1 spawned pid=26646
+I, [2016-02-10T13:26:58.888668 #26646]  INFO -- : worker=1 ready
+I, [2016-02-10T13:27:10.332155 #26640]  INFO -- : reaped #<Process::Status: pid 26643 exit 0> worker=0
+I, [2016-02-10T13:27:10.332350 #26640]  INFO -- : reaped #<Process::Status: pid 26646 exit 0> worker=1
+I, [2016-02-10T13:27:10.332507 #26640]  INFO -- : master complete
+I, [2016-02-10T13:28:21.103689 #26881]  INFO -- : listening on addr=127.0.0.1:3000 fd=12
+I, [2016-02-10T13:28:21.103868 #26881]  INFO -- : unlinking existing socket=/home/exalogic/X-press/shared/sockets/unicorn.sock
+I, [2016-02-10T13:28:21.103958 #26881]  INFO -- : listening on addr=/home/exalogic/X-press/shared/sockets/unicorn.sock fd=13
+I, [2016-02-10T13:28:21.104032 #26881]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:28:21.105677 #26881]  INFO -- : worker=1 spawning...
+I, [2016-02-10T13:28:21.106094 #26885]  INFO -- : worker=0 spawned pid=26885
+I, [2016-02-10T13:28:21.106235 #26885]  INFO -- : worker=0 ready
+I, [2016-02-10T13:28:21.107444 #26881]  INFO -- : master process ready
+I, [2016-02-10T13:28:21.107807 #26888]  INFO -- : worker=1 spawned pid=26888
+I, [2016-02-10T13:28:21.107931 #26888]  INFO -- : worker=1 ready
+E, [2016-02-10T13:28:28.855280 #26888] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:28:28.855427 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:28:28.855456 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:28:28.855479 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:28:28.855500 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:28:28.855519 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:28:28.855540 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:28:28.855559 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:28:28.855581 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:28:28.855602 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:28:28.855663 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:28:28.855685 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:28:28.855706 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:28:28.855729 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:28:28.855751 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:28:28.855781 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:28:28.855803 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:28:28.855823 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:28:28.855844 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:28:28.855865 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:28:28.855885 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:28:28.855906 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:28:28.855926 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:28:28.855947 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:28:28.855998 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:28:28.856020 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:28:28.856041 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:28:28.856062 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:28:28.856082 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:28:28.856102 #26888] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:28:28.856123 #26888] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:28:42.704139 #26888] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:28:42.704392 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:28:42.704473 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:28:42.704553 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:28:42.704631 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:28:42.704706 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:28:42.704837 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:28:42.704885 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:28:42.704957 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:28:42.705021 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:28:42.705065 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:28:42.705106 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:28:42.705146 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:28:42.705214 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:28:42.705399 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:28:42.705444 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:28:42.705484 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:28:42.705523 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:28:42.705562 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:28:42.705600 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:28:42.705638 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:28:42.705770 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:28:42.705840 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:28:42.705908 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:28:42.705987 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:28:42.706121 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:28:42.706187 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:28:42.706251 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:28:42.706326 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:28:42.706401 #26888] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:28:42.706477 #26888] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:28:42.725295 #26888] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:28:42.725537 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:28:42.725707 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:28:42.725806 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:28:42.725902 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:28:42.726002 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:28:42.726107 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:28:42.726184 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:28:42.726257 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:28:42.726374 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:28:42.726434 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:28:42.726492 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:28:42.726567 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:28:42.726626 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:28:42.726772 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:28:42.726833 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:28:42.726891 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:28:42.726949 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:28:42.727007 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:28:42.727064 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:28:42.727121 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:28:42.727179 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:28:42.727236 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:28:42.727372 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:28:42.727432 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:28:42.727490 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:28:42.727547 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:28:42.727603 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:28:42.727661 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:28:42.727717 #26888] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:28:42.727774 #26888] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:29:07.088369 #26888] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:29:07.088622 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:29:07.088711 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:29:07.088788 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:29:07.088866 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:29:07.088943 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:29:07.089121 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:29:07.089212 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:29:07.089311 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:29:07.089378 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:29:07.089437 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:29:07.089483 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:29:07.089527 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:29:07.089570 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:29:07.089620 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:29:07.089665 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:29:07.089708 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:29:07.089752 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:29:07.089795 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:29:07.089837 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:29:07.089879 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:29:07.090019 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:29:07.090103 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:29:07.090151 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:29:07.090195 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:29:07.090238 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:29:07.090280 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:29:07.090325 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:29:07.090367 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:29:07.090409 #26888] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:29:07.090450 #26888] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:29:07.110270 #26888] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:29:07.110476 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:29:07.110559 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:29:07.110621 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:29:07.110687 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:29:07.110859 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:29:07.110925 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:29:07.110997 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:29:07.111063 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:29:07.111138 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:29:07.111203 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:29:07.111264 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:29:07.111323 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:29:07.111383 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:29:07.111422 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:29:07.111457 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:29:07.111492 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:29:07.111585 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:29:07.111622 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:29:07.111657 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:29:07.111691 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:29:07.111726 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:29:07.111777 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:29:07.111831 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:29:07.111869 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:29:07.111905 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:29:07.111940 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:29:07.111975 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:29:07.112009 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:29:07.112078 #26888] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:29:07.112114 #26888] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:29:07.322138 #26885] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:29:07.322332 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:29:07.322388 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:29:07.322428 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:29:07.322470 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:29:07.322511 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:29:07.322551 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:29:07.322669 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:29:07.322716 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:29:07.322763 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:29:07.322804 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:29:07.322845 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:29:07.322885 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:29:07.322925 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:29:07.322965 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:29:07.323006 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:29:07.323046 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:29:07.323086 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:29:07.323125 #26885] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:29:07.323165 #26885] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:29:07.323204 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:29:07.323300 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:29:07.323344 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:29:07.323385 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:29:07.323425 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:29:07.323465 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:29:07.323505 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:29:07.323549 #26885] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:29:07.323590 #26885] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:29:07.323629 #26885] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:29:07.323669 #26885] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:29:07.341020 #26885] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:29:07.341241 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:29:07.341299 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:29:07.341343 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:29:07.341384 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:29:07.341502 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:29:07.341546 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:29:07.341585 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:29:07.341624 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:29:07.341662 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:29:07.341700 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:29:07.341739 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:29:07.341777 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:29:07.341910 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:29:07.341950 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:29:07.341989 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:29:07.342028 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:29:07.342067 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:29:07.342107 #26885] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:29:07.342142 #26885] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:29:07.342177 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:29:07.342212 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:29:07.342246 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:29:07.342281 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:29:07.342315 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:29:07.342439 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:29:07.342483 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:29:07.342519 #26885] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:29:07.342554 #26885] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:29:07.342593 #26885] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:29:07.342631 #26885] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:29:07.512434 #26885] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:29:07.512651 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:29:07.512741 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:29:07.512811 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:29:07.512893 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:29:07.512939 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:29:07.512996 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:29:07.513069 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:29:07.513258 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:29:07.513338 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:29:07.513395 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:29:07.513436 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:29:07.513477 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:29:07.513592 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:29:07.513636 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:29:07.513677 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:29:07.513718 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:29:07.513762 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:29:07.513838 #26885] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:29:07.513931 #26885] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:29:07.513998 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:29:07.514064 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:29:07.514209 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:29:07.514272 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:29:07.514331 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:29:07.514396 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:29:07.514459 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:29:07.514518 #26885] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:29:07.514577 #26885] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:29:07.514635 #26885] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:29:07.514693 #26885] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:29:07.532290 #26885] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:29:07.532448 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:29:07.532509 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:29:07.532553 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:29:07.532590 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:29:07.532627 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:29:07.532730 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:29:07.532770 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:29:07.532808 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:29:07.532845 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:29:07.532882 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:29:07.532919 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:29:07.532955 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:29:07.532991 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:29:07.533028 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:29:07.533064 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:29:07.533099 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:29:07.533135 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:29:07.533171 #26885] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:29:07.533251 #26885] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:29:07.533289 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:29:07.533383 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:29:07.533422 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:29:07.533461 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:29:07.533495 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:29:07.533532 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:29:07.533573 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:29:07.533635 #26885] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:29:07.533702 #26885] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:29:07.533794 #26885] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:29:07.533868 #26885] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:29:07.688187 #26888] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:29:07.688386 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:29:07.688470 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:29:07.688550 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:29:07.688621 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:29:07.688684 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:29:07.688806 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:29:07.688870 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:29:07.688931 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:29:07.688992 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:29:07.689053 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:29:07.689114 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:29:07.689191 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:29:07.689266 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:29:07.689339 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:29:07.689409 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:29:07.689483 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:29:07.689555 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:29:07.689685 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:29:07.689740 #26888] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:29:07.689802 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:29:07.689864 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:29:07.689925 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:29:07.689996 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:29:07.690069 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:29:07.690140 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:29:07.690210 #26888] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:29:07.690278 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:29:07.690430 #26888] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:29:07.690508 #26888] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:29:07.690575 #26888] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:29:07.706285 #26885] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:29:07.706435 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:29:07.706482 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:29:07.706520 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:29:07.706610 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:29:07.706649 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:29:07.706685 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:29:07.706720 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:29:07.706755 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:29:07.706789 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:29:07.706824 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:29:07.706858 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:29:07.706893 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:29:07.706927 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:29:07.706962 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:29:07.706997 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:29:07.707031 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:29:07.707127 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:29:07.707164 #26885] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:29:07.707198 #26885] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:29:07.707233 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:29:07.707268 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:29:07.707303 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:29:07.707338 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:29:07.707373 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:29:07.707408 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:29:07.707443 #26885] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:29:07.707492 #26885] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:29:07.707529 #26885] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:29:07.707603 #26885] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:29:07.707642 #26885] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:29:40.171588 #26881] ERROR -- : worker=0 PID:26885 timeout (31s > 30s), killing
+E, [2016-02-10T13:29:40.174970 #26881] ERROR -- : reaped #<Process::Status: pid 26885 SIGKILL (signal 9)> worker=0
+I, [2016-02-10T13:29:40.175177 #26881]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:29:40.178213 #26958]  INFO -- : worker=0 spawned pid=26958
+I, [2016-02-10T13:29:40.178498 #26958]  INFO -- : worker=0 ready
+I, [2016-02-10T13:31:42.189809 #26881]  INFO -- : reaped #<Process::Status: pid 26888 exit 0> worker=1
+I, [2016-02-10T13:31:42.189992 #26881]  INFO -- : reaped #<Process::Status: pid 26958 exit 0> worker=0
+I, [2016-02-10T13:31:42.190190 #26881]  INFO -- : master complete
+I, [2016-02-10T13:31:46.921367 #26999]  INFO -- : listening on addr=127.0.0.1:3000 fd=12
+I, [2016-02-10T13:31:46.921590 #26999]  INFO -- : unlinking existing socket=/home/exalogic/X-press/shared/sockets/unicorn.sock
+I, [2016-02-10T13:31:46.921694 #26999]  INFO -- : listening on addr=/home/exalogic/X-press/shared/sockets/unicorn.sock fd=13
+I, [2016-02-10T13:31:46.921781 #26999]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:31:46.923687 #26999]  INFO -- : worker=1 spawning...
+I, [2016-02-10T13:31:46.924211 #27003]  INFO -- : worker=0 spawned pid=27003
+I, [2016-02-10T13:31:46.924520 #27003]  INFO -- : worker=0 ready
+I, [2016-02-10T13:31:46.925680 #26999]  INFO -- : master process ready
+I, [2016-02-10T13:31:46.926249 #27006]  INFO -- : worker=1 spawned pid=27006
+I, [2016-02-10T13:31:46.926506 #27006]  INFO -- : worker=1 ready
+E, [2016-02-10T13:31:52.024970 #27003] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:31:52.025370 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:31:52.025438 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:31:52.025488 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:31:52.025533 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:31:52.025584 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:31:52.025633 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:31:52.025826 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:31:52.025872 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:31:52.025916 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:31:52.025959 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:31:52.026002 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:31:52.026045 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:31:52.026095 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:31:52.026157 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:31:52.026211 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:31:52.026257 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:31:52.026720 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:31:52.026781 #27003] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:31:52.026827 #27003] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:31:52.026871 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:31:52.026916 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:31:52.026959 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:31:52.027002 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:31:52.027046 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:31:52.027129 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:31:52.027175 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:31:52.027220 #27003] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:31:52.027304 #27003] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:31:52.027350 #27003] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:31:52.027394 #27003] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:31:52.041940 #27003] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:31:52.042136 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:31:52.042312 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:31:52.042356 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:31:52.042393 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:31:52.042430 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:31:52.042466 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:31:52.042543 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:31:52.042585 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:31:52.042622 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:31:52.042657 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:31:52.042693 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:31:52.042729 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:31:52.042783 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:31:52.042968 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:31:52.043007 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:31:52.043043 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:31:52.043079 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:31:52.043114 #27003] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:31:52.043149 #27003] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:31:52.043184 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:31:52.043219 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:31:52.043295 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:31:52.043332 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:31:52.043368 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:31:52.043403 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:31:52.043438 #27003] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:31:52.043473 #27003] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:31:52.043537 #27003] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:31:52.043572 #27003] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:31:52.043607 #27003] ERROR -- : bin/rails:3:in `<main>'
+I, [2016-02-10T13:32:47.912366 #26999]  INFO -- : reaped #<Process::Status: pid 27003 exit 0> worker=0
+I, [2016-02-10T13:32:47.912562 #26999]  INFO -- : reaped #<Process::Status: pid 27006 exit 0> worker=1
+I, [2016-02-10T13:32:47.912734 #26999]  INFO -- : master complete
+I, [2016-02-10T13:32:50.639815 #27019]  INFO -- : listening on addr=127.0.0.1:3000 fd=12
+I, [2016-02-10T13:32:50.640042 #27019]  INFO -- : unlinking existing socket=/home/exalogic/X-press/shared/sockets/unicorn.sock
+I, [2016-02-10T13:32:50.640157 #27019]  INFO -- : listening on addr=/home/exalogic/X-press/shared/sockets/unicorn.sock fd=13
+I, [2016-02-10T13:32:50.640256 #27019]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:32:50.642075 #27019]  INFO -- : worker=1 spawning...
+I, [2016-02-10T13:32:50.642613 #27024]  INFO -- : worker=0 spawned pid=27024
+I, [2016-02-10T13:32:50.642803 #27024]  INFO -- : worker=0 ready
+I, [2016-02-10T13:32:50.643913 #27019]  INFO -- : master process ready
+I, [2016-02-10T13:32:50.644416 #27027]  INFO -- : worker=1 spawned pid=27027
+I, [2016-02-10T13:32:50.644619 #27027]  INFO -- : worker=1 ready
+E, [2016-02-10T13:32:54.059380 #27027] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:32:54.059673 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:32:54.059735 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:32:54.059781 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:32:54.059843 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:32:54.059894 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:32:54.060092 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:32:54.060143 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:32:54.060192 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:32:54.060240 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:32:54.060289 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:32:54.060332 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:32:54.060534 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:32:54.060585 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:32:54.060630 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:32:54.060677 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:32:54.060727 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:32:54.060781 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:32:54.060832 #27027] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:32:54.060878 #27027] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:32:54.060921 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:32:54.060971 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:32:54.061482 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:32:54.061536 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:32:54.061587 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:32:54.061640 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:32:54.061691 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:32:54.061744 #27027] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:32:54.061789 #27027] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:32:54.061833 #27027] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:32:54.061876 #27027] ERROR -- : bin/rails:3:in `<main>'
+E, [2016-02-10T13:32:54.078776 #27027] ERROR -- : app error: Missing `secret_token` and `secret_key_base` for 'production' environment, set these values in `config/secrets.yml` (RuntimeError)
+E, [2016-02-10T13:32:54.079023 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:534:in `validate_secret_key_config!'
+E, [2016-02-10T13:32:54.079174 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:246:in `env_config'
+E, [2016-02-10T13:32:54.079249 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/engine.rb:514:in `call'
+E, [2016-02-10T13:32:54.079352 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/application.rb:165:in `call'
+E, [2016-02-10T13:32:54.079464 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/content_length.rb:15:in `call'
+E, [2016-02-10T13:32:54.079672 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:562:in `process_client'
+E, [2016-02-10T13:32:54.079737 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:658:in `worker_loop'
+E, [2016-02-10T13:32:54.079796 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:508:in `spawn_missing_workers'
+E, [2016-02-10T13:32:54.079855 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-5.0.1/lib/unicorn/http_server.rb:132:in `start'
+E, [2016-02-10T13:32:54.079913 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/unicorn-rails-2.2.0/lib/unicorn_rails.rb:33:in `run'
+E, [2016-02-10T13:32:54.080028 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/rack-1.6.4/lib/rack/server.rb:286:in `start'
+E, [2016-02-10T13:32:54.080088 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/server.rb:80:in `start'
+E, [2016-02-10T13:32:54.080147 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:80:in `block in server'
+E, [2016-02-10T13:32:54.080206 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `tap'
+E, [2016-02-10T13:32:54.080264 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:75:in `server'
+E, [2016-02-10T13:32:54.080365 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands/commands_tasks.rb:39:in `run_command!'
+E, [2016-02-10T13:32:54.080506 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/railties-4.2.5/lib/rails/commands.rb:17:in `<top (required)>'
+E, [2016-02-10T13:32:54.080589 #27027] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `require'
+E, [2016-02-10T13:32:54.080667 #27027] ERROR -- : /home/exalogic/X-press/bin/rails:9:in `<top (required)>'
+E, [2016-02-10T13:32:54.081002 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `load'
+E, [2016-02-10T13:32:54.081119 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/rails.rb:28:in `call'
+E, [2016-02-10T13:32:54.081259 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client/command.rb:7:in `call'
+E, [2016-02-10T13:32:54.081364 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/client.rb:28:in `run'
+E, [2016-02-10T13:32:54.081474 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/bin/spring:49:in `<top (required)>'
+E, [2016-02-10T13:32:54.081596 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `load'
+E, [2016-02-10T13:32:54.081712 #27027] ERROR -- : /home/exalogic/.rvm/gems/ruby-2.1.2/gems/spring-1.6.3/lib/spring/binstub.rb:11:in `<top (required)>'
+E, [2016-02-10T13:32:54.081882 #27027] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `require'
+E, [2016-02-10T13:32:54.081987 #27027] ERROR -- : /home/exalogic/X-press/bin/spring:13:in `<top (required)>'
+E, [2016-02-10T13:32:54.082093 #27027] ERROR -- : bin/rails:3:in `load'
+E, [2016-02-10T13:32:54.082197 #27027] ERROR -- : bin/rails:3:in `<main>'
+I, [2016-02-10T13:33:34.200031 #27019]  INFO -- : reaped #<Process::Status: pid 27024 exit 0> worker=0
+I, [2016-02-10T13:33:34.200207 #27019]  INFO -- : reaped #<Process::Status: pid 27027 exit 0> worker=1
+I, [2016-02-10T13:33:34.200351 #27019]  INFO -- : master complete
+I, [2016-02-10T13:33:37.573126 #27083]  INFO -- : Refreshing Gem list
+I, [2016-02-10T13:33:38.698017 #27083]  INFO -- : unlinking existing socket=/home/exalogic/X-press/shared/sockets/unicorn.sock
+I, [2016-02-10T13:33:38.698188 #27083]  INFO -- : listening on addr=/home/exalogic/X-press/shared/sockets/unicorn.sock fd=11
+I, [2016-02-10T13:33:38.698289 #27083]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:33:38.700056 #27083]  INFO -- : worker=1 spawning...
+I, [2016-02-10T13:33:38.700561 #27087]  INFO -- : worker=0 spawned pid=27087
+I, [2016-02-10T13:33:38.700744 #27087]  INFO -- : worker=0 ready
+I, [2016-02-10T13:33:38.701943 #27083]  INFO -- : master process ready
+I, [2016-02-10T13:33:38.702540 #27090]  INFO -- : worker=1 spawned pid=27090
+I, [2016-02-10T13:33:38.702793 #27090]  INFO -- : worker=1 ready
+I, [2016-02-10T13:34:08.083927 #27083]  INFO -- : reaped #<Process::Status: pid 27087 exit 0> worker=0
+I, [2016-02-10T13:34:08.084109 #27083]  INFO -- : reaped #<Process::Status: pid 27090 exit 0> worker=1
+I, [2016-02-10T13:34:08.084591 #27083]  INFO -- : master complete
+I, [2016-02-10T13:34:16.896490 #27098]  INFO -- : listening on addr=127.0.0.1:3000 fd=11
+I, [2016-02-10T13:34:16.896654 #27098]  INFO -- : unlinking existing socket=/home/exalogic/X-press/shared/sockets/unicorn.sock
+I, [2016-02-10T13:34:16.896731 #27098]  INFO -- : listening on addr=/home/exalogic/X-press/shared/sockets/unicorn.sock fd=12
+I, [2016-02-10T13:34:16.896797 #27098]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:34:16.898341 #27098]  INFO -- : worker=1 spawning...
+I, [2016-02-10T13:34:16.898716 #27101]  INFO -- : worker=0 spawned pid=27101
+I, [2016-02-10T13:34:16.898871 #27101]  INFO -- : worker=0 ready
+I, [2016-02-10T13:34:16.899958 #27098]  INFO -- : master process ready
+I, [2016-02-10T13:34:16.900395 #27104]  INFO -- : worker=1 spawned pid=27104
+I, [2016-02-10T13:34:16.900630 #27104]  INFO -- : worker=1 ready
+I, [2016-02-10T13:38:16.285982 #27098]  INFO -- : reaped #<Process::Status: pid 27101 exit 0> worker=0
+I, [2016-02-10T13:38:16.286132 #27098]  INFO -- : reaped #<Process::Status: pid 27104 exit 0> worker=1
+I, [2016-02-10T13:38:16.286243 #27098]  INFO -- : master complete
+I, [2016-02-10T13:38:59.360269 #27206]  INFO -- : listening on addr=127.0.0.1:3000 fd=11
+I, [2016-02-10T13:38:59.360450 #27206]  INFO -- : unlinking existing socket=/home/exalogic/X-press/shared/sockets/unicorn.sock
+I, [2016-02-10T13:38:59.360550 #27206]  INFO -- : listening on addr=/home/exalogic/X-press/shared/sockets/unicorn.sock fd=12
+I, [2016-02-10T13:38:59.360626 #27206]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:38:59.362167 #27206]  INFO -- : worker=1 spawning...
+I, [2016-02-10T13:38:59.362544 #27209]  INFO -- : worker=0 spawned pid=27209
+I, [2016-02-10T13:38:59.362695 #27209]  INFO -- : worker=0 ready
+I, [2016-02-10T13:38:59.363789 #27206]  INFO -- : master process ready
+I, [2016-02-10T13:38:59.364314 #27212]  INFO -- : worker=1 spawned pid=27212
+I, [2016-02-10T13:38:59.364545 #27212]  INFO -- : worker=1 ready
+I, [2016-02-10T13:39:38.488735 #27206]  INFO -- : reaped #<Process::Status: pid 27209 exit 0> worker=0
+I, [2016-02-10T13:39:38.488960 #27206]  INFO -- : reaped #<Process::Status: pid 27212 exit 0> worker=1
+I, [2016-02-10T13:39:38.489128 #27206]  INFO -- : master complete
+I, [2016-02-10T13:40:29.901210 #27248]  INFO -- : listening on addr=192.168.0.15:3000 fd=11
+I, [2016-02-10T13:40:29.901380 #27248]  INFO -- : unlinking existing socket=/home/exalogic/X-press/shared/sockets/unicorn.sock
+I, [2016-02-10T13:40:29.901459 #27248]  INFO -- : listening on addr=/home/exalogic/X-press/shared/sockets/unicorn.sock fd=12
+I, [2016-02-10T13:40:29.901529 #27248]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:40:29.903046 #27248]  INFO -- : worker=1 spawning...
+I, [2016-02-10T13:40:29.904460 #27252]  INFO -- : worker=0 spawned pid=27252
+I, [2016-02-10T13:40:29.904739 #27252]  INFO -- : worker=0 ready
+I, [2016-02-10T13:40:29.904858 #27248]  INFO -- : master process ready
+I, [2016-02-10T13:40:29.905324 #27255]  INFO -- : worker=1 spawned pid=27255
+I, [2016-02-10T13:40:29.905463 #27255]  INFO -- : worker=1 ready
+I, [2016-02-10T13:42:22.505745 #27248]  INFO -- : reaped #<Process::Status: pid 27252 exit 0> worker=0
+I, [2016-02-10T13:42:22.506041 #27248]  INFO -- : reaped #<Process::Status: pid 27255 exit 0> worker=1
+I, [2016-02-10T13:42:22.506209 #27248]  INFO -- : master complete
+I, [2016-02-10T13:42:31.510485 #27300]  INFO -- : listening on addr=127.0.0.1:3000 fd=11
+I, [2016-02-10T13:42:31.510651 #27300]  INFO -- : unlinking existing socket=/home/exalogic/X-press/shared/sockets/unicorn.sock
+I, [2016-02-10T13:42:31.510729 #27300]  INFO -- : listening on addr=/home/exalogic/X-press/shared/sockets/unicorn.sock fd=12
+I, [2016-02-10T13:42:31.510794 #27300]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:42:31.512346 #27300]  INFO -- : worker=1 spawning...
+I, [2016-02-10T13:42:31.512719 #27304]  INFO -- : worker=0 spawned pid=27304
+I, [2016-02-10T13:42:31.512864 #27304]  INFO -- : worker=0 ready
+I, [2016-02-10T13:42:31.513998 #27300]  INFO -- : master process ready
+I, [2016-02-10T13:42:31.514406 #27307]  INFO -- : worker=1 spawned pid=27307
+I, [2016-02-10T13:42:31.514647 #27307]  INFO -- : worker=1 ready
+I, [2016-02-10T13:43:08.011152 #27300]  INFO -- : reaped #<Process::Status: pid 27304 exit 0> worker=0
+I, [2016-02-10T13:43:08.011398 #27300]  INFO -- : reaped #<Process::Status: pid 27307 exit 0> worker=1
+I, [2016-02-10T13:43:08.011518 #27300]  INFO -- : master complete
+I, [2016-02-10T13:43:24.893464 #27343]  INFO -- : listening on addr=127.0.0.1:3000 fd=11
+I, [2016-02-10T13:43:24.893629 #27343]  INFO -- : unlinking existing socket=/home/exalogic/X-press/shared/sockets/unicorn.sock
+I, [2016-02-10T13:43:24.893706 #27343]  INFO -- : listening on addr=/home/exalogic/X-press/shared/sockets/unicorn.sock fd=12
+I, [2016-02-10T13:43:24.893771 #27343]  INFO -- : worker=0 spawning...
+I, [2016-02-10T13:43:24.895342 #27343]  INFO -- : worker=1 spawning...
+I, [2016-02-10T13:43:24.895711 #27346]  INFO -- : worker=0 spawned pid=27346
+I, [2016-02-10T13:43:24.895875 #27346]  INFO -- : worker=0 ready
+I, [2016-02-10T13:43:24.897108 #27343]  INFO -- : master process ready
+I, [2016-02-10T13:43:24.897603 #27349]  INFO -- : worker=1 spawned pid=27349
+I, [2016-02-10T13:43:24.897870 #27349]  INFO -- : worker=1 ready
+I, [2016-02-10T13:43:32.960104 #27343]  INFO -- : reaped #<Process::Status: pid 27346 exit 0> worker=0
+I, [2016-02-10T13:43:32.960281 #27343]  INFO -- : reaped #<Process::Status: pid 27349 exit 0> worker=1
+I, [2016-02-10T13:43:32.960461 #27343]  INFO -- : master complete

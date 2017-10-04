@@ -1,0 +1,47 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header bg-primary">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+      <h4 class="modal-title"><%= t('.upload_image')%>&nbsp;&nbsp;&nbsp;<strong><%= @department.personal_detail.name.upcase%></strong></h4>
+    </div>
+     <%= form_for @user,url: assign_image_head_path(@user.id),  html: {method: :put} do |f| %>
+    <div class="modal-body">
+      <div class="p-t-20 m-b-20 p-l-40">
+       <%= f.file_field :avatar, :id=> "imgInp" %>
+      </div>      
+         <div class="row">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="field-2" class="control-label"><%= t('.preview')%> :  &nbsp;&nbsp;&nbsp; </label>
+              <%if @user.avatar.present?%>
+               <img id="blah" src="<%= @user.avatar.thumb.url%>" alt="your image" width="100px" height="100px"/>  
+               <%else%>
+               <img id="blah" src="" alt="No Preview" />  
+              <%end%>
+          </div>
+        </div>
+      </div>     
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default btn-embossed" data-dismiss="modal"><%= t '.cancel'%></button>
+      <%= f.submit t('.update'), class: "btn btn-primary btn-embossed bnt-square"%>
+    </div>
+  </div>
+  <%end%>
+</div>
+
+<script type="text/javascript">
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            $('#blah').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#imgInp").change(function(){
+    readURL(this);
+});
+</script>

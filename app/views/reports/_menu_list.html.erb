@@ -1,0 +1,152 @@
+<style type="text/css">
+
+  .shw_effect{position: absolute;z-index: 99999;overflow: hidden;top: 0; right:0;bottom:0;left:0;display: none;height:auto;background-color: #C0C0C0;cursor: pointer; opacity: 0.7;}
+</style>
+<!-- <style type="text/css">
+    @media only screen and (min-width: 320px){    
+      .item < .avtive{width:100%;}
+    }     
+      @media only screen and (min-width: 440px){    
+      .item < .avtive{width:100%;}
+    }   
+      @media only screen and (min-width: 680px){    
+      .item < .avtive{width:100%;}
+    }   
+      @media only screen and (min-width: 990px){    
+      .item < .avtive{width:100%;}
+    }   
+      @media only screen and (min-width: 1200px){    
+      .item < .avtive{width:100%;}
+    }   
+</style> -->
+<style type="text/css">
+@media (min-width: 320px) and (max-width: 768px) {
+    .container{max-width: 710px;}
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    .container{min-width: 710px; }
+    .img{
+    /*  min-width: 800px;*/
+    }
+    .carousel{width: 98%}
+    .carousel-inner {position: relative;width: 98%;overflow: hidden;}
+    .col-md-2 img{width: 90%}
+}
+@media (min-width: 992px) {
+    .container{
+        max-width: 970px;
+    }
+}
+@media (min-width: 1200px) {
+    .container{
+        max-width: 100%;
+    }
+}
+</style>
+  <div class="">
+    <div class="row">
+      <div class="col-md-12">
+              <!-- Nav tabs -->
+          <div class="card">
+            <ul class="nav nav-tabs" role="tablist">
+            <% @category.each do |h| %>
+                <% class_add = (@category.index(h) == 0 ? "tab-pane active": "tab-pane") %>
+                <li role="presentation" class="<%= class_add%>"><a href="#<%= h.id%>" aria-controls="<%= h.id%>" role="tab" data-toggle="tab"><%= h.name%></a></li>
+            <%end%>    
+            </ul>
+             <%= form_tag get_list_fbq_path, html: {method: :post}, :enctype =>"multipart/form-data" do %>
+              <!-- Tab panes -->
+              <div class="tab-content">
+               <% @category.each do |k|%> 
+                  <% class_add = (@category.index(k) == 0 ? "tab-pane active": "tab-pane") %>
+                  <div role="tabpanel" class="<%= class_add%>" id="<%= k.id%>">
+                    <div class="row">            
+                     <% k.items.each do |i|%> 
+                      <div class="col-md-2 col-sm-10  ml40" >
+                          <div class="one mb10" style="">
+                                 <div class="container" >
+                                        <div id="myCarousel" class="carousel slide" data-ride="carousel">    
+                                           
+                                          <div class="carousel-inner main" id="<%= i.id%>" role="listbox">
+                                              <% i.avatars.each_with_index do |k,v|%> 
+                                             <% class_add_1 = (i.avatars.index(k) == 0 ? "item active ": "item") %>
+                                      <div class="<%= class_add_1 %>">
+                                              <%= image_tag k.thumb.url, class: "img-responsive"%>
+                                       
+                                            </div>
+
+                                          <%end%> 
+                                                <div id="k<%= i.id%>" class="carousel-caption shw_effect" style="display: none;">
+                                                 <p style="color:red;"><i><b><%= i.name%></b></i></p><br />
+                                                 <p  style="color:black;"><i><b><%= i.description%></b></i></p><br />
+                                                 <p  style="color:red;"><i><b><%= i.price%></b></i></p>
+                                                   
+                                              </div>
+         
+                                          </div>
+                   
+                                      </div>
+                                  </div>
+
+
+
+                           </div>
+                      </div>
+                      <%end%>
+                  </div>
+              </div>
+            <%end%>
+          </div>
+           <%= hidden_field_tag :items_ids,""%>
+           <%= submit_tag "Feedback", class: "btn btn-primary btn-embossed bnt-square" , :id => "submit_form",:style => "margin-left: 44%;"%>
+                 <%end%>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      a = []
+       $('.main').mouseover(function(){
+          id = $(this).attr('id');      
+          $('#k'+id).show()
+       });   
+      
+       $('.main').mouseout(function(){
+          id = $(this).attr('id')
+          if (jQuery.inArray( id, a ) == -1){
+             $('#k'+id).hide()  
+          }else{
+            $('#k'+id).show()
+          }
+
+          
+       });   
+       
+       $('.carousel').carousel({
+          interval: 5000
+       });  
+
+      $('.main').click(function(){
+          id = $(this).attr('id');      
+           if (jQuery.inArray( id, a ) == -1){
+               a.push(id)
+                $('#k'+id).show()
+          }else{
+              
+               a.splice($.inArray(id, a),1);
+                $('#k'+id).hide()
+          }
+            $('#items_ids').val(a);
+         
+       });   
+         
+
+       
+  
+   });  
+  </script>
+
