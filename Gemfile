@@ -6,7 +6,7 @@ gem 'rails', '4.2.5'
 
 gem 'sass-rails', '~> 4.0.3' #stylesheet
 
-gem 'uglifier', '>= 1.3.0' #wraps UglifyJS to be accessible in Ruby
+gem 'uglifier' #wraps UglifyJS to be accessible in Ruby
 
 gem 'coffee-rails', '~> 4.0.0' #CoffeeScript adapter for the asset pipeline
 
