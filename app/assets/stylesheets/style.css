@@ -3724,7 +3724,7 @@ body:not(.fixed-sidebar):not(.fixed-topbar):not(.sidebar-top) .sidebar .logopane
   padding-left: 0;
 }
 #quickview-sidebar .quickview .tab-content #chat .chat-body .chat-groups ul li {
-  color: ##818181;
+  color: #818181;
   line-height: 25px;
 }
 #quickview-sidebar .quickview .tab-content #chat .chat-body .chat-groups ul li:hover {
