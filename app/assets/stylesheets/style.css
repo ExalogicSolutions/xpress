@@ -2006,14 +2006,17 @@ body:not(.sidebar-collapsed) .topbar .header-left .topnav .menutoggle:hover .men
   white-space: nowrap;
   width: 100%;
 }
-.transition(color,.2s, ease-out) .sidebar .sidebar-inner .nav-sidebar > li > a:hover {
+.sidebar .sidebar-inner .nav-sidebar > li > a:hover {
   color: #fff;
+  transition: #fff,.2s, ease-out;
 }
-.transition(color,.2s, ease-out) .sidebar .sidebar-inner .nav-sidebar > li > a:hover i {
+.sidebar .sidebar-inner .nav-sidebar > li > a:hover i {
   opacity: 1;
+  transition: #fff,.2s, ease-out;
 }
-.transition(color,.2s, ease-out) .sidebar .sidebar-inner .nav-sidebar > li > a:hover span {
+.sidebar .sidebar-inner .nav-sidebar > li > a:hover span {
   opacity: 1;
+  transition: #fff,.2s, ease-out;
 }
 .sidebar .sidebar-inner .nav-sidebar > li > a i {
   opacity: 0.62;
