@@ -4658,10 +4658,10 @@ body:not(.fixed-sidebar):not(.fixed-topbar):not(.sidebar-top) .sidebar .logopane
 .main-content .page-content .panel-stat .col-xs-6:last-child {
   text-align: right;
 }
-.main-content .page-content .panel-stat > [class*="bg-"]h1 {
+.main-content .page-content .panel-stat > [class*="bg-"] h1 {
   color: #ffffff;
 }
-.main-content .page-content .panel-stat > [class*="bg-"]h3 {
+.main-content .page-content .panel-stat > [class*="bg-"] h3 {
   color: #ffffff;
 }
 .main-content .page-content .panel-stat[class*="bg-"].stat-title {
