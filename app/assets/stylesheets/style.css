@@ -6525,10 +6525,10 @@ body:not(.fixed-topbar) .main-content .page-content {
   margin-top: 20%;
   text-align: center;
 }
-.404-txt {
+.a404-txt {
   height: 20px;
 }
-.500-txt {
+.a500-txt {
   height: 20px;
 }
 #content-404 {
