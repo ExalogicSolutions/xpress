@@ -459,10 +459,10 @@ a.scrollup:hover {
 .main-content .page-content[class*=' bg-'].panel h2,
 .main-content .page-content[class^='bg-'].panel h3,
 .main-content .page-content[class*=' bg-'].panel h3,
-.main-content .page-content .panel[class^='bg-']h2,
-.main-content .page-content .panel[class*=' bg-']h2,
-.main-content .page-content .panel[class^='bg-']h3,
-.main-content .page-content .panel[class*=' bg-']h3 {
+.main-content .page-content .panel[class^='bg-'] h2,
+.main-content .page-content .panel[class*=' bg-'] h2,
+.main-content .page-content .panel[class^='bg-'] h3,
+.main-content .page-content .panel[class*=' bg-'] h3 {
   color: #ffffff !important;
 }
 .note-editor .btn.btn-transparent {
@@ -4856,10 +4856,10 @@ body:not(.fixed-sidebar):not(.fixed-topbar):not(.sidebar-top) .sidebar .logopane
 .main-content .page-content[class*=' bg-'].panel h2,
 .main-content .page-content[class^='bg-'].panel h3,
 .main-content .page-content[class*=' bg-'].panel h3,
-.main-content .page-content .panel[class^='bg-']h2,
-.main-content .page-content .panel[class*=' bg-']h2,
-.main-content .page-content .panel[class^='bg-']h3,
-.main-content .page-content .panel[class*=' bg-']h3 {
+.main-content .page-content .panel[class^='bg-'] h2,
+.main-content .page-content .panel[class*=' bg-'] h2,
+.main-content .page-content .panel[class^='bg-'] h3,
+.main-content .page-content .panel[class*=' bg-'] h3 {
   color: #ffffff !important;
 }
 .main-content .page-content .panel.bg-aero h1,
